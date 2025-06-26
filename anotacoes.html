@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anotações</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="anotacoes.css">
+    <link rel="shortcut icon" href="logoTCCIcon.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/83da9facc2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <div class="parte1">
+            <div class="menuBars" onclick="abrirMenu()">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </div>
+
+            <p>Estuda <span>+</span></p>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="index.html">
+                    <li title="Início"><i class="fa-solid fa-home"></i>Início</li>
+                </a>
+                <a href="tarefas.html">
+                    <li title="Tarefas"><i class="fa-solid fa-clipboard-list"></i>Tarefas</li>
+                </a>
+                <a href="habitos.html">
+                    <li title="Hábitos"><i class="fa-solid fa-rotate"></i>Hábitos</li>
+                </a>
+                <a href="anotacoes.html">
+                    <li title="Anotações"><i class="fa-solid fa-file-lines"></i>Anotações</li>
+                </a>
+                <a href="perfil.html">
+                    <li title="Perfil"><i class="fa-solid fa-user"></i>Perfil</li>
+                </a>
+            </ul>
+        </nav>
+    </header>
+
+    <aside>
+        <div class="menu">
+            <div class="menuContainer">
+                <div class="menuItem" id="add" onclick="abrirModal()" title="Adicionar Imagem">
+                    <i class="fa fa-circle-plus"></i>
+                    <a href=""></a>
+                </div>
+                <div class="menuItem" id="home" title="Início">
+                    <i class="fa-solid fa-house"></i>
+                    <a href="#"></a>
+                </div>
+                <div class="menuItem" id="favoritos" title="Favoritos">
+                    <i class="fa-solid fa-heart"></i>
+                    <a href="#"></a>
+                </div>
+                <div class="menuItem" id="configuracoes" title="Configurações">
+                    <i class="fa-solid fa-gear"></i>
+                    <a href="#"></a>
+                </div>
+                <div class="menuItem" id="progressao" title="Progressão Pessoal">
+                    <i class="fa-solid fa-gear"></i>
+                    <a href="#"></a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main>
+        <div class="anotacoes">
+            <p>Anotações</p>
+
+            <div class="titulo">
+                <input type="text" name="titulo" id="titulo" placeholder="Título da Anotação">
+            </div>
+
+            <div class="ferramentas">
+                <ul>
+                    <label for="fontSize">Font:
+                        <input type="number" name="fontSize" id="fontSize" max="20" min="10" value="16">
+                    </label>
+
+                    <label for="cor">Cor:
+                        <input type="color" name="cor" id="cor">
+                    </label>
+
+                    <label for="fontFamily">Font-Family:
+                        <select name="fontFamily" id="fontFamily">
+                            <option value="Poppins">Poppins</option>
+                            <option value="Arial">Arial</option>
+                            <option value="Courier New">Courier New</option>
+                            <option value="Times New Roman">Times New Roman</option>
+                            <option value="Verdana">Verdana</option>
+                        </select>
+                    </label>
+
+                    <label for="fontStyle">Font-Style:
+                        <select name="fontStyle" id="fontStyle">
+                            <option value="normal">Normal</option>
+                            <option value="italic">Itálico</option>
+                            <option value="oblique">Oblíquo</option>
+                        </select>
+                    </label>
+
+                    <label for="alinhamento">Alinhamento:
+                        <select name="alinhamento" id="alinhamento">
+                            <option value="left">Esquerda</option>
+                            <option value="center">Centro</option>
+                            <option value="right">Direita</option>
+                            <option value="justify">Justificado</option>
+                        </select>
+                    </label>
+                </ul>
+            </div>
+
+            <textarea name="anotacao" id="anotacao">
+
+            </textarea>
+
+            <!-- <div class="adicionar" onclick="abrirModal(this.id)" id="addAnotacoes">
+                <i class="fa fa-circle-plus"></i>
+                <p>Adicionar Anotação</p>
+            </div> -->
+        </div>
+
+    </main>
+
+</body>
+
+<script src="script.js"></script>
+
+</html>

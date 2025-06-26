@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estuda+</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logoTCCIcon.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/83da9facc2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <div class="parte1">
+            <div class="menuBars" onclick="abrirMenu()">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </div>
+
+            <p>Estuda <span>+</span></p>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="index.html">
+                    <li title="Início"><i class="fa-solid fa-home"></i>Início</li>
+                </a>
+                <a href="tarefas.html">
+                    <li title="Tarefas"><i class="fa-solid fa-clipboard-list"></i>Tarefas</li>
+                </a>
+                <a href="habitos.html">
+                    <li title="Hábitos"><i class="fa-solid fa-rotate"></i>Hábitos</li>
+                </a>
+                <a href="anotacoes.html">
+                    <li title="Anotações"><i class="fa-solid fa-file-lines"></i>Anotações</li>
+                </a>
+                <a href="perfil.html">
+                    <li title="Perfil"><i class="fa-solid fa-user"></i>Perfil</li>
+                </a>
+            </ul>
+        </nav>
+    </header>
+
+    <aside>
+        <div class="menu">
+            <div class="menuContainer">
+                <div class="menuItem" id="add" onclick="abrirModal()" title="Adicionar Imagem">
+                    <i class="fa fa-circle-plus"></i>
+                    <a href=""></a>
+                </div>
+                <div class="menuItem" id="home" title="Início">
+                    <i class="fa-solid fa-house"></i>
+                    <a href="#"></a>
+                </div>
+                <div class="menuItem" id="favoritos" title="Favoritos">
+                    <i class="fa-solid fa-heart"></i>
+                    <a href="#"></a>
+                </div>
+                <div class="menuItem" id="configuracoes" title="Configurações">
+                    <i class="fa-solid fa-gear"></i>
+                    <a href="#"></a>
+                </div>
+                <div class="menuItem" id="progressao" title="Progressão Pessoal">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <a href="#"></a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main>
+        <div class="tarefasPendentes">
+            <p>Tarefas Pendentes</p>
+            <div class="itens">
+                <div class="tarefa">
+                    <input type="checkbox">
+                    <p>Exercícios de Matemática</p>
+                </div>
+                <div class="tarefa">
+                    <input type="checkbox">
+                    <p>Exercícios de Física</p>
+                </div>
+            </div>
+
+            <div class="modal">
+                <div class="fechar">
+                    <i class="fa fa-xmark" onclick="fecharModal(this)"></i>
+                </div>
+                <div class="modal-content">
+                    <h2></h2>
+                    <form id="formTarefa">
+                        <input type="text" placeholder="Título da Tarefa" required>
+                        <button type="submit" onclick="enviarTH(this.id)" id="enviar_tarefa">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="adicionar" onclick="abrirModal(this.id)" id="addTarefas">
+                <i class="fa fa-circle-plus"></i>
+                <p>Adicionar Tarefas</p>
+            </div>
+        </div>
+
+        <div class="habitos_hoje">
+            <p>Hábitos Hoje</p>
+            <div class="itensHabitos">
+                <div class="habitos">
+                    <input type="checkbox">
+                    <p>Ler 3 páginas de um livro</p>
+                </div>
+                <div class="habitos">
+                    <input type="checkbox">
+                    <p>Revisar inglês</p>
+                </div>
+            </div>
+
+            <div class="modal">
+                <div class="fechar">
+                    <i class="fa fa-xmark" onclick="fecharModal(this)"></i>
+                </div>
+                <div class="modal-content">
+                    <h2></h2>
+                    <form id="formTarefa">
+                        <input type="text" placeholder="Título do Hábito" required>
+                        <button type="submit" onclick="enviarTH(this.id)" id="enviar_habito">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="adicionar" onclick="abrirModal(this.id)" id="addHabitos">
+                <i class="fa fa-circle-plus"></i>
+                <p>Adicionar Hábitos</p>
+            </div>
+        </div>
+
+        <div class="frase-motivacional">O sucesso é resultado de preparação e sabedoria</div>
+
+        <div class="interesses">
+            <div class="interesse">
+                <i class="fa-solid fa-volleyball"></i>
+                <p>Volleyball</p>
+            </div>
+            <div class="interesse">
+                <i class="fa-solid fa-laptop-code"></i>
+                <p>Programação</p>
+            </div>
+            <div class="interesse">
+                <i class="fa-solid fa-gamepad"></i>
+                <p>Games</p>
+            </div>
+            <div class="interesse">
+                <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                <p>Table Tennis</p>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+
+<script src="script.js"></script>
+
+</html>
