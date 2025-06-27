@@ -78,95 +78,33 @@
     </aside>
 
     <main>
-        <div class="tarefasPendentes">
-            <p>Tarefas Pendentes</p>
-            <div class="itens">
-                <div class="tarefa">
+        <button id="gerarSimulado" onclick="gerarSimulado()">
+            <i class="fa-solid fa-circle-plus"></i>
+            Gerar Simulado
+        </button>
+
+        <div class="estruturaSimulado">
+            <h2>Simulado</h2>
+            <div class="materias">
+                <div class="materia">
                     <input type="checkbox">
-                    <p>Exercícios de Matemática</p>
+                    <p>Matemática</p>
                 </div>
-                <div class="tarefa">
+                <div class="materia">
                     <input type="checkbox">
-                    <p>Exercícios de Física</p>
+                    <p>Português</p>
+                </div>
+                <div class="materia">
+                    <input type="checkbox">
+                    <p>História</p>
                 </div>
             </div>
 
-            <div class="modal">
-                <div class="fechar">
-                    <i class="fa fa-xmark" onclick="fecharModal(this)"></i>
-                </div>
-                <div class="modal-content">
-                    <h2></h2>
-                    <form id="formTarefa">
-                        <input type="text" placeholder="Título da Tarefa" required>
-                        <button type="submit" onclick="enviarTH(this.id)" id="enviar_tarefa">Adicionar</button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="adicionar" onclick="abrirModal(this.id)" id="addTarefas">
-                <i class="fa fa-circle-plus"></i>
-                <p>Adicionar Tarefas</p>
-            </div>
+            <button>Gerar Simulado</button>
         </div>
-
-        <div class="habitos_hoje">
-            <p>Hábitos Hoje</p>
-            <div class="itensHabitos">
-                <div class="habitos">
-                    <input type="checkbox">
-                    <p>Ler 3 páginas de um livro</p>
-                </div>
-                <div class="habitos">
-                    <input type="checkbox">
-                    <p>Revisar inglês</p>
-                </div>
-            </div>
-
-            <div class="modal">
-                <div class="fechar">
-                    <i class="fa fa-xmark" onclick="fecharModal(this)"></i>
-                </div>
-                <div class="modal-content">
-                    <h2></h2>
-                    <form id="formTarefa">
-                        <input type="text" placeholder="Título do Hábito" required>
-                        <button type="submit" onclick="enviarTH(this.id)" id="enviar_habito">Adicionar</button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="adicionar" onclick="abrirModal(this.id)" id="addHabitos">
-                <i class="fa fa-circle-plus"></i>
-                <p>Adicionar Hábitos</p>
-            </div>
-        </div>
-
-        <div class="frase-motivacional">O sucesso é resultado de preparação e sabedoria</div>
-
-        <div class="interesses">
-            <div class="interesse">
-                <i class="fa-solid fa-volleyball"></i>
-                <p>Volleyball</p>
-            </div>
-            <div class="interesse">
-                <i class="fa-solid fa-laptop-code"></i>
-                <p>Programação</p>
-            </div>
-            <div class="interesse">
-                <i class="fa-solid fa-gamepad"></i>
-                <p>Games</p>
-            </div>
-            <div class="interesse">
-                <i class="fa-solid fa-table-tennis-paddle-ball"></i>
-                <p>Table Tennis</p>
-            </div>
-        </div>
-
     </main>
 
-</body>
 
-<!-- <script src="script.js"></script> -->
+</body>
 
 </html>
