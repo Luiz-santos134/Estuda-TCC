@@ -85,26 +85,85 @@
 
         <div class="estruturaSimulado">
             <h2>Simulado</h2>
+
             <div class="materias">
                 <div class="materia">
-                    <input type="checkbox">
-                    <p>Matemática</p>
+                    <input type="checkbox" id="matematica" name="disciplina" value="matematica">
+                    <label for="matematica">Matemática</label>
                 </div>
                 <div class="materia">
-                    <input type="checkbox">
-                    <p>Português</p>
+                    <input type="checkbox" id="portugues" name="disciplina" value="portugues">
+                    <label for="portugues">Português</label>
                 </div>
                 <div class="materia">
-                    <input type="checkbox">
-                    <p>História</p>
+                    <input type="checkbox" id="literatura" name="disciplina" value="literatura">
+                    <label for="literatura">Literatura</label>
+                </div>
+                <div class="materia">
+                    <input type="checkbox" id="historia" name="disciplina" value="historia">
+                    <label for="historia">História</label>
+                </div>
+                <div class="materia">
+                    <input type="checkbox" id="geografia" name="disciplina" value="geografia">
+                    <label for="geografia">Geografia</label>
+                </div>
+                <div class="materia">
+                    <input type="checkbox" id="filosofia" name="disciplina" value="filosofia">
+                    <label for="filosofia">Filosofia</label>
+                </div>
+                <div class="materia">
+                    <input type="checkbox" id="sociologia" name="disciplina" value="sociologia">
+                    <label for="sociologia">Sociologia</label>
+                </div>
+                <div class="materia">
+                    <input type="checkbox" id="fisica" name="disciplina" value="fisica">
+                    <label for="fisica">Física</label>
+                </div>
+                <div class="materia">
+                    <input type="checkbox" id="quimica" name="disciplina" value="quimica">
+                    <label for="quimica">Química</label>
+                </div>
+                <div class="materia">
+                    <input type="checkbox" id="biologia" name="disciplina" value="biologia">
+                    <label for="biologia">Biologia</label>
+                </div>
+                <div class="materia">
+                    <input type="checkbox" id="ingles" name="disciplina" value="ingles">
+                    <label for="ingles">Inglês</label>
+                </div>
+                <div class="materia">
+                    <input type="checkbox" id="espanhol" name="disciplina" value="espanhol">
+                    <label for="espanhol">Espanhol</label>
                 </div>
             </div>
 
-            <button>Gerar Simulado</button>
+            <input type="number" name="quantidadeQuestoes" id="quantidadeQuestoes" placeholder="número" min="1"
+                max="100" required>
+
+            <div class="configuracoesSimulado">
+
+                <p>Questões baseadas em: </p>
+
+                <label for="IA">IA</label>
+                <input type="checkbox" name="IA" id="IA">
+
+                <label for="Enem">Enem</label>
+                <input type="checkbox" name="Enem" id="Enem">
+
+                <label for="Pas">Pas</label>
+                <input type="checkbox" name="Pas" id="Pas">
+
+            </div>
+            <button onclick="gerarSimulado()">Gerar Simulado</button>
         </div>
+
+
     </main>
 
 
 </body>
+
+<script src="script.js"></script>
+<script src="simulado.js"></script>
 
 </html>
