@@ -4,166 +4,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estuda+</title>
+    <title>Estuda +</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="logoTCCIcon.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/83da9facc2.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="home.css">
 </head>
 
 <body>
     <header>
-        <div class="parte1">
-            <div class="menuBars" onclick="abrirMenu()">
-                <i class="fa-solid fa-bars-staggered"></i>
-            </div>
-
+        <div class="titulo">
             <p>Estuda <span>+</span></p>
         </div>
 
-        <nav>
+        <div class="menu">
             <ul>
-                <a href="index.html">
-                    <li title="Início"><i class="fa-solid fa-home"></i>Início</li>
-                </a>
-                <a href="tarefas.html">
-                    <li title="Tarefas"><i class="fa-solid fa-clipboard-list"></i>Tarefas</li>
-                </a>
-                <a href="habitos.html">
-                    <li title="Hábitos"><i class="fa-solid fa-rotate"></i>Hábitos</li>
-                </a>
-                <a href="anotacoes.html">
-                    <li title="Anotações"><i class="fa-solid fa-file-lines"></i>Anotações</li>
-                </a>
-                <a href="perfil.html">
-                    <li title="Perfil"><i class="fa-solid fa-user"></i>Perfil</li>
-                </a>
+                <li>
+                    <a href="home.html" class="menu-link">
+                        <i class="fas fa-home"></i>
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="simulado.html" class="menu-link">
+                        <i class="fas fa-file-alt"></i>
+                        Simulados
+                    </a>
+                </li>
+
+                <li>
+                    <a href="tarefas.html" class="menu-link">
+                        <i class="fas fa-tasks"></i>
+                        Tarefas
+                    </a>
+                </li>
+
+                <li>
+                    <a href="anotacoes.html" class="menu-link">
+                        <i class="fas fa-sticky-note"></i>
+                        Anotações
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="desafios.html" class="menu-link">
+                        <i class="fas fa-brain"></i>
+                        Desafios
+                    </a>
+                </li>
+
+                <li>
+                    <a href="perfil.html" class="menu-link">
+                        <i class="fas fa-user"></i>
+                        Perfil
+                    </a>
+                </li>
             </ul>
-        </nav>
+        </div>
     </header>
 
-    <aside>
-        <div class="menu">
-            <div class="menuContainer">
-                <div class="menuItem" id="add" onclick="abrirModal()" title="Adicionar Imagem">
-                    <a href=""><i class="fa fa-circle-plus"></i></a>
-                </div>
-                <div class="menuItem" id="atividades" title="Atividades">
-                    <a href="atividades.html">
-                        <i class="fa-solid fa-star"></i>
-                    </a>
-                </div>
-                <div class="menuItem" id="progressao" title="Progressão Pessoal">
-                    <a href="#">
-                        <i class="fa-solid fa-chart-line"></i>
-                    </a>
-                </div>
-                <div class="menuItem" id="simulado" title="Simulado">
-                    <a href="simulado.html">
-                        <i class="fa-solid fa-file"></i>
-                    </a>
-                </div>
-                <div class="menuItem" id="configuracoes" title="Configurações">
-
-                    <a href="#">
-                        <i class="fa-solid fa-gear"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </aside>
-
     <main>
-        <button id="gerarSimulado" onclick="gerarSimulado()">
-            <i class="fa-solid fa-circle-plus"></i>
-            Gerar Simulado
-        </button>
-
         <div class="estruturaSimulado">
             <h2>Simulado</h2>
 
-            <div class="materias">
-                <div class="materia">
-                    <input type="checkbox" id="matematica" name="disciplina" value="matematica">
-                    <label for="matematica">Matemática</label>
+            <div class="content">
+                <div class="materias">
+                    
+                    <div class="parte1">
+                        <div class="materia">
+                            <input type="checkbox" id="matematica" name="disciplina" value="matematica">
+                            <label for="matematica">Matemática</label>
+                        </div>
+                        <div class="materia">
+                            <input type="checkbox" id="portugues" name="disciplina" value="portugues">
+                            <label for="portugues">Português</label>
+                        </div>
+                        <div class="materia">
+                            <input type="checkbox" id="literatura" name="disciplina" value="literatura">
+                            <label for="literatura">Literatura</label>
+                        </div>
+                        <div class="materia">
+                            <input type="checkbox" id="historia" name="disciplina" value="historia">
+                            <label for="historia">História</label>
+                        </div>
+                        <div class="materia">
+                            <input type="checkbox" id="geografia" name="disciplina" value="geografia">
+                            <label for="geografia">Geografia</label>
+                        </div>
+                        <div class="materia">
+                            <input type="checkbox" id="filosofia" name="disciplina" value="filosofia">
+                            <label for="filosofia">Filosofia</label>
+                        </div>
+                    </div>
+
+                    <div class="parte2">
+                        <div class="materia">
+                        <input type="checkbox" id="sociologia" name="disciplina" value="sociologia">
+                        <label for="sociologia">Sociologia</label>
+                        </div>
+                        <div class="materia">
+                            <input type="checkbox" id="fisica" name="disciplina" value="fisica">
+                            <label for="fisica">Física</label>
+                        </div>
+                        <div class="materia">
+                            <input type="checkbox" id="quimica" name="disciplina" value="quimica">
+                            <label for="quimica">Química</label>
+                        </div>
+                        <div class="materia">
+                            <input type="checkbox" id="biologia" name="disciplina" value="biologia">
+                            <label for="biologia">Biologia</label>
+                        </div>
+                        <div class="materia">
+                            <input type="checkbox" id="ingles" name="disciplina" value="ingles">
+                            <label for="ingles">Inglês</label>
+                        </div>
+                        <div class="materia">
+                            <input type="checkbox" id="espanhol" name="disciplina" value="espanhol">
+                            <label for="espanhol">Espanhol</label>
+                        </div>
+                    </div>
+
+                    <button onclick="gerarSimulado()" id="gerarSimu">Gerar Simulado</button>
                 </div>
-                <div class="materia">
-                    <input type="checkbox" id="portugues" name="disciplina" value="portugues">
-                    <label for="portugues">Português</label>
-                </div>
-                <div class="materia">
-                    <input type="checkbox" id="literatura" name="disciplina" value="literatura">
-                    <label for="literatura">Literatura</label>
-                </div>
-                <div class="materia">
-                    <input type="checkbox" id="historia" name="disciplina" value="historia">
-                    <label for="historia">História</label>
-                </div>
-                <div class="materia">
-                    <input type="checkbox" id="geografia" name="disciplina" value="geografia">
-                    <label for="geografia">Geografia</label>
-                </div>
-                <div class="materia">
-                    <input type="checkbox" id="filosofia" name="disciplina" value="filosofia">
-                    <label for="filosofia">Filosofia</label>
-                </div>
-                <div class="materia">
-                    <input type="checkbox" id="sociologia" name="disciplina" value="sociologia">
-                    <label for="sociologia">Sociologia</label>
-                </div>
-                <div class="materia">
-                    <input type="checkbox" id="fisica" name="disciplina" value="fisica">
-                    <label for="fisica">Física</label>
-                </div>
-                <div class="materia">
-                    <input type="checkbox" id="quimica" name="disciplina" value="quimica">
-                    <label for="quimica">Química</label>
-                </div>
-                <div class="materia">
-                    <input type="checkbox" id="biologia" name="disciplina" value="biologia">
-                    <label for="biologia">Biologia</label>
-                </div>
-                <div class="materia">
-                    <input type="checkbox" id="ingles" name="disciplina" value="ingles">
-                    <label for="ingles">Inglês</label>
-                </div>
-                <div class="materia">
-                    <input type="checkbox" id="espanhol" name="disciplina" value="espanhol">
-                    <label for="espanhol">Espanhol</label>
+
+                <div class="configuracoesSimulado">
+                    <p>Questões baseadas em: </p>
+
+                    <label for="IA">IA</label>
+                    <input type="checkbox" name="IA" id="IA">
+
+                    <label for="Enem">Enem</label>
+                    <input type="checkbox" name="Enem" id="Enem">
+
+                    <label for="Pas">Pas</label>
+                    <input type="checkbox" name="Pas" id="Pas">
+
                 </div>
             </div>
 
-            <input type="number" name="quantidadeQuestoes" id="quantidadeQuestoes" placeholder="número" min="1"
-                max="100" required>
-
-            <div class="configuracoesSimulado">
-
-                <p>Questões baseadas em: </p>
-
-                <label for="IA">IA</label>
-                <input type="checkbox" name="IA" id="IA">
-
-                <label for="Enem">Enem</label>
-                <input type="checkbox" name="Enem" id="Enem">
-
-                <label for="Pas">Pas</label>
-                <input type="checkbox" name="Pas" id="Pas">
-
-            </div>
-            <button onclick="gerarSimulado()">Gerar Simulado</button>
         </div>
-
 
     </main>
 
-
 </body>
 
-<script src="script.js"></script>
-<script src="simulado.js"></script>
+<script src="home.js"></script>
 
 </html>
