@@ -224,65 +224,105 @@ main h1 {
 }
 
 .materias {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 10px;
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
     width: 50%;
-    height: 80%;
+    height: 75%;
+    padding: 20px;
     background-color: var(--cor-detalhe);
     border-radius: 10px;
     box-shadow: 0 4px 8px var(--cor-detalhe);
     font-weight: 500;
     color: var(--texto-primario);
+}
+
+.materias h2 {
+    text-align: center;
+    width: 100%;
+    margin: 0;
+}
+
+.divisao {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    gap: 200px;
 }
 
 .parte1,
 .parte2 {
     display: flex;
     flex-direction: column;
-    align-items: start;
-    position: relative;
-    transform: translate(20%, 0%);
     gap: 10px;
+    align-items: flex-start;
+    transform: none; /* Removemos o translate que estava quebrando a centralização */
+}
+
+.materia{
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+}
+
+.materia:hover {
+    background-color: var(--cor-secundaria-destaque);
+    box-shadow: 0 4px 8px rgba(58, 45, 250, 0.2);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.materia input {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    transform: scale(1.1);
+}
+
+.materia label {
+    cursor: pointer;
+}
+
+.materia input:hover{
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(47, 1, 253, 0.2);
 }
 
 #gerarSimu {
-    grid-column: span 2; /* ocupa as 2 colunas */
-    width: 100%;
-    padding: 10px;
-    background-color: var(--cor-primaria);
+    width: 100%; /* Faz o botão ocupar toda a largura da div .materias */
+    padding: 12px;
+    background-color: var(--cor-secundaria-destaque);
     color: var(--texto-primario);
     font-size: 1.2rem;
     font-weight: 500;
     border-radius: 10px;
     cursor: pointer;
-    border: 1px solid white;
+    border: none;
 }
 
 #gerarSimu:hover {
-    background-color: var(--cor-hover);
+    background-color: rgb(40, 54, 134);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.01);
     transition: background-color 0.5s ease, box-shadow 0.5s ease;
-}
-
-.materia{
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
 .configuracoesSimulado{
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
     justify-content: center;
     gap: 10px;
     padding: 10px;
     width: 50%;
-    height: 80%;
+    height: 75%;
     background-color: var(--cor-detalhe);
     border-radius: 10px;
     box-shadow: 0 4px 8px var(--cor-detalhe);
@@ -291,7 +331,40 @@ main h1 {
     color: var(--texto-primario);
 }
 
+.configuracoesSimulado h2 {
+    text-align: center;
+    width: 100%;
+    margin: 0;
+}
 
+.opcoes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+
+    position: relative;
+    background-color: var(--cor-secundaria-destaque);
+}
+
+.opcoes input {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    transform: scale(1.1);
+}
+
+.opcoes label {
+    cursor: pointer;
+}
+
+.opcoes input:hover{
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(47, 1, 253, 0.2);
+}
 
 
 
