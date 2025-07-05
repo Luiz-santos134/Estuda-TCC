@@ -14,6 +14,180 @@
     <script src="https://kit.fontawesome.com/83da9facc2.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="home.css">
+
+    <style>     
+        .estruturaSimulado{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .estruturaSimulado h2{
+            margin-bottom: 15px;
+        }
+
+        .content{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            gap: 20px;
+        }
+
+        .materias {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 20px;
+            width: 50%;
+            height: 80%;
+            padding: 20px;
+            background-color: var(--cor-detalhe);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px var(--cor-detalhe);
+            font-weight: 500;
+            color: var(--texto-primario);
+        }
+
+        .materias h2 {
+            text-align: center;
+            width: 100%;
+            margin: 0;
+        }
+
+        .divisao {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+            gap: 200px;
+        }
+
+        .parte1,
+        .parte2 {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-start;
+            transform: none; /* Removemos o translate que estava quebrando a centralização */
+        }
+
+        .materia{
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+        }
+
+        .materia:hover {
+            background-color: var(--cor-secundaria-destaque);
+            box-shadow: 0 4px 8px rgba(58, 45, 250, 0.2);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .materia input {
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            transform: scale(1.1);
+        }
+
+        .materia label {
+            cursor: pointer;
+        }
+
+        .materia input:hover{
+            transform: scale(1.2);
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(47, 1, 253, 0.2);
+        }
+
+        #gerarSimu {
+            width: 100%; /* Faz o botão ocupar toda a largura da div .materias */
+            padding: 12px;
+            background-color: var(--cor-secundaria-destaque);
+            color: var(--texto-primario);
+            font-size: 1.2rem;
+            font-weight: 500;
+            border-radius: 10px;
+            cursor: pointer;
+            border: none;
+        }
+
+        #gerarSimu:hover {
+            background-color: rgb(40, 54, 134);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: scale(1.01);
+            transition: background-color 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .configuracoesSimulado{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+            width: 50%;
+            height: 80%;
+            background-color: var(--cor-detalhe);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px var(--cor-detalhe);
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--texto-primario);
+        }
+
+        .configuracoesSimulado h2 {
+            text-align: center;
+            width: 100%;
+            margin: 0;
+        }
+
+        .opcoes {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            position: relative;
+        }
+
+        .opcoes input {
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            transform: scale(1.1);
+        }
+
+        .opcoes label {
+            cursor: pointer;
+        }
+
+        .opcoes input:hover{
+            transform: scale(1.2);
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(47, 1, 253, 0.2);
+        }
+
+        .feitos{
+            width: 100%;
+            height: 80%;
+            border: 1px solid var(--cor-secundaria-destaque);
+            border-radius: 10px;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -72,6 +246,7 @@
     <main>
         <div class="estruturaSimulado">
             <h2>Simulado</h2>
+            <p>Prepare-se para o ENEM com simulados personalizados</p>
 
             <div class="content">
                 <div class="materias">
@@ -143,16 +318,19 @@
                     <h2>Questões baseadas em: </h2>
 
                     <div class="opcoes">
-                        <label for="IA">IA</label>
-                        <input type="checkbox" name="IA" id="IA">
+                        <label for="opc">Enem</label>
+                        <input type="radio" name="opc" id="Enem">
 
-                        <label for="Enem">Enem</label>
-                        <input type="checkbox" name="Enem" id="Enem">
+                        <label for="opc">Pas</label>
+                        <input type="radio" name="opc" id="Pas">
 
-                        <label for="Pas">Pas</label>
-                        <input type="checkbox" name="Pas" id="Pas">
+                        <label for="opc">Aleatório</label>
+                        <input type="radio" name="opc" id="IA">
                     </div>
 
+                    <div class="feitos">
+                        <p></p>
+                    </div>
                 </div>
             </div>
 

@@ -19,7 +19,9 @@
 <body>
     <header>
         <div class="titulo">
-            <p>Estuda <span>+</span></p>
+            <a href="home.html">
+                <p>Estuda <span>+</span></p>
+            </a>
         </div>
 
         <div class="menu">
@@ -77,7 +79,7 @@
         <div class="funcoesIniciais">
 
             <div class="tarefasPendentes">
-                <p id="tituloAba">Tarefas Pendentes</p>
+                <p id="tituloAba">{ } Tarefas Pendentes</p>
                 <div class="itens">
                     <div class="tarefa">
                         <input type="checkbox">
@@ -95,7 +97,7 @@
             </div>
 
             <div class="interesses">
-                <p id="tituloAba">Interesses</p>
+                <p id="tituloAba">🎯 Interesses</p>
                 <div class="itensInteresse">
                     <ul>
                         <li>
@@ -115,38 +117,48 @@
             </div>
 
             <div class="atalhos">
-                <p id="tituloAba">Atalhos Rápidos</p>
+                <p id="tituloAba">⚡ Atalhos Rápidos</p>
                 <div class="itensAtalho">
                     <ul>
-                        <a href="anotacoes.html">
-                            <li>
+                        <li>
+                            <a href="anotacoes.html">
                                 <i class="fas fa-sticky-note"></i>
-                                <p>Anotações</p>
-                            </li>
-                        </a>
-                        <a href="simulados.html">
-                            <li>
+                                <p>Ir para Anotações</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="simulados.html">
                                 <i class="fas fa-file-alt"></i>
-                                <p>Simulados</p>
-                            </li>
-                        </a>
-                        <a href="desafios.html">
-                            <li>
+                                <p>Fazer Simulado</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="desafios.html">
                                 <i class="fas fa-brain"></i>
-                                <p>Desafios</p>
-                            </li>
-                        </a>
+                                <p>Ver Desafios</p>
+                            </a>
+                        </li>
+                        
                     </ul>
                 </div>
             </div>
         </div>
 
         <div class="resumo">
-            <div class="taskDone"></div>
+            <div class="taskDone">
+                <div class="numTask">12</div>
+                <p>Tarefas Concluídas</p>
+            </div>
 
-            <div class="simuladosDones"></div>
+            <div class="simuladosDone">
+                <div class="numSimulado">8</div>
+                <p>Simulados Concluídos</p>
+            </div>
 
-            <div class="desafiosDones"></div>
+            <div class="desafiosDone">
+                <div class="numDesafios">5</div>
+                <p>Desafios Concluídos</p>
+            </div>
         </div>
     </main>
 </body>
