@@ -37,7 +37,17 @@ header {
     font-size: 11pt;
 }
 
-header p {
+footer{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 40px;
+    padding: 20px;
+    height: 10dvh;
+    border-top: 1px solid var(--borda);
+}
+
+.titulo p {
     font-size: 1.2rem;
     font-weight: 500;
     align-items: center;
@@ -109,6 +119,10 @@ main h1 {
     padding: 0;
 }
 
+.resumo{
+    margin-top: 20px;
+}
+
 .tarefasPendentes,
 .interesses,
 .atalhos {
@@ -118,7 +132,7 @@ main h1 {
     gap: 10px;
     padding: 20px;
     width: 40%;
-    height: 85%;
+    height: 100%;
     /* background-color: var(--cor-secundaria-destaque); */
     background: radial-gradient(rgb(111, 0, 255), rgba(0, 0, 255, 0.349));
     border-radius: 10px;
@@ -134,7 +148,7 @@ main h1 {
 .desafiosDone{
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     gap: 10px;
     padding: 20px;
     width: 40%;
@@ -147,15 +161,24 @@ main h1 {
 }
 
 #tituloAba{
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: 500;
     color: var(--texto-primario);
-    padding: 10px;
+}
+
+.itens{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .itens input {
     cursor: pointer;
     transform: scale(1.1);
+}
+
+.itens input:hover{
+    transform: scale(1.5);
 }
 
 .frase-motivacional {
@@ -201,11 +224,11 @@ main h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     overflow-y: hidden;
-    overflow-x: hidden;
     gap: 0px;
-    font-size: 11pt;
-    font-weight: 500;
+    font-size: 10pt;
+    font-weight: 400;
     background-color: transparent;
     cursor: default;
 }
@@ -220,9 +243,13 @@ main h1 {
 .itensAtalho ul li {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: center;
     flex-direction: row;
     user-select: none;
+}
+
+.itensAtalho ul li:hover{
+    border-right: 2px solid var(--cor-primaria);
 }
 
 .interesses .itens li:hover {
@@ -232,7 +259,6 @@ main h1 {
 .menu-link.active {
     color: rgba(240, 55, 55, 0.753);
     font-weight: bold;
-    padding: 10px 10px 10px 0px; /* Sem wi-fi fica bom/ sem isso, fica um espaço branco no lugar do icon sem wi-fi */
     background-color: var(--cor-hover);
 }
 
@@ -240,18 +266,17 @@ main h1 {
 
 
 
-.itens::-webkit-scrollbar {
+body::-webkit-scrollbar {
     width: 8px;
-    border-radius: 1vw;
     background-color: rgba(255, 255, 255, 0.637);
 }
 
-.itens::-webkit-scrollbar-thumb {
-    background-color: rgb(161, 65, 224);
-    border-radius: 10px;
+body::-webkit-scrollbar-thumb {
+    /* background-color: rgb(161, 65, 224); */
+    background: linear-gradient(blue, rgb(75, 1, 97));
 }
 
-.itens::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track {
     background-color: transparent;
     border-radius: 1vw;
 }

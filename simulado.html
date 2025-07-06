@@ -39,23 +39,25 @@
             gap: 20px;
         }
 
-        .materias {
+        .materias, .configuracoesSimulado {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            gap: 20px;
+            justify-content: start;
+            gap: 10px;
             width: 50%;
-            height: 80%;
+            height: 90%;
             padding: 20px;
             background-color: var(--cor-detalhe);
             border-radius: 10px;
             box-shadow: 0 4px 8px var(--cor-detalhe);
+            font-size: 1.2rem;
             font-weight: 500;
             color: var(--texto-primario);
+            border: 1px solid var(--cor-secundaria-destaque);
         }
 
-        .materias h2 {
+        .materias h2, .configuracoesSimulado h2  {
             text-align: center;
             width: 100%;
             margin: 0;
@@ -121,6 +123,7 @@
             border-radius: 10px;
             cursor: pointer;
             border: none;
+            box-sizing: border-box;
         }
 
         #gerarSimu:hover {
@@ -128,29 +131,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transform: scale(1.01);
             transition: background-color 0.5s ease, box-shadow 0.5s ease;
-        }
-
-        .configuracoesSimulado{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 10px;
-            width: 50%;
-            height: 80%;
-            background-color: var(--cor-detalhe);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px var(--cor-detalhe);
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: var(--texto-primario);
-        }
-
-        .configuracoesSimulado h2 {
-            text-align: center;
-            width: 100%;
-            margin: 0;
         }
 
         .opcoes {
@@ -185,6 +165,10 @@
             height: 80%;
             border: 1px solid var(--cor-secundaria-destaque);
             border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
         }
     </style>
 
@@ -333,7 +317,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
     </main>

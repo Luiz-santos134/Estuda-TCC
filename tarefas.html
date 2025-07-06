@@ -14,6 +14,136 @@
     <script src="https://kit.fontawesome.com/83da9facc2.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="home.css">
+
+    <style>
+        :root {
+            --cor-fundo: #121212;
+            --cor-secundaria: #1e1e1e;
+            --cor-detalhe: #2d2d2d;
+            --cor-hover: #333333;
+            --cor-primaria: #ff4d4f;
+            /* vermelho destaque */
+            --cor-secundaria-destaque: #3a6eff;
+            /* azul de contraste */
+            --texto-primario: #f5f5f5;
+            --texto-secundario: #aaaaaa;
+            --borda: #2b2b2b;
+            --input-fundo: #1c1c1c;
+            --input-borda: #3a3a3a;
+        }
+
+        .totalTasks, 
+        .Done,
+        .pendentes{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            width: 40%;
+            height: auto;
+            border-radius: 10px;
+            border: 1px solid var(--cor-secundaria-destaque);
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--texto-primario);
+        }
+
+        .estruturaTasks{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .content{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            gap: 20px;
+        }
+
+        .tasksPendentes, .tasksDones {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            gap: 10px;
+            width: 50%;
+            height: 80%;
+            padding: 20px;
+            background-color: var(--cor-detalhe);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px var(--cor-detalhe);
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--texto-primario);
+            border: 1px solid var(--cor-secundaria-destaque);
+        }
+
+        .tasksPendentes h2, .tasksDones h2  {
+            text-align: center;
+            width: 100%;
+            margin: 0;
+        }
+
+        #gerarSimu {
+            width: 100%; /* Faz o botão ocupar toda a largura da div .materias */
+            padding: 12px;
+            background-color: var(--cor-secundaria-destaque);
+            color: var(--texto-primario);
+            font-size: 1.2rem;
+            font-weight: 500;
+            border-radius: 10px;
+            cursor: pointer;
+            border: none;
+            box-sizing: border-box;
+        }
+
+        #gerarSimu:hover {
+            background-color: rgb(40, 54, 134);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: scale(1.01);
+            transition: background-color 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .topo{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: var(--input-fundo);
+            border-radius: 10px;
+        }
+        .topo p {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--texto-primario);
+            margin: 0;
+        }
+        .topo input[type="submit"] {
+            padding: 10px 20px;
+            background-color: var(--cor-detalhe);
+            color: var(--texto-primario);
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-radius: 10px;
+            cursor: pointer;
+            border: none;
+        }
+        .topo input[type="submit"]:hover {
+            background-color: var(--cor-secundaria-destaque);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: scale(1.01);
+            transition: background-color 0.5s ease, box-shadow 0.5s ease;
+        }
+    </style>
 </head>
 
 <body>
@@ -70,22 +200,41 @@
     </header>
 
     <main>
-        <h1>Tarefas Pendentes</h1>
+        <div class="topo">
+            <p>Minhas Tarefas</p>
+            <input type="submit" value="Adicionar Tarefa">
+        </div>
 
-        <div class="tarefas">
-            <div class="tarefa">
-                <input type="checkbox">
-                <p>Exercícios de Matemática</p>
+        <div class="resumo">
+            <div class="totalTasks">
+                <div class="numTask">12</div>
+                <p>Total de Tarefas</p>
             </div>
-            <div class="tarefa">
-                <input type="checkbox">
-                <p>Exercícios de Física</p>
+
+            <div class="Done">
+                <div class="numSimulado">8</div>
+                <p>Concluídas</p>
             </div>
-            <div class="tarefa">
-                <input type="checkbox">
-                <p>Exercícios de Química</p>
+
+            <div class="pendentes">
+                <div class="numDesafios">5</div>
+                <p>Pendentes</p>
             </div>
         </div>
+
+        <div class="estruturaTasks">
+            <div class="content">
+
+                <div class="tasksPendentes">
+                    <h2>Tarefas Pendentes (<span>0</span>) </h2>
+                </div>
+
+                <div class="tasksDones">
+                    <h2>Tarefas Concluídas (<span>0</span>) </h2>
+                </div>
+            </div>
+        </div>
+
     </main>
 </body>
 <script src="home.js"></script>

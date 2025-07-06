@@ -10,7 +10,7 @@ let areaSimuladosFeitos = document.querySelector('.feitos p')
 
 if (areaSimuladosFeitos.textContent.trim() === ""){
     areaSimuladosFeitos.innerHTML = `
-        <i class="fas fa-file-alt"></i>
+        <i class="fas fa-file-alt"></i> <br>
         Nenhum simulado realizado ainda.
         <br>
         Que tal fazer o primeiro?
