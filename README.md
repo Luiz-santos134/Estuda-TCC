@@ -26,7 +26,7 @@ JavaScript (para funcionalidades dinâmicas)
 
 🚀 Funcionalidades principais ✅ Página Inicial: visão rápida de tarefas, interesses e frases motivacionais. ✅ Gestão de Tarefas: espaço para listar tarefas pendentes e concluídas. ✅ Perfil: personalização com interesses. ✅ Responsividade: compatível com dispositivos móveis.
 
-👨‍💻 Autores Luiz Cláudio - Front-end, Tech Lead
-Marcos - Front-end, Idealista 
+👨‍💻 Autores Luiz Cláudio - Front-end, Tech Lead\n
+Marcos - Front-end, Idealista \n
 Gabriel - Pesquisador, relator 
 Guilherme - Pesquisador, Redator, Suporte
