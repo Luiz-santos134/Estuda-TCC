@@ -35,11 +35,12 @@ header {
     align-items: center;
     height: 10dvh;
     font-size: 11pt;
+    z-index: 1000;
 }
 
 footer{
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
     gap: 40px;
     padding: 20px;

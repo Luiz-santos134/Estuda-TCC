@@ -1,10 +1,10 @@
-<!-- Salve este arquivo como cadastro.html -->
+<!-- Salve este arquivo como entrar.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cadastro</title>
+  <title>Entrar</title>
   <style>
     :root {
       --cor-fundo: #121212;
@@ -113,44 +113,45 @@
 <body>
 
   <div class="container">
-    <h2>Crie sua conta</h2>
-    <form id="formCadastro">
+    <h2>Entrar</h2>
+    <form id="formLogin">
       <div class="form-group">
-        <label for="nome">Nome completo</label>
-        <input type="text" id="nome" placeholder="Seu nome" required />
+        <label for="emailLogin">E-mail</label>
+        <input type="email" id="emailLogin" placeholder="seu@email.com" required />
       </div>
       <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" placeholder="seu@email.com" required />
+        <label for="senhaLogin">Senha</label>
+        <input type="password" id="senhaLogin" placeholder="Insira sua senha" required />
       </div>
-      <div class="form-group">
-        <label for="senha">Senha</label>
-        <input type="password" id="senha" placeholder="Crie uma senha" required />
-      </div>
-      <button type="submit" class="btn">Cadastrar</button>
+      <button type="submit" class="btn">Entrar</button>
     </form>
+
     <div class="link">
-      Já tem conta? <a href="entrar.html">Entrar</a>
+      Não tem uma conta? <a href="index.html">Criar conta</a>
     </div>
   </div>
 
   <script>
-    document.getElementById("formCadastro").addEventListener("submit", function (e) {
+    document.getElementById("formLogin").addEventListener("submit", function (e) {
       e.preventDefault();
 
-      const nome = document.getElementById("nome").value;
-      const email = document.getElementById("email").value;
-      const senha = document.getElementById("senha").value;
+      const email = document.getElementById("emailLogin").value;
+      const senha = document.getElementById("senhaLogin").value;
 
-      const usuario = {
-        nome,
-        email,
-        senha,
-      };
+      const usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
 
-      localStorage.setItem("usuario", JSON.stringify(usuario));
-      alert("Cadastro realizado com sucesso!");
-      window.location.href = "home.html";
+      if (!usuarioSalvo) {
+        alert("Nenhum usuário cadastrado.");
+        return;
+      }
+
+      if (email === usuarioSalvo.email && senha === usuarioSalvo.senha) {
+        alert("Login bem-sucedido! Bem-vindo, " + usuarioSalvo.nome);
+        // Redirecionar para home.html
+        window.location.href = "home.html";
+      } else {
+        alert("Email ou senha incorretos!");
+      }
     });
   </script>
 

@@ -6,11 +6,11 @@ const currentPage = window.location.pathname.split("/").pop();
         }
     });
 
-let areaSimuladosFeitos = document.querySelector('.feitos p')
+let areaSimuladosFeitos = document.querySelector('.feitos')
 
 if (areaSimuladosFeitos.textContent.trim() === ""){
     areaSimuladosFeitos.innerHTML = `
-        <i class="fas fa-file-alt"></i> <br>
+        <i class="fas fa-file-alt"></i>
         Nenhum simulado realizado ainda.
         <br>
         Que tal fazer o primeiro?
