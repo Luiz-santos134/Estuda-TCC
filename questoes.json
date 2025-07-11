@@ -1,0 +1,442 @@
+{
+  "enem": {
+    "matematica": [
+      {
+        "pergunta": "Uma loja oferece 10% de desconto à vista. Se um produto custa R$ 200, qual o valor com desconto?",
+        "alternativas": ["R$180", "R$190", "R$185", "R$175"],
+        "resposta": "R$180"
+      },
+      {
+        "pergunta": "Se o gráfico de uma função do 2º grau tem vértice em (2, -4), qual é o valor mínimo dessa função?",
+        "alternativas": ["2", "-4", "0", "4"],
+        "resposta": "-4"
+      }
+    ],
+    "portugues": [
+      {
+        "pergunta": "A linguagem predominante em um artigo de opinião é:",
+        "alternativas": ["Poética", "Figurada", "Coloquial", "Argumentativa"],
+        "resposta": "Argumentativa"
+      },
+      {
+        "pergunta": "No trecho 'é preciso lutar pelos direitos', o verbo está no:",
+        "alternativas": ["Infinitivo", "Imperativo", "Subjuntivo", "Indicativo"],
+        "resposta": "Infinitivo"
+      }
+    ],
+    "literatura": [
+      {
+        "pergunta": "O realismo critica qual movimento anterior?",
+        "alternativas": ["Romantismo", "Parnasianismo", "Modernismo", "Trovadorismo"],
+        "resposta": "Romantismo"
+      },
+      {
+        "pergunta": "Machado de Assis é autor de qual obra?",
+        "alternativas": ["Dom Casmurro", "Iracema", "A Moreninha", "Triste Fim de Policarpo Quaresma"],
+        "resposta": "Dom Casmurro"
+      }
+    ],
+    "historia": [
+      {
+        "pergunta": "A escravidão no Brasil foi abolida em que ano?",
+        "alternativas": ["1888", "1889", "1870", "1891"],
+        "resposta": "1888"
+      },
+      {
+        "pergunta": "A Revolução Francesa iniciou em:",
+        "alternativas": ["1789", "1815", "1808", "1750"],
+        "resposta": "1789"
+      }
+    ],
+    "geografia": [
+      {
+        "pergunta": "O que caracteriza a globalização?",
+        "alternativas": ["Isolamento", "Interconexão", "Colonialismo", "Guerras"],
+        "resposta": "Interconexão"
+      },
+      {
+        "pergunta": "A desertificação é causada principalmente por:",
+        "alternativas": ["Vulcões", "Chuva ácida", "Desmatamento", "Urbanização"],
+        "resposta": "Desmatamento"
+      }
+    ],
+    "filosofia": [
+      {
+        "pergunta": "Para Platão, o mundo verdadeiro é o mundo:",
+        "alternativas": ["Sensível", "Concreto", "Das ideias", "Natural"],
+        "resposta": "Das ideias"
+      },
+      {
+        "pergunta": "A ética utilitarista defende:",
+        "alternativas": ["A razão", "A virtude", "O prazer", "O bem-estar coletivo"],
+        "resposta": "O bem-estar coletivo"
+      }
+    ],
+    "sociologia": [
+      {
+        "pergunta": "A desigualdade social é um tema central de qual pensador?",
+        "alternativas": ["Max Weber", "Durkheim", "Karl Marx", "Comte"],
+        "resposta": "Karl Marx"
+      },
+      {
+        "pergunta": "O conceito de 'fato social' é de:",
+        "alternativas": ["Weber", "Comte", "Durkheim", "Marx"],
+        "resposta": "Durkheim"
+      }
+    ],
+    "fisica": [
+      {
+        "pergunta": "A energia cinética depende de:",
+        "alternativas": ["Massa e velocidade", "Altura", "Calor", "Pressão"],
+        "resposta": "Massa e velocidade"
+      },
+      {
+        "pergunta": "No vácuo, a velocidade da luz é:",
+        "alternativas": ["3x10⁸ m/s", "3x10⁶ m/s", "1x10⁸ m/s", "9x10⁹ m/s"],
+        "resposta": "3x10⁸ m/s"
+      }
+    ],
+    "quimica": [
+      {
+        "pergunta": "O pH 7 é considerado:",
+        "alternativas": ["Ácido", "Neutro", "Básico", "Salino"],
+        "resposta": "Neutro"
+      },
+      {
+        "pergunta": "Uma mistura homogênea é aquela que:",
+        "alternativas": ["Tem fases visíveis", "É uniforme", "É sólida", "É heterogênea"],
+        "resposta": "É uniforme"
+      }
+    ],
+    "biologia": [
+      {
+        "pergunta": "O DNA é encontrado em qual estrutura celular?",
+        "alternativas": ["Mitocôndria", "Cloroplasto", "Ribossomo", "Núcleo"],
+        "resposta": "Núcleo"
+      },
+      {
+        "pergunta": "Os vírus são considerados:",
+        "alternativas": ["Seres vivos", "Seres completos", "Parasitas obrigatórios", "Bactérias"],
+        "resposta": "Parasitas obrigatórios"
+      }
+    ],
+    "ingles": [
+      {
+        "pergunta": "What does 'environment' mean?",
+        "alternativas": ["Trabalho", "Amor", "Ambiente", "Evento"],
+        "resposta": "Ambiente"
+      },
+      {
+        "pergunta": "Choose the correct sentence:",
+        "alternativas": ["He go to school", "He goes to school", "He gone to school", "He goed to school"],
+        "resposta": "He goes to school"
+      }
+    ],
+    "espanhol": [
+      {
+        "pergunta": "Qual é o pronome pessoal correspondente a 'nós' em espanhol?",
+        "alternativas": ["Nosotros", "Vosotros", "Ustedes", "Ellos"],
+        "resposta": "Nosotros"
+      },
+      {
+        "pergunta": "Como se diz 'livro' em espanhol?",
+        "alternativas": ["Libro", "Libroa", "Livra", "Libra"],
+        "resposta": "Libro"
+      }
+    ]
+  },
+
+  "pas": {
+    "matematica": [
+      {
+        "pergunta": "Resolva: 5² + 2 × 3",
+        "alternativas": ["25", "31", "19", "34"],
+        "resposta": "31"
+      },
+      {
+        "pergunta": "Quanto é o valor de π, aproximadamente?",
+        "alternativas": ["2,14", "3,14", "4,14", "5,14"],
+        "resposta": "3,14"
+      }
+    ],
+    "portugues": [
+      {
+        "pergunta": "Qual alternativa apresenta um advérbio de tempo?",
+        "alternativas": ["Ontem", "Rápido", "Azul", "Casa"],
+        "resposta": "Ontem"
+      },
+      {
+        "pergunta": "Na frase 'Ele chegou cedo', qual é o verbo?",
+        "alternativas": ["Ele", "Chegou", "Cedo", "Na"],
+        "resposta": "Chegou"
+      }
+    ],
+    "literatura": [
+      {
+        "pergunta": "O autor de 'Iracema' é:",
+        "alternativas": ["José de Alencar", "Machado de Assis", "Aluísio Azevedo", "Castro Alves"],
+        "resposta": "José de Alencar"
+      },
+      {
+        "pergunta": "O simbolismo valoriza:",
+        "alternativas": ["Racionalismo", "Objetividade", "Subjetividade", "Realidade"],
+        "resposta": "Subjetividade"
+      }
+    ],
+    "historia": [
+      {
+        "pergunta": "A Segunda Guerra Mundial terminou em:",
+        "alternativas": ["1944", "1945", "1946", "1947"],
+        "resposta": "1945"
+      },
+      {
+        "pergunta": "A Inconfidência Mineira ocorreu em qual século?",
+        "alternativas": ["XV", "XVI", "XVII", "XVIII"],
+        "resposta": "XVIII"
+      }
+    ],
+    "geografia": [
+      {
+        "pergunta": "A maior floresta tropical do mundo é:",
+        "alternativas": ["Mata Atlântica", "Floresta Amazônica", "Savanas", "Pantanal"],
+        "resposta": "Floresta Amazônica"
+      },
+      {
+        "pergunta": "O Brasil é banhado por qual oceano?",
+        "alternativas": ["Atlântico", "Índico", "Pacífico", "Ártico"],
+        "resposta": "Atlântico"
+      }
+    ],
+    "filosofia": [
+      {
+        "pergunta": "O que é epistemologia?",
+        "alternativas": ["Estudo da moral", "Estudo da linguagem", "Estudo do conhecimento", "Estudo da lógica"],
+        "resposta": "Estudo do conhecimento"
+      },
+      {
+        "pergunta": "Descartes é famoso por qual frase?",
+        "alternativas": ["Penso, logo existo", "Nada sei", "Ser é pensar", "Tudo é relativo"],
+        "resposta": "Penso, logo existo"
+      }
+    ],
+    "sociologia": [
+      {
+        "pergunta": "A socialização primária ocorre na:",
+        "alternativas": ["Escola", "Família", "Trabalho", "Religião"],
+        "resposta": "Família"
+      },
+      {
+        "pergunta": "O que é mobilidade social?",
+        "alternativas": ["Mudança de país", "Mudança de classe social", "Troca de profissão", "Formação educacional"],
+        "resposta": "Mudança de classe social"
+      }
+    ],
+    "fisica": [
+      {
+        "pergunta": "A força gravitacional é uma força de:",
+        "alternativas": ["Contato", "Atrito", "Distância", "Repulsão"],
+        "resposta": "Distância"
+      },
+      {
+        "pergunta": "Na queda livre, o movimento é:",
+        "alternativas": ["Uniforme", "Acelerado", "Retilíneo uniforme", "Circular"],
+        "resposta": "Acelerado"
+      }
+    ],
+    "quimica": [
+      {
+        "pergunta": "Qual é o número atômico do oxigênio?",
+        "alternativas": ["6", "7", "8", "10"],
+        "resposta": "8"
+      },
+      {
+        "pergunta": "A água é uma substância:",
+        "alternativas": ["Iônica", "Molecular", "Salina", "Metálica"],
+        "resposta": "Molecular"
+      }
+    ],
+    "biologia": [
+      {
+        "pergunta": "A célula vegetal possui qual estrutura exclusiva?",
+        "alternativas": ["Lisossomo", "Vacúolo central", "Mitocôndria", "Centríolo"],
+        "resposta": "Vacúolo central"
+      },
+      {
+        "pergunta": "Os seres vivos são organizados em:",
+        "alternativas": ["Átomos", "Órgãos", "Sistemas", "Células"],
+        "resposta": "Células"
+      }
+    ],
+    "ingles": [
+      {
+        "pergunta": "What is the plural of 'child'?",
+        "alternativas": ["Childs", "Childes", "Children", "Childer"],
+        "resposta": "Children"
+      },
+      {
+        "pergunta": "How do you say 'bom dia' in English?",
+        "alternativas": ["Good afternoon", "Good morning", "Good night", "Hello"],
+        "resposta": "Good morning"
+      }
+    ],
+    "espanhol": [
+      {
+        "pergunta": "Qual é o verbo 'comer' na 1ª pessoa do presente?",
+        "alternativas": ["Como", "Comes", "Come", "Comemos"],
+        "resposta": "Como"
+      },
+      {
+        "pergunta": "Como se diz 'vermelho' em espanhol?",
+        "alternativas": ["Verde", "Rojo", "Azul", "Amarillo"],
+        "resposta": "Rojo"
+      }
+    ]
+  },
+
+  "aleatorias": {
+    "matematica": [
+      {
+        "pergunta": "Qual o próximo número da sequência: 1, 3, 6, 10, ?",
+        "alternativas": ["14", "15", "16", "18"],
+        "resposta": "15"
+      },
+      {
+        "pergunta": "Se um carro anda 60km em 1h, quantos km ele faz em 2h30min?",
+        "alternativas": ["120km", "150km", "180km", "90km"],
+        "resposta": "150km"
+      }
+    ],
+    "portugues": [
+      {
+        "pergunta": "Qual palavra é um homônimo de 'cela'?",
+        "alternativas": ["Sela", "Celo", "Cena", "Celo"],
+        "resposta": "Sela"
+      },
+      {
+        "pergunta": "Na frase 'Corremos bastante ontem', 'ontem' é um advérbio de:",
+        "alternativas": ["Modo", "Tempo", "Intensidade", "Lugar"],
+        "resposta": "Tempo"
+      }
+    ],
+    "literatura": [
+      {
+        "pergunta": "O personagem Bentinho aparece em qual obra?",
+        "alternativas": ["Memórias Póstumas", "Dom Casmurro", "Senhora", "Iracema"],
+        "resposta": "Dom Casmurro"
+      },
+      {
+        "pergunta": "Qual movimento literário priorizava o sentimento sobre a razão?",
+        "alternativas": ["Romantismo", "Realismo", "Simbolismo", "Parnasianismo"],
+        "resposta": "Romantismo"
+      }
+    ],
+    "historia": [
+      {
+        "pergunta": "Quem foi o líder da Revolta dos Malês?",
+        "alternativas": ["Zumbi", "Luís Gama", "Escravos islâmicos", "Tiradentes"],
+        "resposta": "Escravos islâmicos"
+      },
+      {
+        "pergunta": "Qual império caiu em 476 d.C.?",
+        "alternativas": ["Bizantino", "Romano do Ocidente", "Egípcio", "Grego"],
+        "resposta": "Romano do Ocidente"
+      }
+    ],
+    "geografia": [
+      {
+        "pergunta": "Qual bioma brasileiro sofre mais com queimadas?",
+        "alternativas": ["Amazônia", "Pantanal", "Caatinga", "Mata Atlântica"],
+        "resposta": "Pantanal"
+      },
+      {
+        "pergunta": "Qual é a capital da Austrália?",
+        "alternativas": ["Sydney", "Melbourne", "Canberra", "Brisbane"],
+        "resposta": "Canberra"
+      }
+    ],
+    "filosofia": [
+      {
+        "pergunta": "O que significa 'ataraxia' na filosofia?",
+        "alternativas": ["Dor física", "Estado de serenidade", "Desconfiança do saber", "Virtude racional"],
+        "resposta": "Estado de serenidade"
+      },
+      {
+        "pergunta": "Nietzsche é conhecido por criticar qual conceito?",
+        "alternativas": ["Democracia", "Deus", "Ciência", "Mito"],
+        "resposta": "Deus"
+      }
+    ],
+    "sociologia": [
+      {
+        "pergunta": "A cultura popular é caracterizada por:",
+        "alternativas": ["Ser erudita", "Vinda de elites", "Origem do povo", "Produção acadêmica"],
+        "resposta": "Origem do povo"
+      },
+      {
+        "pergunta": "O que é etnocentrismo?",
+        "alternativas": ["Valorização da diversidade", "Crença na superioridade cultural própria", "Interculturalismo", "Relativismo ético"],
+        "resposta": "Crença na superioridade cultural própria"
+      }
+    ],
+    "fisica": [
+      {
+        "pergunta": "Qual instrumento mede corrente elétrica?",
+        "alternativas": ["Multímetro", "Amperímetro", "Voltímetro", "Termômetro"],
+        "resposta": "Amperímetro"
+      },
+      {
+        "pergunta": "Qual fenômeno explica o arco-íris?",
+        "alternativas": ["Refração da luz", "Reflexão total", "Absorção luminosa", "Magnetismo"],
+        "resposta": "Refração da luz"
+      }
+    ],
+    "quimica": [
+      {
+        "pergunta": "O que é um cátion?",
+        "alternativas": ["Íon negativo", "Átomo neutro", "Íon positivo", "Molécula orgânica"],
+        "resposta": "Íon positivo"
+      },
+      {
+        "pergunta": "Qual gás é usado para encher balões que flutuam?",
+        "alternativas": ["Hidrogênio", "Oxigênio", "Hélio", "Argônio"],
+        "resposta": "Hélio"
+      }
+    ],
+    "biologia": [
+      {
+        "pergunta": "A fauna endêmica é típica de:",
+        "alternativas": ["Vários lugares", "Locais isolados", "Rios e lagos", "Cidades"],
+        "resposta": "Locais isolados"
+      },
+      {
+        "pergunta": "O que é um ser autotrófico?",
+        "alternativas": ["Que se alimenta de outros", "Que produz seu próprio alimento", "Que vive em simbiose", "Que realiza fermentação"],
+        "resposta": "Que produz seu próprio alimento"
+      }
+    ],
+    "ingles": [
+      {
+        "pergunta": "Which of these is a fruit?",
+        "alternativas": ["Dog", "Car", "Banana", "Chair"],
+        "resposta": "Banana"
+      },
+      {
+        "pergunta": "What color is the sky on a sunny day?",
+        "alternativas": ["Green", "Red", "Blue", "Black"],
+        "resposta": "Blue"
+      }
+    ],
+    "espanhol": [
+      {
+        "pergunta": "Como se diz 'amigo' no feminino?",
+        "alternativas": ["Amiga", "Amigue", "Amigae", "Amigó"],
+        "resposta": "Amiga"
+      },
+      {
+        "pergunta": "Qual desses é um verbo?",
+        "alternativas": ["Mesa", "Correr", "Rápido", "Bonito"],
+        "resposta": "Correr"
+      }
+    ]
+  }
+}
