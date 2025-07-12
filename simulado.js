@@ -1,10 +1,17 @@
 let Random = document.getElementById("Random");
 let Enem = document.getElementById("Enem");
 let Pas = document.getElementById("Pas");
+
 let tipoSimulado = document.getElementById("tipoSimulado");
 let Pergunta = document.getElementById("Pergunta").value;
+
 let estruturaSimulado = document.querySelector(".estruturaSimulado")
 let folhaSimulado = document.querySelector(".FolhaSimulado")
+
+let alterUm = document.getElementById("alterUm")
+let alterDois = document.getElementById("alterDois")
+let alterTres = document.getElementById("alterTres")
+let alterQuatro = document.getElementById("alterQuatro")
 
 let main = document.querySelector('main');
 
@@ -51,8 +58,32 @@ function gerarSimulado() {
         const sorteadas = sortearAleatorios(materiasEscolhidas, 5);
         materiasEscolhidas = sorteadas;
 
-        tipoSimulado.innerText = 'Aleatório';
+        tipoSimulado.innerText = 'Aleatórias';
         console.log("🎯 Matérias sorteadas:", materiasEscolhidas);
+
+        fetch('questoes.json')
+        .then(res => res.json())
+        .then(bancoQuestoes => {
+            const todasQuestoes = [];
+
+            // materiasEscolhidas deve existir e estar preenchida
+            materiasEscolhidas.forEach(materia => {
+            if (bancoQuestoes.aleatorias[materia]) {
+                todasQuestoes.push(...bancoQuestoes.aleatorias[materia]);
+            }
+            });
+
+            // Sorteia uma questão aleatória entre todas as selecionadas
+            const questao = todasQuestoes[Math.floor(Math.random() * todasQuestoes.length)];
+
+            // Atualiza a pergunta e as alternativas
+            document.getElementById("Pergunta").innerText = questao.pergunta;
+            document.getElementById("alterUm").innerText = questao.alternativas[0];
+            document.getElementById("alterDois").innerText = questao.alternativas[1];
+            document.getElementById("alterTres").innerText = questao.alternativas[2];
+            document.getElementById("alterQuatro").innerText = questao.alternativas[3];
+        });
+
 
         return;
     }
@@ -81,12 +112,19 @@ function gerarSimulado() {
         fetch('questoes.json')
         .then(res => res.json())
         .then(bancoQuestoes => {
-            const questoesMatEnem = bancoQuestoes.enem.matematica;
-            const questao = questoesMatEnem[Math.floor(Math.random() * questoesMatEnem.length)];
-            document.getElementById("Pergunta").innerText = questao.pergunta;
-            // console.log(questao.pergunta);
-        });
+            const todasQuestoes = [];
 
+            materiasEscolhidas.forEach(materia => {
+            if (bancoQuestoes.enem[materia]) {
+                todasQuestoes.push(...bancoQuestoes.enem[materia]); // adiciona todas as questões dessa matéria
+            }
+            });
+
+            // Sorteia uma questão aleatória entre todas as selecionadas
+            const questao = todasQuestoes[Math.floor(Math.random() * todasQuestoes.length)];
+
+            document.getElementById("Pergunta").innerText = questao.pergunta;
+        });
     } else if (Pas.checked) {
         console.log('📗 PAS selecionado');
 
@@ -107,6 +145,23 @@ function gerarSimulado() {
 
         tipoSimulado.innerText = 'PAS';
         console.log("🎯 Matérias escolhidas:", materiasEscolhidas);
+
+        fetch('questoes.json')
+        .then(res => res.json())
+        .then(bancoQuestoes => {
+            const todasQuestoes = [];
+
+            materiasEscolhidas.forEach(materia => {
+            if (bancoQuestoes.pas[materia]) {
+                todasQuestoes.push(...bancoQuestoes.pas[materia]); // adiciona todas as questões dessa matéria
+            }
+            });
+
+            // Sorteia uma questão aleatória entre todas as selecionadas
+            const questao = todasQuestoes[Math.floor(Math.random() * todasQuestoes.length)];
+
+            document.getElementById("Pergunta").innerText = questao.pergunta;
+        });
 
     } else {
         alert('Selecione um tipo de simulado');
