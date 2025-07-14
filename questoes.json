@@ -2,440 +2,1003 @@
   "enem": {
     "matematica": [
       {
-        "pergunta": "Uma loja oferece 10% de desconto à vista. Se um produto custa R$ 200, qual o valor com desconto?",
-        "alternativas": ["R$180", "R$190", "R$185", "R$175"],
-        "resposta": "R$180"
+        "pergunta": "Enem(2019) Qual é a área de um triângulo equilátero de lado 6 cm?",
+        "alternativas": ["9√3 cm²", "12√3 cm²", "18 cm²", "36 cm²"],
+        "resposta": "9√3 cm²"
       },
       {
-        "pergunta": "Se o gráfico de uma função do 2º grau tem vértice em (2, -4), qual é o valor mínimo dessa função?",
-        "alternativas": ["2", "-4", "0", "4"],
-        "resposta": "-4"
+        "pergunta": "Enem(2018) Qual o valor da solução da equação x² - 5x + 6 = 0?",
+        "alternativas": ["1 e 6", "2 e 3", "3 e 4", "4 e 5"],
+        "resposta": "2 e 3"
+      },
+      {
+        "pergunta": "Enem(2017) Qual a probabilidade de tirar um número par ao lançar um dado comum?",
+        "alternativas": ["1/2", "1/3", "1/6", "1/4"],
+        "resposta": "1/2"
+      },
+      {
+        "pergunta": "Enem(2020) Qual o valor de log10(1000)?",
+        "alternativas": ["1", "2", "3", "4"],
+        "resposta": "3"
+      },
+      {
+        "pergunta": "Enem(2016) Qual o resultado da operação 2^3 × 2^4?",
+        "alternativas": ["2^7", "2^12", "2^1", "2^6"],
+        "resposta": "2^7"
       }
     ],
     "portugues": [
       {
-        "pergunta": "A linguagem predominante em um artigo de opinião é:",
-        "alternativas": ["Poética", "Figurada", "Coloquial", "Argumentativa"],
-        "resposta": "Argumentativa"
+        "pergunta": "Enem(2019) Qual a função do texto dissertativo-argumentativo?",
+        "alternativas": ["Narrar", "Argumentar", "Descrever", "Informar"],
+        "resposta": "Argumentar"
       },
       {
-        "pergunta": "No trecho 'é preciso lutar pelos direitos', o verbo está no:",
-        "alternativas": ["Infinitivo", "Imperativo", "Subjuntivo", "Indicativo"],
-        "resposta": "Infinitivo"
-      }
-    ],
-    "literatura": [
-      {
-        "pergunta": "O realismo critica qual movimento anterior?",
-        "alternativas": ["Romantismo", "Parnasianismo", "Modernismo", "Trovadorismo"],
-        "resposta": "Romantismo"
+        "pergunta": "Enem(2018) Qual é o tempo verbal do verbo na frase 'Se eu tivesse dinheiro, viajaria'?",
+        "alternativas": ["Presente", "Futuro do presente", "Pretérito imperfeito do subjuntivo", "Pretérito perfeito"],
+        "resposta": "Pretérito imperfeito do subjuntivo"
       },
       {
-        "pergunta": "Machado de Assis é autor de qual obra?",
-        "alternativas": ["Dom Casmurro", "Iracema", "A Moreninha", "Triste Fim de Policarpo Quaresma"],
-        "resposta": "Dom Casmurro"
-      }
-    ],
-    "historia": [
-      {
-        "pergunta": "A escravidão no Brasil foi abolida em que ano?",
-        "alternativas": ["1888", "1889", "1870", "1891"],
-        "resposta": "1888"
+        "pergunta": "Enem(2017) O termo 'muito' em 'Ele é muito inteligente' é classificado como:",
+        "alternativas": ["Adjetivo", "Advérbio", "Substantivo", "Verbo"],
+        "resposta": "Advérbio"
       },
       {
-        "pergunta": "A Revolução Francesa iniciou em:",
-        "alternativas": ["1789", "1815", "1808", "1750"],
-        "resposta": "1789"
-      }
-    ],
-    "geografia": [
-      {
-        "pergunta": "O que caracteriza a globalização?",
-        "alternativas": ["Isolamento", "Interconexão", "Colonialismo", "Guerras"],
-        "resposta": "Interconexão"
+        "pergunta": "Enem(2020) Qual a função da linguagem predominante em textos publicitários?",
+        "alternativas": ["Conativa", "Referencial", "Emotiva", "Metalinguística"],
+        "resposta": "Conativa"
       },
       {
-        "pergunta": "A desertificação é causada principalmente por:",
-        "alternativas": ["Vulcões", "Chuva ácida", "Desmatamento", "Urbanização"],
-        "resposta": "Desmatamento"
-      }
-    ],
-    "filosofia": [
-      {
-        "pergunta": "Para Platão, o mundo verdadeiro é o mundo:",
-        "alternativas": ["Sensível", "Concreto", "Das ideias", "Natural"],
-        "resposta": "Das ideias"
-      },
-      {
-        "pergunta": "A ética utilitarista defende:",
-        "alternativas": ["A razão", "A virtude", "O prazer", "O bem-estar coletivo"],
-        "resposta": "O bem-estar coletivo"
-      }
-    ],
-    "sociologia": [
-      {
-        "pergunta": "A desigualdade social é um tema central de qual pensador?",
-        "alternativas": ["Max Weber", "Durkheim", "Karl Marx", "Comte"],
-        "resposta": "Karl Marx"
-      },
-      {
-        "pergunta": "O conceito de 'fato social' é de:",
-        "alternativas": ["Weber", "Comte", "Durkheim", "Marx"],
-        "resposta": "Durkheim"
+        "pergunta": "Enem(2016) Qual é a voz do verbo na frase 'O aluno foi elogiado pelo professor'?",
+        "alternativas": ["Ativa", "Passiva", "Reflexiva", "Impersonal"],
+        "resposta": "Passiva"
       }
     ],
     "fisica": [
       {
-        "pergunta": "A energia cinética depende de:",
-        "alternativas": ["Massa e velocidade", "Altura", "Calor", "Pressão"],
+        "pergunta": "Enem(2019) Qual a fórmula da velocidade média?",
+        "alternativas": ["v = d / t", "v = t / d", "v = m / a", "v = f / m"],
+        "resposta": "v = d / t"
+      },
+      {
+        "pergunta": "Enem(2018) Qual a unidade de medida da força no SI?",
+        "alternativas": ["Newton", "Joule", "Pascal", "Watt"],
+        "resposta": "Newton"
+      },
+      {
+        "pergunta": "Enem(2017) O que representa a aceleração da gravidade na Terra?",
+        "alternativas": ["9,8 m/s²", "10 m/s²", "8,9 m/s²", "9,6 m/s²"],
+        "resposta": "9,8 m/s²"
+      },
+      {
+        "pergunta": "Enem(2020) A energia cinética depende de quais variáveis?",
+        "alternativas": ["Massa e velocidade", "Tempo e distância", "Força e massa", "Velocidade e aceleração"],
         "resposta": "Massa e velocidade"
       },
       {
-        "pergunta": "No vácuo, a velocidade da luz é:",
-        "alternativas": ["3x10⁸ m/s", "3x10⁶ m/s", "1x10⁸ m/s", "9x10⁹ m/s"],
-        "resposta": "3x10⁸ m/s"
+        "pergunta": "Enem(2016) Qual a fórmula do trabalho realizado por uma força constante?",
+        "alternativas": ["W = F × d", "W = m × a", "W = v × t", "W = p × v"],
+        "resposta": "W = F × d"
       }
     ],
     "quimica": [
       {
-        "pergunta": "O pH 7 é considerado:",
-        "alternativas": ["Ácido", "Neutro", "Básico", "Salino"],
-        "resposta": "Neutro"
-      },
-      {
-        "pergunta": "Uma mistura homogênea é aquela que:",
-        "alternativas": ["Tem fases visíveis", "É uniforme", "É sólida", "É heterogênea"],
-        "resposta": "É uniforme"
-      }
-    ],
-    "biologia": [
-      {
-        "pergunta": "O DNA é encontrado em qual estrutura celular?",
-        "alternativas": ["Mitocôndria", "Cloroplasto", "Ribossomo", "Núcleo"],
-        "resposta": "Núcleo"
-      },
-      {
-        "pergunta": "Os vírus são considerados:",
-        "alternativas": ["Seres vivos", "Seres completos", "Parasitas obrigatórios", "Bactérias"],
-        "resposta": "Parasitas obrigatórios"
-      }
-    ],
-    "ingles": [
-      {
-        "pergunta": "What does 'environment' mean?",
-        "alternativas": ["Trabalho", "Amor", "Ambiente", "Evento"],
-        "resposta": "Ambiente"
-      },
-      {
-        "pergunta": "Choose the correct sentence:",
-        "alternativas": ["He go to school", "He goes to school", "He gone to school", "He goed to school"],
-        "resposta": "He goes to school"
-      }
-    ],
-    "espanhol": [
-      {
-        "pergunta": "Qual é o pronome pessoal correspondente a 'nós' em espanhol?",
-        "alternativas": ["Nosotros", "Vosotros", "Ustedes", "Ellos"],
-        "resposta": "Nosotros"
-      },
-      {
-        "pergunta": "Como se diz 'livro' em espanhol?",
-        "alternativas": ["Libro", "Libroa", "Livra", "Libra"],
-        "resposta": "Libro"
-      }
-    ]
-  },
-
-  "pas": {
-    "matematica": [
-      {
-        "pergunta": "Resolva: 5² + 2 × 3",
-        "alternativas": ["25", "31", "19", "34"],
-        "resposta": "31"
-      },
-      {
-        "pergunta": "Quanto é o valor de π, aproximadamente?",
-        "alternativas": ["2,14", "3,14", "4,14", "5,14"],
-        "resposta": "3,14"
-      }
-    ],
-    "portugues": [
-      {
-        "pergunta": "Qual alternativa apresenta um advérbio de tempo?",
-        "alternativas": ["Ontem", "Rápido", "Azul", "Casa"],
-        "resposta": "Ontem"
-      },
-      {
-        "pergunta": "Na frase 'Ele chegou cedo', qual é o verbo?",
-        "alternativas": ["Ele", "Chegou", "Cedo", "Na"],
-        "resposta": "Chegou"
-      }
-    ],
-    "literatura": [
-      {
-        "pergunta": "O autor de 'Iracema' é:",
-        "alternativas": ["José de Alencar", "Machado de Assis", "Aluísio Azevedo", "Castro Alves"],
-        "resposta": "José de Alencar"
-      },
-      {
-        "pergunta": "O simbolismo valoriza:",
-        "alternativas": ["Racionalismo", "Objetividade", "Subjetividade", "Realidade"],
-        "resposta": "Subjetividade"
-      }
-    ],
-    "historia": [
-      {
-        "pergunta": "A Segunda Guerra Mundial terminou em:",
-        "alternativas": ["1944", "1945", "1946", "1947"],
-        "resposta": "1945"
-      },
-      {
-        "pergunta": "A Inconfidência Mineira ocorreu em qual século?",
-        "alternativas": ["XV", "XVI", "XVII", "XVIII"],
-        "resposta": "XVIII"
-      }
-    ],
-    "geografia": [
-      {
-        "pergunta": "A maior floresta tropical do mundo é:",
-        "alternativas": ["Mata Atlântica", "Floresta Amazônica", "Savanas", "Pantanal"],
-        "resposta": "Floresta Amazônica"
-      },
-      {
-        "pergunta": "O Brasil é banhado por qual oceano?",
-        "alternativas": ["Atlântico", "Índico", "Pacífico", "Ártico"],
-        "resposta": "Atlântico"
-      }
-    ],
-    "filosofia": [
-      {
-        "pergunta": "O que é epistemologia?",
-        "alternativas": ["Estudo da moral", "Estudo da linguagem", "Estudo do conhecimento", "Estudo da lógica"],
-        "resposta": "Estudo do conhecimento"
-      },
-      {
-        "pergunta": "Descartes é famoso por qual frase?",
-        "alternativas": ["Penso, logo existo", "Nada sei", "Ser é pensar", "Tudo é relativo"],
-        "resposta": "Penso, logo existo"
-      }
-    ],
-    "sociologia": [
-      {
-        "pergunta": "A socialização primária ocorre na:",
-        "alternativas": ["Escola", "Família", "Trabalho", "Religião"],
-        "resposta": "Família"
-      },
-      {
-        "pergunta": "O que é mobilidade social?",
-        "alternativas": ["Mudança de país", "Mudança de classe social", "Troca de profissão", "Formação educacional"],
-        "resposta": "Mudança de classe social"
-      }
-    ],
-    "fisica": [
-      {
-        "pergunta": "A força gravitacional é uma força de:",
-        "alternativas": ["Contato", "Atrito", "Distância", "Repulsão"],
-        "resposta": "Distância"
-      },
-      {
-        "pergunta": "Na queda livre, o movimento é:",
-        "alternativas": ["Uniforme", "Acelerado", "Retilíneo uniforme", "Circular"],
-        "resposta": "Acelerado"
-      }
-    ],
-    "quimica": [
-      {
-        "pergunta": "Qual é o número atômico do oxigênio?",
-        "alternativas": ["6", "7", "8", "10"],
+        "pergunta": "Enem(2019) Qual o número atômico do oxigênio?",
+        "alternativas": ["8", "16", "12", "6"],
         "resposta": "8"
       },
       {
-        "pergunta": "A água é uma substância:",
-        "alternativas": ["Iônica", "Molecular", "Salina", "Metálica"],
-        "resposta": "Molecular"
+        "pergunta": "Enem(2018) Qual é a fórmula molecular da água?",
+        "alternativas": ["H2O", "CO2", "O2", "CH4"],
+        "resposta": "H2O"
+      },
+      {
+        "pergunta": "Enem(2017) Qual o pH de uma solução neutra?",
+        "alternativas": ["7", "0", "14", "1"],
+        "resposta": "7"
+      },
+      {
+        "pergunta": "Enem(2020) O que são ácidos segundo a teoria de Arrhenius?",
+        "alternativas": ["Doam íons H+", "Doam íons OH-", "Recebem íons H+", "Recebem elétrons"],
+        "resposta": "Doam íons H+"
+      },
+      {
+        "pergunta": "Enem(2016) Qual o gás mais abundante na atmosfera terrestre?",
+        "alternativas": ["Nitrogênio", "Oxigênio", "Carbono", "Hidrogênio"],
+        "resposta": "Nitrogênio"
       }
     ],
     "biologia": [
       {
-        "pergunta": "A célula vegetal possui qual estrutura exclusiva?",
-        "alternativas": ["Lisossomo", "Vacúolo central", "Mitocôndria", "Centríolo"],
-        "resposta": "Vacúolo central"
+        "pergunta": "Enem(2019) Qual a função da mitocôndria na célula?",
+        "alternativas": ["Produzir energia", "Sintetizar proteínas", "Armazenar água", "Controlar o núcleo"],
+        "resposta": "Produzir energia"
       },
       {
-        "pergunta": "Os seres vivos são organizados em:",
-        "alternativas": ["Átomos", "Órgãos", "Sistemas", "Células"],
-        "resposta": "Células"
-      }
-    ],
-    "ingles": [
-      {
-        "pergunta": "What is the plural of 'child'?",
-        "alternativas": ["Childs", "Childes", "Children", "Childer"],
-        "resposta": "Children"
+        "pergunta": "Enem(2018) Qual é o material genético presente no núcleo das células?",
+        "alternativas": ["DNA", "RNA", "Proteínas", "Lipídios"],
+        "resposta": "DNA"
       },
       {
-        "pergunta": "How do you say 'bom dia' in English?",
-        "alternativas": ["Good afternoon", "Good morning", "Good night", "Hello"],
-        "resposta": "Good morning"
-      }
-    ],
-    "espanhol": [
-      {
-        "pergunta": "Qual é o verbo 'comer' na 1ª pessoa do presente?",
-        "alternativas": ["Como", "Comes", "Come", "Comemos"],
-        "resposta": "Como"
+        "pergunta": "Enem(2017) O que é fotossíntese?",
+        "alternativas": ["Processo que converte luz em energia", "Respiração celular", "Produção de ATP", "Digestão"],
+        "resposta": "Processo que converte luz em energia"
       },
       {
-        "pergunta": "Como se diz 'vermelho' em espanhol?",
-        "alternativas": ["Verde", "Rojo", "Azul", "Amarillo"],
-        "resposta": "Rojo"
-      }
-    ]
-  },
-
-  "aleatorias": {
-    "matematica": [
-      {
-        "pergunta": "Qual o próximo número da sequência: 1, 3, 6, 10, ?",
-        "alternativas": ["14", "15", "16", "18"],
-        "resposta": "15"
+        "pergunta": "Enem(2020) Qual a principal função dos glóbulos vermelhos?",
+        "alternativas": ["Transportar oxigênio", "Combater infecções", "Coagular sangue", "Produzir hormônios"],
+        "resposta": "Transportar oxigênio"
       },
       {
-        "pergunta": "Se um carro anda 60km em 1h, quantos km ele faz em 2h30min?",
-        "alternativas": ["120km", "150km", "180km", "90km"],
-        "resposta": "150km"
-      }
-    ],
-    "portugues": [
-      {
-        "pergunta": "Qual palavra é um homônimo de 'cela'?",
-        "alternativas": ["Sela", "Celo", "Cena", "Celo"],
-        "resposta": "Sela"
-      },
-      {
-        "pergunta": "Na frase 'Corremos bastante ontem', 'ontem' é um advérbio de:",
-        "alternativas": ["Modo", "Tempo", "Intensidade", "Lugar"],
-        "resposta": "Tempo"
-      }
-    ],
-    "literatura": [
-      {
-        "pergunta": "O personagem Bentinho aparece em qual obra?",
-        "alternativas": ["Memórias Póstumas", "Dom Casmurro", "Senhora", "Iracema"],
-        "resposta": "Dom Casmurro"
-      },
-      {
-        "pergunta": "Qual movimento literário priorizava o sentimento sobre a razão?",
-        "alternativas": ["Romantismo", "Realismo", "Simbolismo", "Parnasianismo"],
-        "resposta": "Romantismo"
+        "pergunta": "Enem(2016) O que são enzimas?",
+        "alternativas": ["Catalisadores biológicos", "Vitaminas", "Hormônios", "Proteínas estruturais"],
+        "resposta": "Catalisadores biológicos"
       }
     ],
     "historia": [
       {
-        "pergunta": "Quem foi o líder da Revolta dos Malês?",
-        "alternativas": ["Zumbi", "Luís Gama", "Escravos islâmicos", "Tiradentes"],
-        "resposta": "Escravos islâmicos"
+        "pergunta": "Enem(2019) Quando ocorreu a Proclamação da República no Brasil?",
+        "alternativas": ["1889", "1822", "1500", "1964"],
+        "resposta": "1889"
       },
       {
-        "pergunta": "Qual império caiu em 476 d.C.?",
-        "alternativas": ["Bizantino", "Romano do Ocidente", "Egípcio", "Grego"],
-        "resposta": "Romano do Ocidente"
+        "pergunta": "Enem(2018) Quem foi Tiradentes?",
+        "alternativas": ["Líder da Inconfidência Mineira", "Presidente do Brasil", "Explorador português", "Imperador do Brasil"],
+        "resposta": "Líder da Inconfidência Mineira"
+      },
+      {
+        "pergunta": "Enem(2017) Qual foi a principal causa da Primeira Guerra Mundial?",
+        "alternativas": ["Assassinato do arquiduque Francisco Ferdinando", "Invasão da Polônia", "Revolução Russa", "Crise de 1929"],
+        "resposta": "Assassinato do arquiduque Francisco Ferdinando"
+      },
+      {
+        "pergunta": "Enem(2020) Quem foi Getúlio Vargas?",
+        "alternativas": ["Presidente do Brasil", "General na Primeira Guerra", "Explorador", "Escritor famoso"],
+        "resposta": "Presidente do Brasil"
+      },
+      {
+        "pergunta": "Enem(2016) O que foi o movimento Diretas Já?",
+        "alternativas": ["Movimento pela eleição direta", "Golpe militar", "Movimento operário", "Revolução industrial"],
+        "resposta": "Movimento pela eleição direta"
       }
     ],
     "geografia": [
       {
-        "pergunta": "Qual bioma brasileiro sofre mais com queimadas?",
-        "alternativas": ["Amazônia", "Pantanal", "Caatinga", "Mata Atlântica"],
-        "resposta": "Pantanal"
+        "pergunta": "Enem(2019) Qual é o maior país em extensão territorial do mundo?",
+        "alternativas": ["Rússia", "Canadá", "China", "Estados Unidos"],
+        "resposta": "Rússia"
       },
       {
-        "pergunta": "Qual é a capital da Austrália?",
-        "alternativas": ["Sydney", "Melbourne", "Canberra", "Brisbane"],
-        "resposta": "Canberra"
-      }
-    ],
-    "filosofia": [
-      {
-        "pergunta": "O que significa 'ataraxia' na filosofia?",
-        "alternativas": ["Dor física", "Estado de serenidade", "Desconfiança do saber", "Virtude racional"],
-        "resposta": "Estado de serenidade"
+        "pergunta": "Enem(2018) O que é a linha do Equador?",
+        "alternativas": ["Linha imaginária que divide a Terra em hemisférios", "Linha real no solo", "Fronteira entre países", "Círculo polar ártico"],
+        "resposta": "Linha imaginária que divide a Terra em hemisférios"
       },
       {
-        "pergunta": "Nietzsche é conhecido por criticar qual conceito?",
-        "alternativas": ["Democracia", "Deus", "Ciência", "Mito"],
-        "resposta": "Deus"
-      }
-    ],
-    "sociologia": [
-      {
-        "pergunta": "A cultura popular é caracterizada por:",
-        "alternativas": ["Ser erudita", "Vinda de elites", "Origem do povo", "Produção acadêmica"],
-        "resposta": "Origem do povo"
+        "pergunta": "Enem(2017) Qual é o maior deserto do mundo?",
+        "alternativas": ["Saara", "Gobi", "Kalahari", "Atacama"],
+        "resposta": "Saara"
       },
       {
-        "pergunta": "O que é etnocentrismo?",
-        "alternativas": ["Valorização da diversidade", "Crença na superioridade cultural própria", "Interculturalismo", "Relativismo ético"],
-        "resposta": "Crença na superioridade cultural própria"
-      }
-    ],
-    "fisica": [
-      {
-        "pergunta": "Qual instrumento mede corrente elétrica?",
-        "alternativas": ["Multímetro", "Amperímetro", "Voltímetro", "Termômetro"],
-        "resposta": "Amperímetro"
+        "pergunta": "Enem(2020) O que é a urbanização?",
+        "alternativas": ["Processo de crescimento das cidades", "Desmatamento", "Industrialização", "Migração rural"],
+        "resposta": "Processo de crescimento das cidades"
       },
       {
-        "pergunta": "Qual fenômeno explica o arco-íris?",
-        "alternativas": ["Refração da luz", "Reflexão total", "Absorção luminosa", "Magnetismo"],
-        "resposta": "Refração da luz"
-      }
-    ],
-    "quimica": [
-      {
-        "pergunta": "O que é um cátion?",
-        "alternativas": ["Íon negativo", "Átomo neutro", "Íon positivo", "Molécula orgânica"],
-        "resposta": "Íon positivo"
-      },
-      {
-        "pergunta": "Qual gás é usado para encher balões que flutuam?",
-        "alternativas": ["Hidrogênio", "Oxigênio", "Hélio", "Argônio"],
-        "resposta": "Hélio"
-      }
-    ],
-    "biologia": [
-      {
-        "pergunta": "A fauna endêmica é típica de:",
-        "alternativas": ["Vários lugares", "Locais isolados", "Rios e lagos", "Cidades"],
-        "resposta": "Locais isolados"
-      },
-      {
-        "pergunta": "O que é um ser autotrófico?",
-        "alternativas": ["Que se alimenta de outros", "Que produz seu próprio alimento", "Que vive em simbiose", "Que realiza fermentação"],
-        "resposta": "Que produz seu próprio alimento"
+        "pergunta": "Enem(2016) Qual é a principal causa do efeito estufa?",
+        "alternativas": ["Gases poluentes", "Radiação solar", "Vulcões", "Ondas do mar"],
+        "resposta": "Gases poluentes"
       }
     ],
     "ingles": [
       {
-        "pergunta": "Which of these is a fruit?",
-        "alternativas": ["Dog", "Car", "Banana", "Chair"],
-        "resposta": "Banana"
+        "pergunta": "Enem(2019) Qual a tradução da palavra 'house'?",
+        "alternativas": ["Casa", "Carro", "Árvore", "Janela"],
+        "resposta": "Casa"
       },
       {
-        "pergunta": "What color is the sky on a sunny day?",
-        "alternativas": ["Green", "Red", "Blue", "Black"],
-        "resposta": "Blue"
+        "pergunta": "Enem(2018) O que significa 'to run'?",
+        "alternativas": ["Correr", "Andar", "Pular", "Dormir"],
+        "resposta": "Correr"
+      },
+      {
+        "pergunta": "Enem(2017) Qual o plural de 'child'?",
+        "alternativas": ["Children", "Childs", "Childes", "Childrens"],
+        "resposta": "Children"
+      },
+      {
+        "pergunta": "Enem(2020) Como se diz 'livro' em inglês?",
+        "alternativas": ["Book", "Pen", "Table", "Chair"],
+        "resposta": "Book"
+      },
+      {
+        "pergunta": "Enem(2016) O que significa a expressão 'break a leg'?",
+        "alternativas": ["Boa sorte", "Quebrar a perna", "Correr rápido", "Estudar muito"],
+        "resposta": "Boa sorte"
+      }
+    ],
+    "filosofia": [
+      {
+        "pergunta": "Enem(2019) Quem foi Sócrates?",
+        "alternativas": ["Filósofo grego", "Cientista", "Escritor", "Político"],
+        "resposta": "Filósofo grego"
+      },
+      {
+        "pergunta": "Enem(2018) Qual é a obra principal de Platão?",
+        "alternativas": ["A República", "Ética a Nicômaco", "Assim Falou Zaratustra", "O Príncipe"],
+        "resposta": "A República"
+      },
+      {
+        "pergunta": "Enem(2017) O que é o método socrático?",
+        "alternativas": ["Questionamento dialético", "Meditação", "Experimento", "Argumentação informal"],
+        "resposta": "Questionamento dialético"
+      },
+      {
+        "pergunta": "Enem(2020) Quem escreveu 'O Capital'?",
+        "alternativas": ["Karl Marx", "Adam Smith", "Friedrich Nietzsche", "John Locke"],
+        "resposta": "Karl Marx"
+      },
+      {
+        "pergunta": "Enem(2016) Qual a área da filosofia que estuda o conhecimento?",
+        "alternativas": ["Epistemologia", "Ontologia", "Estética", "Lógica"],
+        "resposta": "Epistemologia"
+      }
+    ],
+    "sociologia": [
+      {
+        "pergunta": "Enem(2019) O que é cultura?",
+        "alternativas": ["Conjunto de valores e práticas", "Língua falada", "Tradições religiosas", "Nível econômico"],
+        "resposta": "Conjunto de valores e práticas"
+      },
+      {
+        "pergunta": "Enem(2018) Qual o conceito de estratificação social?",
+        "alternativas": ["Divisão em classes sociais", "Conjunto de culturas", "Nível educacional", "Trabalho em grupo"],
+        "resposta": "Divisão em classes sociais"
+      },
+      {
+        "pergunta": "Enem(2017) O que é mobilidade social?",
+        "alternativas": ["Mudança de classe social", "Imobilidade econômica", "Trabalho informal", "Revolução social"],
+        "resposta": "Mudança de classe social"
+      },
+      {
+        "pergunta": "Enem(2020) Qual é a principal característica da sociedade moderna?",
+        "alternativas": ["Industrialização", "Agricultura", "Feudalismo", "Colonialismo"],
+        "resposta": "Industrialização"
+      },
+      {
+        "pergunta": "Enem(2016) O que significa alienação segundo Marx?",
+        "alternativas": ["Perda da identidade no trabalho", "Liberdade econômica", "Movimento social", "Cultura popular"],
+        "resposta": "Perda da identidade no trabalho"
+      }
+    ],
+    "literatura": [
+      {
+        "pergunta": "Enem(2019) Quem escreveu 'Dom Casmurro'?",
+        "alternativas": ["Machado de Assis", "José de Alencar", "Carlos Drummond", "Cecília Meireles"],
+        "resposta": "Machado de Assis"
+      },
+      {
+        "pergunta": "Enem(2018) Qual é o gênero literário de 'Auto da Compadecida'?",
+        "alternativas": ["Teatro", "Romance", "Poesia", "Conto"],
+        "resposta": "Teatro"
+      },
+      {
+        "pergunta": "Enem(2017) Qual movimento literário é associado a Gregório de Matos?",
+        "alternativas": ["Barroco", "Romantismo", "Modernismo", "Realismo"],
+        "resposta": "Barroco"
+      },
+      {
+        "pergunta": "Enem(2020) O que caracteriza o Modernismo no Brasil?",
+        "alternativas": ["Experimentação e ruptura", "Romantismo", "Classicismo", "Realismo"],
+        "resposta": "Experimentação e ruptura"
+      },
+      {
+        "pergunta": "Enem(2016) Quem é o autor de 'Os Sertões'?",
+        "alternativas": ["Euclides da Cunha", "Machado de Assis", "Jorge Amado", "Graciliano Ramos"],
+        "resposta": "Euclides da Cunha"
       }
     ],
     "espanhol": [
       {
-        "pergunta": "Como se diz 'amigo' no feminino?",
-        "alternativas": ["Amiga", "Amigue", "Amigae", "Amigó"],
+        "pergunta": "Enem(2015). ¿Qué pronombre sustituye correctamente a 'Nós'?",
+        "alternativas": [
+          "Yo",
+          "Tú",
+          "Ellos",
+          "Nosotros"
+        ],
+        "resposta": "Nosotros"
+      },
+      {
+        "pergunta": "Enem(2016). ¿Cómo se dice 'bom dia' en español?",
+        "alternativas": [
+          "Buenas tardes",
+          "Buenas noches",
+          "Buen día",
+          "Buenos días"
+        ],
+        "resposta": "Buenos días"
+      },
+      {
+        "pergunta": "Enem(2017). ¿Cuál es el antónimo de 'triste'?",
+        "alternativas": [
+          "Fácil",
+          "Feliz",
+          "Rápido",
+          "Lento"
+        ],
+        "resposta": "Feliz"
+      },
+      {
+        "pergunta": "Enem(2018). El verbo 'comer' en primera persona del presente es:",
+        "alternativas": [
+          "Comes",
+          "Como",
+          "Come",
+          "Comemos"
+        ],
+        "resposta": "Como"
+      },
+      {
+        "pergunta": "Enem(2019). ¿Qué significa 'libro' en portugués?",
+        "alternativas": [
+          "Livro",
+          "Papel",
+          "Caderno",
+          "Caneta"
+        ],
+        "resposta": "Livro"
+      }
+    ]
+  },
+  "pas": {
+    "matematica": [
+      {
+        "pergunta": "Pas(2019) Qual é o valor de x na equação 3x + 4 = 19?",
+        "alternativas": ["3", "4", "5", "6"],
+        "resposta": "5"
+      },
+      {
+        "pergunta": "Pas(2018) Qual o resultado da expressão (2+3)²?",
+        "alternativas": ["10", "12", "15", "25"],
+        "resposta": "25"
+      },
+      {
+        "pergunta": "Pas(2017) Qual a raiz quadrada de 81?",
+        "alternativas": ["7", "8", "9", "10"],
+        "resposta": "9"
+      },
+      {
+        "pergunta": "Pas(2020) Qual é o valor do perímetro de um quadrado de lado 5 cm?",
+        "alternativas": ["10 cm", "15 cm", "20 cm", "25 cm"],
+        "resposta": "20 cm"
+      },
+      {
+        "pergunta": "Pas(2016) Qual é o valor da expressão 2^4?",
+        "alternativas": ["8", "12", "16", "32"],
+        "resposta": "16"
+      }
+    ],
+    "portugues":[
+      {
+        "pergunta": "Pas(2019) Qual o sujeito da frase 'Os alunos estudam para a prova'?",
+        "alternativas": ["Os alunos", "Estudam", "Para a prova", "Prova"],
+        "resposta": "Os alunos"
+        },
+        {
+        "pergunta": "Pas(2018) Qual o tipo de palavra é 'rápido' na frase 'Ele corre rápido'?",
+        "alternativas": ["Adjetivo", "Substantivo", "Advérbio", "Verbo"],
+        "resposta": "Advérbio"
+        },
+        {
+        "pergunta": "Pas(2017) Qual é o tempo verbal do verbo 'cantava'?",
+        "alternativas": ["Pretérito imperfeito", "Presente", "Futuro do presente", "Pretérito perfeito"],
+        "resposta": "Pretérito imperfeito"
+        },
+        {
+        "pergunta": "Pas(2020) Qual a função do sujeito na frase 'João foi ao mercado'?",
+        "alternativas": ["Agente da ação", "Objeto direto", "Adjunto adverbial", "Predicativo"],
+        "resposta": "Agente da ação"
+        },
+        {
+        "pergunta": "Pas(2016) Qual a classe gramatical de 'muito' em 'Ela tem muito dinheiro'?",
+        "alternativas": ["Pronome", "Advérbio", "Adjetivo", "Substantivo"],
+        "resposta": "Advérbio"
+        }
+    ],
+    "fisica": [
+      {
+        "pergunta": "PAS - Física: A unidade de medida de força é:",
+        "alternativas": ["Newton", "Joule", "Watt", "Ampere"],
+        "resposta": "Newton"
+      },
+      {
+        "pergunta": "PAS - Física: A energia potencial depende de:",
+        "alternativas": ["Massa, gravidade e altura", "Velocidade e massa", "Frequência", "Corrente"],
+        "resposta": "Massa, gravidade e altura"
+      },
+      {
+        "pergunta": "PAS - Física: O que é velocidade média?",
+        "alternativas": ["Espaço / Tempo", "Força × Tempo", "Massa / Tempo", "Potência / Trabalho"],
+        "resposta": "Espaço / Tempo"
+      },
+      {
+        "pergunta": "PAS - Física: A velocidade da luz no vácuo é:",
+        "alternativas": ["3×10⁸ m/s", "3×10⁶ m/s", "3×10⁵ m/s", "3×10⁴ m/s"],
+        "resposta": "3×10⁸ m/s"
+      },
+      {
+        "pergunta": "PAS - Física: Qual instrumento mede corrente elétrica?",
+        "alternativas": ["Amperímetro", "Voltímetro", "Termômetro", "Ohmímetro"],
+        "resposta": "Amperímetro"
+      }
+    ],
+    "quimica": [
+      {
+        "pergunta": "PAS - Química: O número atômico do oxigênio é:",
+        "alternativas": ["8", "6", "16", "10"],
+        "resposta": "8"
+      },
+      {
+        "pergunta": "PAS - Química: Uma mistura homogênea é:",
+        "alternativas": ["Uniforme", "Com duas fases", "Sólida", "Gasosa"],
+        "resposta": "Uniforme"
+      },
+      {
+        "pergunta": "PAS - Química: O pH neutro é:",
+        "alternativas": ["7", "1", "14", "0"],
+        "resposta": "7"
+      },
+      {
+        "pergunta": "PAS - Química: Qual gás é usado em balões que flutuam?",
+        "alternativas": ["Hélio", "Hidrogênio", "Oxigênio", "Argônio"],
+        "resposta": "Hélio"
+      },
+      {
+        "pergunta": "PAS - Química: O sal de cozinha é quimicamente:",
+        "alternativas": ["NaCl", "KCl", "CaCO₃", "MgSO₄"],
+        "resposta": "NaCl"
+      }
+    ],
+    "biologia": [
+      {
+        "pergunta": "PAS - Biologia: A célula vegetal tem qual estrutura exclusiva?",
+        "alternativas": ["Cloroplasto", "Lisossomo", "Centríolo", "Ribossomo"],
+        "resposta": "Cloroplasto"
+      },
+      {
+        "pergunta": "PAS - Biologia: A unidade básica dos seres vivos é:",
+        "alternativas": ["Célula", "Tecido", "Molécula", "Orgão"],
+        "resposta": "Célula"
+      },
+      {
+        "pergunta": "PAS - Biologia: Vírus são considerados:",
+        "alternativas": ["Parasitas obrigatórios", "Bactérias", "Protozoários", "Fungos"],
+        "resposta": "Parasitas obrigatórios"
+      },
+      {
+        "pergunta": "PAS - Biologia: Onde está o DNA na célula eucariótica?",
+        "alternativas": ["No núcleo", "No citoplasma", "No lisossomo", "Na membrana"],
+        "resposta": "No núcleo"
+      },
+      {
+        "pergunta": "PAS - Biologia: Os seres autotróficos são aqueles que:",
+        "alternativas": ["Produzem seu próprio alimento", "Se alimentam de outros", "Fermentam glicose", "Vivem na escuridão"],
+        "resposta": "Produzem seu próprio alimento"
+      }
+    ],
+    "historia": [
+      {
+        "pergunta": "PAS - História: A Inconfidência Mineira ocorreu em que século?",
+        "alternativas": ["XVIII", "XIX", "XVII", "XVI"],
+        "resposta": "XVIII"
+      },
+      {
+        "pergunta": "PAS - História: Quem proclamou a independência do Brasil?",
+        "alternativas": ["Dom Pedro I", "Dom Pedro II", "José Bonifácio", "Tiradentes"],
+        "resposta": "Dom Pedro I"
+      },
+      {
+        "pergunta": "PAS - História: A Segunda Guerra Mundial acabou em:",
+        "alternativas": ["1945", "1944", "1946", "1939"],
+        "resposta": "1945"
+      },
+      {
+        "pergunta": "PAS - História: A Constituição de 1988 é conhecida como:",
+        "alternativas": ["Constituição Cidadã", "Nova República", "Democrática", "Magna Carta"],
+        "resposta": "Constituição Cidadã"
+      },
+      {
+        "pergunta": "PAS - História: Quem foi o líder da Revolução Cubana?",
+        "alternativas": ["Fidel Castro", "Che Guevara", "Hugo Chávez", "Lenin"],
+        "resposta": "Fidel Castro"
+      }
+    ],
+    "geografia": [
+      {
+        "pergunta": "PAS - Geografia: Qual é o maior bioma brasileiro?",
+        "alternativas": ["Amazônia", "Cerrado", "Pantanal", "Mata Atlântica"],
+        "resposta": "Amazônia"
+      },
+      {
+        "pergunta": "PAS - Geografia: O Aquífero Guarani está localizado em:",
+        "alternativas": ["América do Sul", "Europa", "África", "América Central"],
+        "resposta": "América do Sul"
+      },
+      {
+        "pergunta": "PAS - Geografia: A desertificação é causada principalmente por:",
+        "alternativas": ["Desmatamento", "Vulcões", "Chuva ácida", "Tsunamis"],
+        "resposta": "Desmatamento"
+      },
+      {
+        "pergunta": "PAS - Geografia: Qual país faz fronteira com o Brasil e fala inglês?",
+        "alternativas": ["Guiana", "Argentina", "Suriname", "Uruguai"],
+        "resposta": "Guiana"
+      },
+      {
+        "pergunta": "PAS - Geografia: Qual oceano banha o litoral brasileiro?",
+        "alternativas": ["Atlântico", "Pacífico", "Índico", "Ártico"],
+        "resposta": "Atlântico"
+      }
+    ],
+    "ingles": [
+      {
+        "pergunta": "PAS - Inglês: What is the plural of 'child'?",
+        "alternativas": ["Children", "Childs", "Childer", "Childes"],
+        "resposta": "Children"
+      },
+      {
+        "pergunta": "PAS - Inglês: How do you say 'bom dia' in English?",
+        "alternativas": ["Good morning", "Good afternoon", "Good night", "Hello"],
+        "resposta": "Good morning"
+      },
+      {
+        "pergunta": "PAS - Inglês: Which of these is a fruit?",
+        "alternativas": ["Apple", "Dog", "Chair", "Bottle"],
+        "resposta": "Apple"
+      },
+      {
+        "pergunta": "PAS - Inglês: What color is the sun?",
+        "alternativas": ["Yellow", "Blue", "Green", "Black"],
+        "resposta": "Yellow"
+      },
+      {
+        "pergunta": "PAS - Inglês: What does 'happy' mean?",
+        "alternativas": ["Feliz", "Triste", "Bravo", "Cansado"],
+        "resposta": "Feliz"
+      }
+    ],
+    "espanhol": [
+      {
+        "pergunta": "PAS - Espanhol: Como se diz 'livro' em espanhol?",
+        "alternativas": ["Libro", "Livra", "Libroa", "Libra"],
+        "resposta": "Libro"
+      },
+      {
+        "pergunta": "PAS - Espanhol: O feminino de 'amigo' é:",
+        "alternativas": ["Amiga", "Amigue", "Amigoa", "Amig"],
         "resposta": "Amiga"
       },
       {
-        "pergunta": "Qual desses é um verbo?",
-        "alternativas": ["Mesa", "Correr", "Rápido", "Bonito"],
-        "resposta": "Correr"
+        "pergunta": "PAS - Espanhol: Qual destes é um verbo?",
+        "alternativas": ["Comer", "Mesa", "Casa", "Rápido"],
+        "resposta": "Comer"
+      },
+      {
+        "pergunta": "PAS - Espanhol: 'Rojo' significa:",
+        "alternativas": ["Vermelho", "Amarelo", "Azul", "Preto"],
+        "resposta": "Vermelho"
+      },
+      {
+        "pergunta": "PAS - Espanhol: 'Nosotros' corresponde a:",
+        "alternativas": ["Nós", "Vós", "Eles", "Vocês"],
+        "resposta": "Nós"
+      }
+    ],
+    "filosofia": [
+      {
+        "pergunta": "PAS - Filosofia: 'Penso, logo existo' é frase de qual filósofo?",
+        "alternativas": ["René Descartes", "Aristóteles", "Sócrates", "Nietzsche"],
+        "resposta": "René Descartes"
+      },
+      {
+        "pergunta": "PAS - Filosofia: O que é epistemologia?",
+        "alternativas": ["Estudo do conhecimento", "Estudo da vida", "Estudo da linguagem", "Estudo da alma"],
+        "resposta": "Estudo do conhecimento"
+      },
+      {
+        "pergunta": "PAS - Filosofia: A maiêutica é um método de ensino criado por:",
+        "alternativas": ["Sócrates", "Platão", "Aristóteles", "Kant"],
+        "resposta": "Sócrates"
+      },
+      {
+        "pergunta": "PAS - Filosofia: O conceito de 'virtude como hábito' é de:",
+        "alternativas": ["Aristóteles", "Kant", "Descartes", "Nietzsche"],
+        "resposta": "Aristóteles"
+      },
+      {
+        "pergunta": "PAS - Filosofia: A ética kantiana se baseia em:",
+        "alternativas": ["Dever e razão", "Consequências", "Sentimentos", "Felicidade"],
+        "resposta": "Dever e razão"
+      }
+    ],
+    "sociologia": [
+      {
+        "pergunta": "PAS - Sociologia: O que é mobilidade social?",
+        "alternativas": ["Mudança de classe social", "Mudança de cidade", "Mudança de escola", "Mudança de trabalho"],
+        "resposta": "Mudança de classe social"
+      },
+      {
+        "pergunta": "PAS - Sociologia: Quem é o autor da teoria do fato social?",
+        "alternativas": ["Durkheim", "Weber", "Marx", "Comte"],
+        "resposta": "Durkheim"
+      },
+      {
+        "pergunta": "PAS - Sociologia: O conceito de ideologia é importante para:",
+        "alternativas": ["Karl Marx", "Durkheim", "Freud", "Aristóteles"],
+        "resposta": "Karl Marx"
+      },
+      {
+        "pergunta": "PAS - Sociologia: A socialização primária ocorre na:",
+        "alternativas": ["Família", "Escola", "Igreja", "Trabalho"],
+        "resposta": "Família"
+      },
+      {
+        "pergunta": "PAS - Sociologia: O termo 'anomia' foi usado por:",
+        "alternativas": ["Durkheim", "Weber", "Spencer", "Comte"],
+        "resposta": "Durkheim"
+      }
+    ],
+    "literatura": [
+    {
+      "pergunta": "PAS - Literatura: Quem é o autor de 'Iracema'?",
+      "alternativas": ["José de Alencar", "Machado de Assis", "Aluísio Azevedo", "Carlos Drummond"],
+      "resposta": "José de Alencar"
+    },
+    {
+      "pergunta": "PAS - Literatura: O realismo substituiu qual movimento literário?",
+      "alternativas": ["Romantismo", "Parnasianismo", "Simbolismo", "Modernismo"],
+      "resposta": "Romantismo"
+    },
+    {
+      "pergunta": "PAS - Literatura: O Simbolismo valoriza principalmente:",
+      "alternativas": ["Razão", "Subjetividade", "Objetividade", "Ciência"],
+      "resposta": "Subjetividade"
+    },
+    {
+      "pergunta": "PAS - Literatura: Quem escreveu 'A Moreninha'?",
+      "alternativas": ["Joaquim Manuel de Macedo", "Machado de Assis", "José de Alencar", "Raul Pompeia"],
+      "resposta": "Joaquim Manuel de Macedo"
+    },
+    {
+      "pergunta": "PAS - Literatura: Qual movimento introduziu o soneto com métrica rígida?",
+      "alternativas": ["Parnasianismo", "Romantismo", "Modernismo", "Simbolismo"],
+      "resposta": "Parnasianismo"
+    }
+    ]
+  },
+  "aleatorias": {
+    "portugues": [
+  {
+    "pergunta": "Aleatória - Português: Qual é a classe gramatical da palavra 'feliz'?",
+    "alternativas": ["Adjetivo", "Substantivo", "Verbo", "Advérbio"],
+    "resposta": "Adjetivo"
+  },
+  {
+    "pergunta": "Aleatória - Português: O que é uma oração coordenada?",
+    "alternativas": ["Independente", "Subordinada", "Simples", "Redundante"],
+    "resposta": "Independente"
+  },
+  {
+    "pergunta": "Aleatória - Português: Qual é o sujeito da frase: 'Chove muito aqui'?",
+    "alternativas": ["Oculto", "Indeterminado", "Simples", "Inexistente"],
+    "resposta": "Inexistente"
+  },
+  {
+    "pergunta": "Aleatória - Português: Qual alternativa apresenta uma figura de linguagem?",
+    "alternativas": ["A noite chorava estrelas", "O livro está na mesa", "Hoje é segunda-feira", "Ele passou no teste"],
+    "resposta": "A noite chorava estrelas"
+  },
+  {
+    "pergunta": "Aleatória - Português: Qual é o tempo verbal da frase: 'Eu tinha estudado'?",
+    "alternativas": ["Pretérito mais-que-perfeito composto", "Pretérito perfeito", "Futuro do presente", "Pretérito imperfeito"],
+    "resposta": "Pretérito mais-que-perfeito composto"
+  }
+    ],
+    "matematica": [
+      {
+        "pergunta": "Aleatória - Matemática: Quanto é 12 × 8?",
+        "alternativas": ["96", "86", "102", "88"],
+        "resposta": "96"
+      },
+      {
+        "pergunta": "Aleatória - Matemática: Qual é a raiz quadrada de 121?",
+        "alternativas": ["11", "12", "13", "10"],
+        "resposta": "11"
+      },
+      {
+        "pergunta": "Aleatória - Matemática: Qual é o valor de π (pi) aproximado?",
+        "alternativas": ["3,14", "3,41", "3,04", "3,44"],
+        "resposta": "3,14"
+      },
+      {
+        "pergunta": "Aleatória - Matemática: Qual é o resultado de (3² + 4²)?",
+        "alternativas": ["25", "49", "18", "19"],
+        "resposta": "25"
+      },
+      {
+        "pergunta": "Aleatória - Matemática: ¼ é equivalente a:",
+        "alternativas": ["0,25", "0,5", "0,75", "1,25"],
+        "resposta": "0,25"
+      }
+    ],
+    "literatura": [
+      {
+        "pergunta": "Aleatória - Literatura: Quem escreveu 'Os Sertões'?",
+        "alternativas": ["Euclides da Cunha", "Machado de Assis", "José de Alencar", "Monteiro Lobato"],
+        "resposta": "Euclides da Cunha"
+      },
+      {
+        "pergunta": "Aleatória - Literatura: O Modernismo começou em que ano?",
+        "alternativas": ["1922", "1930", "1889", "1900"],
+        "resposta": "1922"
+      },
+      {
+        "pergunta": "Aleatória - Literatura: Quem é o autor de 'Dom Casmurro'?",
+        "alternativas": ["Machado de Assis", "Aluísio Azevedo", "Carlos Drummond", "Cecília Meireles"],
+        "resposta": "Machado de Assis"
+      },
+      {
+        "pergunta": "Aleatória - Literatura: Qual obra pertence ao Naturalismo?",
+        "alternativas": ["O Cortiço", "Iracema", "Memórias Póstumas", "A Moreninha"],
+        "resposta": "O Cortiço"
+      },
+      {
+        "pergunta": "Aleatória - Literatura: O que caracteriza o romantismo?",
+        "alternativas": ["Idealização do amor", "Racionalidade extrema", "Crítica social", "Subjetividade científica"],
+        "resposta": "Idealização do amor"
+      }
+    ],
+    "historia": [
+      {
+        "pergunta": "Aleatória - História: Em que ano começou a Primeira Guerra Mundial?",
+        "alternativas": ["1914", "1918", "1939", "1920"],
+        "resposta": "1914"
+      },
+      {
+        "pergunta": "Aleatória - História: Quem foi o primeiro presidente do Brasil?",
+        "alternativas": ["Deodoro da Fonseca", "Getúlio Vargas", "Floriano Peixoto", "Dom Pedro II"],
+        "resposta": "Deodoro da Fonseca"
+      },
+      {
+        "pergunta": "Aleatória - História: Qual país colonizou o Brasil?",
+        "alternativas": ["Portugal", "Espanha", "Inglaterra", "França"],
+        "resposta": "Portugal"
+      },
+      {
+        "pergunta": "Aleatória - História: O que foi a Revolução Francesa?",
+        "alternativas": ["Queda da monarquia", "Fim da escravidão", "Conquista da América", "Independência dos EUA"],
+        "resposta": "Queda da monarquia"
+      },
+      {
+        "pergunta": "Aleatória - História: Quando foi proclamada a República no Brasil?",
+        "alternativas": ["1889", "1822", "1964", "1500"],
+        "resposta": "1889"
+      }
+    ],
+    "geografia": [
+      {
+        "pergunta": "Aleatória - Geografia: Qual é o maior país do mundo em extensão territorial?",
+        "alternativas": ["Rússia", "Canadá", "Brasil", "China"],
+        "resposta": "Rússia"
+      },
+      {
+        "pergunta": "Aleatória - Geografia: O que é latitude?",
+        "alternativas": ["Distância ao Equador", "Altura de montanhas", "Distância ao meridiano", "Curvatura da Terra"],
+        "resposta": "Distância ao Equador"
+      },
+      {
+        "pergunta": "Aleatória - Geografia: A capital da Argentina é:",
+        "alternativas": ["Buenos Aires", "Montevidéu", "Santiago", "Lima"],
+        "resposta": "Buenos Aires"
+      },
+      {
+        "pergunta": "Aleatória - Geografia: O clima equatorial é:",
+        "alternativas": ["Quente e úmido", "Frio e seco", "Seco e árido", "Temperado e frio"],
+        "resposta": "Quente e úmido"
+      },
+      {
+        "pergunta": "Aleatória - Geografia: O Brasil tem quantos estados?",
+        "alternativas": ["26", "27", "25", "24"],
+        "resposta": "26"
+      }
+    ],
+    "filosofia": [
+      {
+        "pergunta": "Aleatória - Filosofia: Quem foi o criador da Academia de Atenas?",
+        "alternativas": ["Platão", "Sócrates", "Aristóteles", "Epicuro"],
+        "resposta": "Platão"
+      },
+      {
+        "pergunta": "Aleatória - Filosofia: O que é o 'mito da caverna'?",
+        "alternativas": ["Alusão à ignorância humana", "História sobre política", "Fábula sobre animais", "Experimento de Newton"],
+        "resposta": "Alusão à ignorância humana"
+      },
+      {
+        "pergunta": "Aleatória - Filosofia: O que significa 'ética'?",
+        "alternativas": ["Conjunto de valores morais", "Leis escritas", "Ciência exata", "Estudo do corpo humano"],
+        "resposta": "Conjunto de valores morais"
+      },
+      {
+        "pergunta": "Aleatória - Filosofia: Aristóteles foi discípulo de:",
+        "alternativas": ["Platão", "Sócrates", "Descartes", "Kant"],
+        "resposta": "Platão"
+      },
+      {
+        "pergunta": "Aleatória - Filosofia: Nietzsche escreveu:",
+        "alternativas": ["Assim Falou Zaratustra", "O Príncipe", "A República", "O Capital"],
+        "resposta": "Assim Falou Zaratustra"
+      }
+    ],
+    "sociologia": [
+      {
+        "pergunta": "Aleatória - Sociologia: O que é cultura?",
+        "alternativas": ["Conjunto de valores e costumes", "Livros da escola", "Apenas arte", "Política e economia"],
+        "resposta": "Conjunto de valores e costumes"
+      },
+      {
+        "pergunta": "Aleatória - Sociologia: A teoria do conflito é associada a:",
+        "alternativas": ["Karl Marx", "Durkheim", "Freud", "Comte"],
+        "resposta": "Karl Marx"
+      },
+      {
+        "pergunta": "Aleatória - Sociologia: Qual sociólogo criou o termo 'fato social'?",
+        "alternativas": ["Émile Durkheim", "Weber", "Marx", "Spencer"],
+        "resposta": "Émile Durkheim"
+      },
+      {
+        "pergunta": "Aleatória - Sociologia: O que é alienação?",
+        "alternativas": ["Perda da consciência crítica", "Trabalho voluntário", "Ato religioso", "Sistema político"],
+        "resposta": "Perda da consciência crítica"
+      },
+      {
+        "pergunta": "Aleatória - Sociologia: O funcionalismo entende a sociedade como:",
+        "alternativas": ["Um organismo", "Um caos", "Uma guerra", "Uma rede de empresas"],
+        "resposta": "Um organismo"
+      }
+    ],
+    "fisica": [
+    {
+      "pergunta": "Aleatória - Física: Qual é a unidade de medida da força no SI?",
+      "alternativas": ["Newton", "Joule", "Watt", "Pascal"],
+      "resposta": "Newton"
+    },
+    {
+      "pergunta": "Aleatória - Física: Qual é a fórmula da 2ª Lei de Newton?",
+      "alternativas": ["F = m × a", "E = m × c²", "P = m × g", "F = q × E"],
+      "resposta": "F = m × a"
+    },
+    {
+      "pergunta": "Aleatória - Física: A luz se propaga em linha:",
+      "alternativas": ["Reta", "Curva", "Ondulante", "Espiral"],
+      "resposta": "Reta"
+    },
+    {
+      "pergunta": "Aleatória - Física: Qual grandeza é medida em Joule?",
+      "alternativas": ["Energia", "Força", "Temperatura", "Velocidade"],
+      "resposta": "Energia"
+    },
+    {
+      "pergunta": "Aleatória - Física: O que é velocidade média?",
+      "alternativas": ["Espaço total dividido pelo tempo total", "Força dividida pela massa", "Potência vezes tempo", "Aceleração sobre força"],
+      "resposta": "Espaço total dividido pelo tempo total"
+    }
+    ],
+    "quimica": [
+      {
+        "pergunta": "Aleatória - Química: Qual é o símbolo do sódio na tabela periódica?",
+        "alternativas": ["Na", "S", "So", "Sn"],
+        "resposta": "Na"
+      },
+      {
+        "pergunta": "Aleatória - Química: A água é formada por quais elementos?",
+        "alternativas": ["Hidrogênio e oxigênio", "Oxigênio e carbono", "Carbono e hidrogênio", "Nitrogênio e oxigênio"],
+        "resposta": "Hidrogênio e oxigênio"
+      },
+      {
+        "pergunta": "Aleatória - Química: Qual é o pH da água pura?",
+        "alternativas": ["7", "0", "14", "10"],
+        "resposta": "7"
+      },
+      {
+        "pergunta": "Aleatória - Química: Qual é a fórmula do gás carbônico?",
+        "alternativas": ["CO₂", "H₂O", "O₂", "CH₄"],
+        "resposta": "CO₂"
+      },
+      {
+        "pergunta": "Aleatória - Química: Ácidos possuem sabor:",
+        "alternativas": ["Azedo", "Doce", "Salgado", "Amargo"],
+        "resposta": "Azedo"
+      }
+    ],
+    "biologia": [
+      {
+        "pergunta": "Aleatória - Biologia: Qual organela é responsável pela respiração celular?",
+        "alternativas": ["Mitocôndria", "Ribossomo", "Lisossomo", "Cloroplasto"],
+        "resposta": "Mitocôndria"
+      },
+      {
+        "pergunta": "Aleatória - Biologia: Qual é a molécula do DNA?",
+        "alternativas": ["Ácido desoxirribonucleico", "Ácido ribonucleico", "Proteína", "Lípido"],
+        "resposta": "Ácido desoxirribonucleico"
+      },
+      {
+        "pergunta": "Aleatória - Biologia: Qual é o reino dos fungos?",
+        "alternativas": ["Fungi", "Animalia", "Plantae", "Protista"],
+        "resposta": "Fungi"
+      },
+      {
+        "pergunta": "Aleatória - Biologia: A fotossíntese ocorre em:",
+        "alternativas": ["Cloroplastos", "Mitocôndrias", "Citoplasma", "Ribossomos"],
+        "resposta": "Cloroplastos"
+      },
+      {
+        "pergunta": "Aleatória - Biologia: Qual sistema corporal transporta sangue?",
+        "alternativas": ["Circulatório", "Digestivo", "Respiratório", "Excretor"],
+        "resposta": "Circulatório"
+      }
+    ],
+    "ingles": [
+      {
+        "pergunta": "Aleatória - Inglês: What is the correct translation of 'house'?",
+        "alternativas": ["Casa", "Carro", "Escola", "Mesa"],
+        "resposta": "Casa"
+      },
+      {
+        "pergunta": "Aleatória - Inglês: What is the past of 'go'?",
+        "alternativas": ["Went", "Goes", "Gone", "Going"],
+        "resposta": "Went"
+      },
+      {
+        "pergunta": "Aleatória - Inglês: 'She is reading a book.' What is the verb tense?",
+        "alternativas": ["Present continuous", "Past simple", "Present simple", "Future"],
+        "resposta": "Present continuous"
+      },
+      {
+        "pergunta": "Aleatória - Inglês: What does 'beautiful' mean?",
+        "alternativas": ["Bonita", "Rápida", "Alta", "Engraçada"],
+        "resposta": "Bonita"
+      },
+      {
+        "pergunta": "Aleatória - Inglês: Complete: 'I ____ to school every day.'",
+        "alternativas": ["go", "goes", "gone", "going"],
+        "resposta": "go"
+      }
+    ],
+    "espanhol": [
+      {
+        "pergunta": "Aleatória - Espanhol: Qual o significado de 'libro'?",
+        "alternativas": ["Livro", "Caneta", "Mesa", "Papel"],
+        "resposta": "Livro"
+      },
+      {
+        "pergunta": "Aleatória - Espanhol: 'Nosotros comemos' significa:",
+        "alternativas": ["Nós comemos", "Eles comem", "Eu como", "Vocês comem"],
+        "resposta": "Nós comemos"
+      },
+      {
+        "pergunta": "Aleatória - Espanhol: Qual o passado de 'hablar' na 1ª pessoa?",
+        "alternativas": ["Hablé", "Habla", "Hablaba", "Hablaré"],
+        "resposta": "Hablé"
+      },
+      {
+        "pergunta": "Aleatória - Espanhol: O que significa 'escuela'?",
+        "alternativas": ["Escola", "Casa", "Praia", "Rua"],
+        "resposta": "Escola"
+      },
+      {
+        "pergunta": "Aleatória - Espanhol: 'Buenos días' significa:",
+        "alternativas": ["Bom dia", "Boa noite", "Boa tarde", "Como vai?"],
+        "resposta": "Bom dia"
       }
     ]
   }
