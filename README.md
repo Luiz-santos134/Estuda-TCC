@@ -14,6 +14,8 @@
 
 ✅ IA para auxiliar nos estudos
 
+✅ Progressão de carreira
+
 Este sistema não depende de dados institucionais (como boletins ou notas), e sim foca na autogestão do estudante.
 
 🛠️ Tecnologias utilizadas
