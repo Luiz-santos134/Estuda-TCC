@@ -274,6 +274,15 @@
             display: none;
         }
 
+        @media (max-width: 1920px) {
+            .materia{
+                font-size: 15pt;
+            }
+            .divisao{
+                margin-bottom: 25px;
+            }
+        }
+
     </style>
 
 </head>
@@ -417,7 +426,6 @@
                     </div>
 
                     <div class="feitos">
-                        <p></p>
                         <ul>
                             <li>
                                 <p> <span id="numPorcent"></span>% </p>
@@ -434,7 +442,7 @@
 
             <p>Questoes <span id="tipoSimulado"></span>:</p>
 
-            <p id="Pergunta">Quanto é 2x2?</p>
+            <p id="Pergunta"></p>
 
             <div class="respostas">
                 <button class="resposta" id="alterUm" onclick="responder(this.id)">N/D</button>

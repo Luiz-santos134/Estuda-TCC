@@ -1,26 +1,3 @@
-let btnMenu = document.querySelector('.menuBars');
-let menu = document.querySelector('.menu');
-
-menu.style.display = 'none';
-menu.style.transform = 'translateX(-50px)';
-
-function abrirMenu() {
-    if (menu.style.display == 'none' || menu.style.display == '') {
-        menu.style.display = 'block';
-        menu.style.transition = 'transform 0.5s ease-in-out';
-        menu.style.transform = 'translateX(-50px)'; // Começa fora da tela (ex: -100%)
-        setTimeout(() => {
-            menu.style.transform = 'translateX(0px)';
-        }, 10); // Espera 10ms antes de aplicar o movimento
-    } else {
-        menu.style.transition = 'transform 0.5s ease-in-out';
-        menu.style.transform = 'translateX(-50px)';
-        setTimeout(() => {
-            menu.style.display = 'none';
-        }, 500); // Espera a animação acabar para esconder
-    }
-}
-
 function gerarFrase() {
     const frases = [
         "A vida é uma aventura ousada ou não é nada.",
@@ -34,42 +11,26 @@ function gerarFrase() {
 }
 gerarFrase();
 
-function abrirModal(idModal) {
-    let container;
-    if (idModal === 'addTarefas') {
-        container = document.querySelector('.tarefasPendentes');
-    } else if (idModal === 'addHabitos') {
-        container = document.querySelector('.habitos_hoje');
-    } else {
-        return;
-    }
+function abrirModal() {
+    const modal = document.querySelector(".modal");
+    const overlay = document.querySelector(".overlay");
 
-    const modal = container.querySelector('.modal');
-    modal.style.display = 'flex';
-    modal.style.opacity = '1';
+    modal.style.display = "flex";
+    overlay.style.display = "block";
 
-    const modal_content = modal.querySelector('.modal-content');
-    const titulo = modal_content.querySelector('h2');
-    const placeholder = modal_content.querySelector('input');
-
-    if (idModal === 'addTarefas') {
-        placeholder.placeholder = 'Digite a tarefa';
-        titulo.innerText = 'Adicionar Tarefas';
-        modal_content.style.backgroundColor = 'rgb(74, 85, 247)';
-    } else if (idModal === 'addHabitos') {
-        placeholder.placeholder = 'Digite o hábito';
-        titulo.innerText = 'Adicionar Hábitos';
-        modal_content.style.backgroundColor = 'red';
-    }
+    document.body.classList.add("no-scroll");
 }
 
-function fecharModal(el) {
-    const modal = el.closest('.modal');
-    modal.style.opacity = '0';
-    setTimeout(() => {
-        modal.style.display = 'none';
-    }, 500);
+function fecharModal() {
+    const modal = document.querySelector(".modal");
+    const overlay = document.querySelector(".overlay");
+
+    modal.style.display = "none";
+    overlay.style.display = "none";
+
+    document.body.classList.remove("no-scroll");
 }
+
 
 function enviarTH(idBotao) {
     let container;

@@ -91,8 +91,13 @@ function gerarSimulado() {
 function mostrarQuestao() {
     if (questaoIndex >= questoesSelecionadas.length) {
         alert("Simulado finalizado! Você acertou " + acertos + " de " + questoesSelecionadas.length + " questões.");
+
+        estruturaSimulado.style.display = "flex";
+        folhaSimulado.style.display = "none";
+
         numPorcent.innerText = ((acertos / questoesSelecionadas.length) * 100).toFixed(0);
         return;
+        //tenho que salvar o numporcent para mostrar na pagina do simulado, e tenho que gerar o resumo do simulado
     }
 
     questaoAtual = questoesSelecionadas[questaoIndex];

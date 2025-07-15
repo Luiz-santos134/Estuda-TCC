@@ -31,7 +31,6 @@
             --input-fundo: #1c1c1c;
             --input-borda: #3a3a3a;
         }
-
         .totalTasks, 
         .Done,
         .pendentes{
@@ -48,7 +47,6 @@
             font-weight: 500;
             color: var(--texto-primario);
         }
-
         .estruturaTasks{
             display: flex;
             flex-direction: column;
@@ -57,7 +55,6 @@
             width: 100%;
             height: 100%;
         }
-
         .content{
             display: flex;
             flex-direction: row;
@@ -67,7 +64,6 @@
             height: 100%;
             gap: 20px;
         }
-
         .tasksPendentes, .tasksDones {
             display: flex;
             flex-direction: column;
@@ -85,13 +81,11 @@
             color: var(--texto-primario);
             border: 1px solid var(--cor-secundaria-destaque);
         }
-
         .tasksPendentes h2, .tasksDones h2  {
             text-align: center;
             width: 100%;
             margin: 0;
         }
-
         #gerarSimu {
             width: 100%; /* Faz o botão ocupar toda a largura da div .materias */
             padding: 12px;
@@ -104,14 +98,12 @@
             border: none;
             box-sizing: border-box;
         }
-
         #gerarSimu:hover {
             background-color: rgb(40, 54, 134);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transform: scale(1.01);
             transition: background-color 0.5s ease, box-shadow 0.5s ease;
         }
-
         .topo{
             display: flex;
             flex-direction: row;
@@ -137,13 +129,90 @@
             cursor: pointer;
             border: none;
         }
-        
         .topo input[type="submit"]:hover {
             background-color: var(--cor-secundaria-destaque);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transform: scale(1.01);
             transition: background-color 0.5s ease, box-shadow 0.5s ease;
         }
+        .modal{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--cor-fundo);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30%;
+            height: 40%;
+            border-radius: 10px;
+            border: 1px solid var(--cor-secundaria-destaque);
+            z-index: 200;
+        }
+        .fechar {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--texto-primario);
+            z-index: 10;
+        }
+        .fechar:hover{
+            transition: all .5s ease;
+            transform: scale(1.05);
+            color: red;
+        }
+        .modal input, .modal button{
+            border-radius: 10px;
+            outline: none;
+            border: 1px solid var(--cor-secundaria-destaque);
+            width: 100%;
+            font-size: 14pt;
+            padding: 10px;
+        }
+        input:focus{
+            background-color: var(--cor-detalhe);
+            color: var(--texto-primario);
+        }
+        input:hover, button:hover{
+            border: 1px solid var(--texto-primario);
+            background-color: var(--cor-hover);
+            
+        }
+        button:hover{
+            cursor: pointer;
+            background-color: var(--cor-secundaria-destaque);
+            transition: all .5s ease;
+            transform: scale(1.01);
+        }
+        .modal-content{
+            display: flex;
+            flex-direction: column;
+            width: 60%;
+            gap: 50px;
+        }
+        #formTarefa{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            
+        }
+        .no-scroll {
+            overflow: hidden;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.6); /* escurece o fundo */
+            z-index: 100; /* fica atrás do modal */
+            display: none;
+        }
+
     </style>
 </head>
 
@@ -203,7 +272,7 @@
     <main>
         <div class="topo">
             <p>Minhas Tarefas</p>
-            <input type="submit" value="Adicionar Tarefa">
+            <input type="submit" value="Adicionar Tarefa" onclick="abrirModal()">
         </div>
 
         <div class="resumo">
@@ -236,6 +305,23 @@
             </div>
         </div>
 
+        <div class="overlay" onclick="fecharModal()">
+            <div class="modal">
+                <div class="fechar">
+                    <i class="fa fa-xmark" onclick="fecharModal(this)"></i>
+                </div>
+                <div class="modal-content">
+                    <h2>Adicionar Tarefa</h2>
+                    <form id="formTarefa">
+                        <input type="text" placeholder="Título da Tarefa" required>
+                        <button type="submit" onclick="enviarTH(this.id)" id="enviar_tarefa">Adicionar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        
+
     </main>
 
     <footer>
@@ -249,4 +335,5 @@
     </footer>
 </body>
 <script src="home.js"></script>
+<script src="script.js"></script>
 </html>
