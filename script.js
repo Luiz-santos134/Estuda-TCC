@@ -1,3 +1,6 @@
+let frase = document.querySelector('.frase-motivacional');
+let ultimaFrase = "";
+
 function gerarFrase() {
     const frases = [
         "A vida é uma aventura ousada ou não é nada.",
@@ -7,8 +10,15 @@ function gerarFrase() {
         "A vida é 10% o que acontece conosco e 90% como reagimos a isso."
     ];
 
-    document.querySelector('.frase-motivacional').innerText = frases[Math.floor(Math.random() * frases.length)];
+    let novaFrase;
+    do {
+        novaFrase = frases[Math.floor(Math.random() * frases.length)];
+    } while (novaFrase === ultimaFrase);
+
+    ultimaFrase = novaFrase;
+    frase.innerText = novaFrase;
 }
+
 gerarFrase();
 
 function abrirModal() {
@@ -32,50 +42,62 @@ function fecharModal() {
 }
 
 
-function enviarTH(idBotao) {
-    let container;
-    if (idBotao === 'enviar_tarefa') {
-        container = document.querySelector('.tarefasPendentes');
-    } else if (idBotao === 'enviar_habito') {
-        container = document.querySelector('.habitos_hoje');
-    } else {
-        return;
-    }
+function enviarTH(event) {
+    event.preventDefault(); // impede o envio padrão do form
 
-    const modal = container.querySelector('.modal');
-    const input = modal.querySelector('input');
-    const valor = input.value.trim();
+    const input = document.getElementById("tituloTarefa");
+    const titulo = input.value.trim();
 
-    function criarItem(valor, classe) {
-        const novaDiv = document.createElement('div');
-        novaDiv.classList.add(classe);
+    if (titulo === "") return;
 
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
+    // Recupera tarefas salvas (ou cria array vazio)
+    let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
 
-        const p = document.createElement('p');
-        p.innerText = valor;
+    // Adiciona nova tarefa
+    tarefas.push({ titulo: titulo });
 
-        novaDiv.appendChild(checkbox);
-        novaDiv.appendChild(p);
+    // Salva no localStorage
+    localStorage.setItem("tarefas", JSON.stringify(tarefas));
 
-        return novaDiv;
-    }
+    input.value = ""; // limpa o campo
+    fecharModal(); // fecha o modal se quiser
+    atualizarListaTarefas(); // função que você pode criar para mostrar na tela
 
-    if (idBotao === 'enviar_tarefa') {
-        const itensTarefas = container.querySelector('.itens');
-        const novaTarefa = criarItem(valor, 'tarefa');
-        itensTarefas.appendChild(novaTarefa);
-    } else if (idBotao === 'enviar_habito') {
-        const itensHabitos = container.querySelector('.itensHabitos');
-        const novoHabito = criarItem(valor, 'habitos');
-        itensHabitos.appendChild(novoHabito);
-    }
-
-    console.log(`Tarefa/Hábito adicionado: ${valor}`);
-
-    input.value = '';
-    fecharModal(modal.querySelector('.fechar'));
+    let tarefasSalvas = JSON.parse(localStorage.getItem("tarefas")) || [];
+    console.log(tarefasSalvas);
 }
 
+function atualizarListaTarefas() {
+    const lista = document.querySelector(".tasksPendentes ul");
+    lista.innerHTML = ""; // limpa a lista antes de atualizar
 
+    const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+
+    tarefas.forEach((tarefa, index) => {
+        const li = document.createElement("li");
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = `tarefa_${index}`;
+        checkbox.name = `tarefa_${index}`;
+
+        const label = document.createElement("label");
+        label.setAttribute("for", `tarefa_${index}`);
+        label.textContent = tarefa.titulo;
+
+        li.appendChild(checkbox);
+        li.appendChild(label);
+        lista.appendChild(li);
+    });
+
+    // Atualiza o número de tarefas pendentes no título
+    const contador = document.querySelector(".tasksPendentes h2 span");
+    contador.textContent = tarefas.length;
+}
+
+console.log(localStorage.getItem("tarefas"));
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    atualizarListaTarefas();
+});

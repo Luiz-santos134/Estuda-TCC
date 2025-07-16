@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="home.css">
 
     <style>
+        ul, li{
+            padding: 0;
+            margin: 0;
+        }
         :root {
             --cor-fundo: #121212;
             --cor-secundaria: #1e1e1e;
@@ -69,9 +73,10 @@
             flex-direction: column;
             align-items: center;
             justify-content: start;
-            gap: 10px;
+            gap: 20px;
             width: 50%;
-            height: 80%;
+            min-height: 80%;
+            height: 80% auto;
             padding: 20px;
             background-color: var(--cor-detalhe);
             border-radius: 10px;
@@ -85,6 +90,30 @@
             text-align: center;
             width: 100%;
             margin: 0;
+        }
+        .tasksPendentes ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 80px;
+        }
+
+        .tasksPendentes li {
+            display: flex;
+            align-items: center;
+            font-size: 1.4rem; /* Tamanho da fonte maior */
+            color: var(--texto-primario);
+            gap: 10px;
+        }
+
+        .tasksPendentes input[type="checkbox"] {
+            transform: scale(1.8); /* Aumenta o tamanho do checkbox */
+            cursor: pointer;
+        }
+        .parte1, .parte2{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
         #gerarSimu {
             width: 100%; /* Faz o botão ocupar toda a largura da div .materias */
@@ -297,6 +326,14 @@
 
                 <div class="tasksPendentes">
                     <h2>Tarefas Pendentes (<span>0</span>) </h2>
+                    <ul>
+                        <div class="parte1">
+                            <li>
+                                <input type="checkbox" id="nomeTarefa" name="nomeTarefa">
+                                <label for="nomeTarefa">Matemática</label>
+                            </li>
+                        </div>
+                    </ul>
                 </div>
 
                 <div class="tasksDones">
@@ -305,7 +342,7 @@
             </div>
         </div>
 
-        <div class="overlay" onclick="fecharModal()">
+        <div class="overlay">
             <div class="modal">
                 <div class="fechar">
                     <i class="fa fa-xmark" onclick="fecharModal(this)"></i>
@@ -313,15 +350,12 @@
                 <div class="modal-content">
                     <h2>Adicionar Tarefa</h2>
                     <form id="formTarefa">
-                        <input type="text" placeholder="Título da Tarefa" required>
-                        <button type="submit" onclick="enviarTH(this.id)" id="enviar_tarefa">Adicionar</button>
+                        <input type="text" id="tituloTarefa" placeholder="Título da Tarefa" required>
+                        <button type="submit" onclick="enviarTH(event)" id="enviar_tarefa">Adicionar</button>
                     </form>
                 </div>
             </div>
         </div>
-
-        
-
     </main>
 
     <footer>
