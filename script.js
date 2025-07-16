@@ -1,6 +1,8 @@
 let frase = document.querySelector('.frase-motivacional');
 let ultimaFrase = "";
 
+atualizarListaTarefas();
+
 function gerarFrase() {
     const frases = [
         "A vida é uma aventura ousada ou não é nada.",
@@ -94,10 +96,3 @@ function atualizarListaTarefas() {
     const contador = document.querySelector(".tasksPendentes h2 span");
     contador.textContent = tarefas.length;
 }
-
-console.log(localStorage.getItem("tarefas"));
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    atualizarListaTarefas();
-});

@@ -92,10 +92,9 @@
             margin: 0;
         }
         .tasksPendentes ul {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            gap: 80px;
+            display: grid;
+            grid-template-columns: 200px 200px 200px;
+            width: 80%;
         }
 
         .tasksPendentes li {
@@ -105,7 +104,6 @@
             color: var(--texto-primario);
             gap: 10px;
         }
-
         .tasksPendentes input[type="checkbox"] {
             transform: scale(1.8); /* Aumenta o tamanho do checkbox */
             cursor: pointer;
@@ -327,12 +325,10 @@
                 <div class="tasksPendentes">
                     <h2>Tarefas Pendentes (<span>0</span>) </h2>
                     <ul>
-                        <div class="parte1">
-                            <li>
-                                <input type="checkbox" id="nomeTarefa" name="nomeTarefa">
-                                <label for="nomeTarefa">Matemática</label>
-                            </li>
-                        </div>
+                        <li>
+                            <input type="checkbox" id="nomeTarefa" name="nomeTarefa">
+                            <label for="nomeTarefa">Matemática</label>
+                        </li>
                     </ul>
                 </div>
 
