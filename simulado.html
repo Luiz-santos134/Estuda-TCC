@@ -282,15 +282,25 @@
                 margin-bottom: 25px;
             }
         }
+        @media (max-width: 1600px) {
+             .materia{
+                font-size: 20pt;
+            }
+            .divisao{
+                margin-bottom: 40px;
+            }
+        }
 
     </style>
 
 </head>
 
 <body>
-    <header>
+   <header>
         <div class="titulo">
-            <p>Estuda <span>+</span></p>
+            <a href="home.html">
+                <p>E<span id="spanTitulo"></span> <span>+</span></p>
+            </a>
         </div>
 
         <div class="menu">
@@ -322,7 +332,7 @@
                         Anotações
                     </a>
                 </li>
-
+                
                 <li>
                     <a href="desafios.html" class="menu-link">
                         <i class="fas fa-brain"></i>

@@ -48,18 +48,20 @@ footer{
     border-top: 1px solid var(--borda);
 }
 
-.titulo p {
+.titulo p, #spanTitulo::after{
+    content: "studa";
     font-size: 1.2rem;
     font-weight: 500;
     align-items: center;
     user-select: none;
     cursor: pointer;
+    color: var(--texto-primario);
 }
 
 span {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--cor-primaria);
+    color: var(--cor-secundaria-destaque);
 }
 
 .menu ul {
@@ -71,7 +73,7 @@ span {
 }
 
 .menu ul a:hover {
-    color: var(--cor-primaria);
+    color: var(--cor-secundaria-destaque);
     background-color: var(--cor-hover);
     border-radius: 5px;
 }
@@ -153,7 +155,7 @@ main h1 {
     gap: 10px;
     padding: 20px;
     width: 40%;
-    height: auto;
+    height: 60%;
     border-radius: 10px;
     border: 1px solid var(--cor-secundaria-destaque);
     font-size: 1.2rem;
@@ -234,23 +236,16 @@ main h1 {
     cursor: default;
 }
 
-/* .itensAtalho i{
-    color: red;
-    background-color: red;
-    width: 50px;
-    height: 50px;
-} */
-
 .itensAtalho ul li {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     flex-direction: row;
     user-select: none;
 }
 
 .itensAtalho ul li:hover{
-    border-right: 2px solid var(--cor-primaria);
+    border-left: 2px solid var(--cor-primaria);
 }
 
 .interesses .itens li:hover {
@@ -258,7 +253,7 @@ main h1 {
 }
 
 .menu-link.active {
-    color: rgba(240, 55, 55, 0.753);
+    color: var(--cor-secundaria-destaque);
     font-weight: bold;
     background-color: var(--cor-hover);
 }
@@ -266,25 +261,39 @@ main h1 {
 
 
 
-
-body::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 8px;
-    background-color: rgba(255, 255, 255, 0.637);
+    background-color: transparent;
+    /* border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px; */
+    border-radius: 10px;
 }
 
-body::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     /* background-color: rgb(161, 65, 224); */
     background: linear-gradient(blue, rgb(75, 1, 97));
+    /* border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px; */
+    border-radius: 10px;
 }
 
-body::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background-color: transparent;
     border-radius: 1vw;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
+    #spanTitulo{
+        display: none;
+    }
+    .titulo p{
+        font-size: 20pt;
+    }
     header {
-        flex-direction: column;
         height: auto;
+        padding: 10px;
+    }
+    .frase-motivacional {
+        font-size: 15pt;
     }
 }

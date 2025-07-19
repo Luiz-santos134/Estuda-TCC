@@ -1,6 +1,6 @@
 let frase = document.querySelector('.frase-motivacional');
 let ultimaFrase = "";
-
+gerarFrase();
 atualizarListaTarefas();
 
 function gerarFrase() {
@@ -20,8 +20,6 @@ function gerarFrase() {
     ultimaFrase = novaFrase;
     frase.innerText = novaFrase;
 }
-
-gerarFrase();
 
 function abrirModal() {
     const modal = document.querySelector(".modal");
@@ -43,7 +41,6 @@ function fecharModal() {
     document.body.classList.remove("no-scroll");
 }
 
-
 function enviarTH(event) {
     event.preventDefault(); // impede o envio padrão do form
 
@@ -56,7 +53,7 @@ function enviarTH(event) {
     let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
 
     // Adiciona nova tarefa
-    tarefas.push({ titulo: titulo });
+    tarefas.push({ titulo: titulo, concluida: false });
 
     // Salva no localStorage
     localStorage.setItem("tarefas", JSON.stringify(tarefas));
@@ -64,16 +61,14 @@ function enviarTH(event) {
     input.value = ""; // limpa o campo
     fecharModal(); // fecha o modal se quiser
     atualizarListaTarefas(); // função que você pode criar para mostrar na tela
-
-    let tarefasSalvas = JSON.parse(localStorage.getItem("tarefas")) || [];
-    console.log(tarefasSalvas);
 }
 
 function atualizarListaTarefas() {
     const lista = document.querySelector(".tasksPendentes ul");
-    lista.innerHTML = ""; // limpa a lista antes de atualizar
+    lista.innerHTML = "";
 
-    const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+    let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+    let concluidas = 0;
 
     tarefas.forEach((tarefa, index) => {
         const li = document.createElement("li");
@@ -81,7 +76,13 @@ function atualizarListaTarefas() {
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.id = `tarefa_${index}`;
-        checkbox.name = `tarefa_${index}`;
+        checkbox.checked = tarefa.concluida;
+
+        checkbox.addEventListener("change", () => {
+            tarefas[index].concluida = checkbox.checked;
+            localStorage.setItem("tarefas", JSON.stringify(tarefas));
+            atualizarListaTarefas();
+        });
 
         const label = document.createElement("label");
         label.setAttribute("for", `tarefa_${index}`);
@@ -90,9 +91,47 @@ function atualizarListaTarefas() {
         li.appendChild(checkbox);
         li.appendChild(label);
         lista.appendChild(li);
+
+        if (tarefa.concluida) concluidas++;
     });
 
-    // Atualiza o número de tarefas pendentes no título
-    const contador = document.querySelector(".tasksPendentes h2 span");
-    contador.textContent = tarefas.length;
+    const numTask = tarefas.length;
+    const numConcluidas = concluidas;
+    const numPendentes = numTask - concluidas;
+
+    document.querySelector(".tasksPendentes h2 span").textContent = numPendentes;
+    document.querySelector(".tasksDones h2 span").textContent = numConcluidas;
+    document.querySelector(".numConcluidas").textContent = numConcluidas;
+    document.querySelector(".numPendentes").textContent = numPendentes;
+}
+
+// Chama a função ao abrir a página
+window.addEventListener("load", atualizarListaTarefas);
+
+function mostrarTarefas() {
+    const botao = document.getElementById("mostrarTasks");
+    const limpar = document.getElementById("limpar");
+
+    let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+
+    if (tarefas.length === 0) {
+        alert("Nenhuma tarefa pendente.");
+        botao.style.display = "block";
+        return;
+    }
+    else {
+        botao.style.display = "none";
+        limpar.style.display = "block";
+    }
+
+    
+
+    atualizarListaTarefas();
+}
+
+
+// Função para limpar tudo
+function limparTarefas() {
+    localStorage.removeItem("tarefas");
+    atualizarListaTarefas(); // Atualiza a lista após limpar
 }

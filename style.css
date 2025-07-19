@@ -463,6 +463,16 @@ input:hover {
 }
 
 @media (max-width: 768px) {
+    #spanTitulo{
+        display: none;
+    }
+    .titulo p{
+        font-size: 20pt;
+    }
+    header {
+        height: auto;
+        padding: 10px;
+    }
     header p {
         font-size: 14pt;
         margin-left: 0px;

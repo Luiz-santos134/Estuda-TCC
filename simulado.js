@@ -89,6 +89,13 @@ function gerarSimulado() {
 }
 
 function mostrarQuestao() {
+    const agora = new Date();
+    const dia = String(agora.getDate()).padStart(2, '0');
+    const mes = String(agora.getMonth() + 1).padStart(2, '0'); // Janeiro é 0!
+    const ano = agora.getFullYear();
+
+    const dataFormatada = `${dia}/${mes}/${ano}`;
+
     if (questaoIndex >= questoesSelecionadas.length) {
         alert("Simulado finalizado! Você acertou " + acertos + " de " + questoesSelecionadas.length + " questões.");
 
@@ -96,6 +103,7 @@ function mostrarQuestao() {
         folhaSimulado.style.display = "none";
 
         numPorcent.innerText = ((acertos / questoesSelecionadas.length) * 100).toFixed(0);
+        document.getElementById("data").innerText = dataFormatada;
         return;
         //tenho que salvar o numporcent para mostrar na pagina do simulado, e tenho que gerar o resumo do simulado
     }

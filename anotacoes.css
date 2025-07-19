@@ -55,3 +55,16 @@ input[type="number"]:hover,
 input[type="text"]:hover {
     background-color: transparent;
 }
+
+@media (max-width: 800px) {
+    #spanTitulo{
+        display: none;
+    }
+    .titulo p{
+        font-size: 20pt;
+    }
+    header {
+        height: auto;
+        padding: 10px;
+    }
+}

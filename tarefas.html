@@ -44,7 +44,7 @@
             gap: 10px;
             padding: 20px;
             width: 40%;
-            height: auto;
+            height: 60%;
             border-radius: 10px;
             border: 1px solid var(--cor-secundaria-destaque);
             font-size: 1.2rem;
@@ -76,7 +76,8 @@
             gap: 20px;
             width: 50%;
             min-height: 80%;
-            height: 80% auto;
+            height: 80%;
+            overflow-y: auto;
             padding: 20px;
             background-color: var(--cor-detalhe);
             border-radius: 10px;
@@ -90,13 +91,16 @@
             text-align: center;
             width: 100%;
             margin: 0;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            gap: 10px;
         }
         .tasksPendentes ul {
             display: grid;
             grid-template-columns: 200px 200px 200px;
-            width: 80%;
+            width: 60%;
         }
-
         .tasksPendentes li {
             display: flex;
             align-items: center;
@@ -106,6 +110,10 @@
         }
         .tasksPendentes input[type="checkbox"] {
             transform: scale(1.8); /* Aumenta o tamanho do checkbox */
+            cursor: pointer;
+        }
+        .tasksPendentes input[type="checkbox"]:hover {
+            transform: scale(2); /* Aumenta o tamanho do checkbox */
             cursor: pointer;
         }
         .parte1, .parte2{
@@ -239,14 +247,37 @@
             z-index: 100; /* fica atrás do modal */
             display: none;
         }
+        .tasksPendentes input, .tasksPendentes button {
+            padding: 10px 20px;
+            background-color: var(--cor-detalhe);
+            color: var(--texto-primario);
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 1px solid var(--texto-primario);
+            display: flex;
+        }
+        .tasksPendentes input:hover, .tasksPendentes button:hover {
+            background-color: var(--cor-secundaria-destaque);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: scale(1.01);
+            transition: background-color 0.5s ease, box-shadow 0.5s ease;
+        }
+        #limpar{
+            display: none;
+        }
 
     </style>
+    <script src="script.js"></script>
 </head>
 
 <body>
     <header>
         <div class="titulo">
-            <p>Estuda <span>+</span></p>
+            <a href="home.html">
+                <p>E<span id="spanTitulo"></span> <span>+</span></p>
+            </a>
         </div>
 
         <div class="menu">
@@ -304,31 +335,36 @@
 
         <div class="resumo">
             <div class="totalTasks">
-                <div class="numTask">12</div>
+                <div class="numTask">0</div>
                 <p>Total de Tarefas</p>
             </div>
 
-            <div class="Done">
-                <div class="numSimulado">8</div>
-                <p>Concluídas</p>
-            </div>
-
             <div class="pendentes">
-                <div class="numDesafios">5</div>
+                <div class="numPendentes">0</div>
                 <p>Pendentes</p>
             </div>
+            
+            <div class="Done">
+                <div class="numConcluidas">0</div>
+                <p>Concluídas</p>
+            </div>
         </div>
+
+        <!-- <li>
+            <input type="checkbox" id="nomeTarefa" name="nomeTarefa">
+            <label for="nomeTarefa">Matemática</label>
+        </li> -->
 
         <div class="estruturaTasks">
             <div class="content">
 
                 <div class="tasksPendentes">
-                    <h2>Tarefas Pendentes (<span>0</span>) </h2>
+                    <h2>Tarefas Pendentes (<span>0</span>) 
+                        <input type="submit" id="limpar" value="Limpar Tarefas" onclick="limparTarefas()">
+                    </h2>
+
+                    <button id="mostrarTasks" onclick="mostrarTarefas('pendentes')">Mostrar Tarefas</button>
                     <ul>
-                        <li>
-                            <input type="checkbox" id="nomeTarefa" name="nomeTarefa">
-                            <label for="nomeTarefa">Matemática</label>
-                        </li>
                     </ul>
                 </div>
 
