@@ -94,6 +94,8 @@ body {
     background-color: var(--cor-fundo);
     color: var(--texto-primario);
     font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
 main {
@@ -283,17 +285,37 @@ main h1 {
 }
 
 @media (max-width: 800px) {
-    #spanTitulo{
+    body {
+        height: 130dvh;
+    }
+    #spanTitulo {
         display: none;
     }
-    .titulo p{
+
+    .titulo p {
         font-size: 20pt;
     }
+
     header {
         height: auto;
         padding: 10px;
     }
+
     .frase-motivacional {
         font-size: 15pt;
+        padding: 15px;
     }
+
+    footer {
+        position: fixed;     /* Permanece no fluxo normal da página */
+        background-color: var(--cor-fundo);
+        bottom: 0;
+        width: 100%;
+        height: 10dvh;
+        padding: 20px 10px;
+        text-align: center;
+        gap: 10px;
+        z-index: 1000;
+    }
+
 }

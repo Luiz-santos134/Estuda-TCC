@@ -256,24 +256,46 @@
         .resposta:active {
             background-color: var(--cor-primaria);
         }
-        @media (max-width: 600px) {
+        @media (max-width: 800px) {
+            body {
+                height: 180dvh;
+            }
             .FolhaSimulado {
                 padding: 16px;
                 margin: 20px 10px;
             }
-
             #Pergunta {
                 font-size: 18px;
             }
-
             .resposta {
                 font-size: 15px;
             }
+            .estruturaSimulado{
+                position: relative;
+                top: 5%;
+            }
+            .content{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                gap: 20px;
+            }
+            .materias, .configuracoesSimulado {
+                position: relative;
+                top: 35%;
+                gap: 10px;
+                width: 100%;
+                min-height: 80%;
+                padding: 20px;
+            }
         }
+
         .FolhaSimulado{
             display: none;
         }
-
         @media (max-width: 1920px) {
             .materia{
                 font-size: 15pt;
@@ -288,6 +310,14 @@
             }
             .divisao{
                 margin-bottom: 40px;
+            }
+        }
+        @media (max-width: 1520px) {
+            .materia{
+                font-size: 17pt;
+            }
+            .divisao{
+                margin-bottom: 0px;
             }
         }
 
@@ -446,6 +476,7 @@
                 </div>
             </div>
         </div> 
+        
        
         <div class="FolhaSimulado">
             <p>Questão <span>1</span> de 10</p>

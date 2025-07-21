@@ -89,21 +89,19 @@ function gerarSimulado() {
 }
 
 function mostrarQuestao() {
-    const agora = new Date();
-    const dia = String(agora.getDate()).padStart(2, '0');
-    const mes = String(agora.getMonth() + 1).padStart(2, '0'); // Janeiro é 0!
-    const ano = agora.getFullYear();
-
-    const dataFormatada = `${dia}/${mes}/${ano}`;
+    let simuladosFinalizados = 0;
 
     if (questaoIndex >= questoesSelecionadas.length) {
         alert("Simulado finalizado! Você acertou " + acertos + " de " + questoesSelecionadas.length + " questões.");
 
         estruturaSimulado.style.display = "flex";
         folhaSimulado.style.display = "none";
+        
+
+        simuladosFinalizados++;
 
         numPorcent.innerText = ((acertos / questoesSelecionadas.length) * 100).toFixed(0);
-        document.getElementById("data").innerText = dataFormatada;
+        adicionarTarefaFeita(numPorcent.innerText);
         return;
         //tenho que salvar o numporcent para mostrar na pagina do simulado, e tenho que gerar o resumo do simulado
     }
@@ -117,6 +115,28 @@ function mostrarQuestao() {
     alterTres.innerText = questaoAtual.alternativas[2];
     alterQuatro.innerText = questaoAtual.alternativas[3];
 }
+
+function adicionarTarefaFeita(porcentagem) {
+    const listaFeitos = document.querySelector(".feitos ul");
+
+    // Pega a data atual
+    const hoje = new Date();
+    const dia = String(hoje.getDate()).padStart(2, '0');
+    const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+    const ano = hoje.getFullYear();
+    const dataFormatada = `${dia}/${mes}/${ano}`;
+
+    // Cria o elemento de tarefa feita
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+        <p><span id="numPorcent">${porcentagem}</span>%</p>
+        <span id="data">${dataFormatada}</span>
+    `;
+
+    listaFeitos.appendChild(li);
+}
+
 
 function responder(id) {
     const botaoClicado = document.getElementById(id);
