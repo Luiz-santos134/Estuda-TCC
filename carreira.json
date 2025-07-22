@@ -1,0 +1,72 @@
+{
+    "carreira": {
+        "titulo": "Carreira",
+        "descricao": "Descubra as diferentes áreas de atuação na tecnologia e como se preparar para cada uma delas.",
+        "areas": [
+            {
+                "nome": "Front-end",
+                "descricao": "Desenvolvimento de interfaces e experiências visuais para usuários.",
+                "habilidades": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "React"
+                ]
+            },
+            {
+                "nome": "Back-end",
+                "descricao": "Desenvolvimento de servidores, bancos de dados e lógica de aplicação.",
+                "habilidades": [
+                "Node.js",
+                "Express",
+                "MongoDB",
+                "SQL"
+                ]
+            },
+            {
+                "nome": "Full Stack",
+                "descricao": "Desenvolvimento completo de aplicações, tanto no front-end quanto no back-end.",
+                "habilidades": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "React",
+                "Node.js",
+                "Express",
+                "MongoDB",
+                "SQL"
+                ]
+            },
+            {
+                "nome": "DevOps",
+                "descricao": "Integração e entrega contínua, automação de processos de desenvolvimento e operações.",
+                "habilidades": [
+                "Docker",
+                "Kubernetes",
+                "CI/CD",
+                "AWS"
+                ]
+            },
+            {
+                "nome": "Data Science",
+                "descricao": "Análise de dados, machine learning e inteligência artificial.",
+                "habilidades": [
+                "Python",
+                "R",
+                "Pandas",
+                "Scikit-learn"
+                ]
+            },
+            {
+                "nome": "Designer",
+                "descricao": "Criação de interfaces, experiências de usuário e identidade visual.",
+                "habilidades": [
+                "Figma",
+                "Adobe XD",
+                "Photoshop",
+                "Illustrator"
+                ]
+            }
+        ]
+    }
+}

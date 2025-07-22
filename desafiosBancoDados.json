@@ -1,0 +1,16 @@
+{
+    "desafiosBancoDados": [
+        {
+        "id": 1,
+        "titulo": "Desafio 1",
+        "descricao": "Crie uma tabela de clientes com os campos id, nome, email e telefone.",
+        "resposta": "CREATE TABLE clientes (id INT PRIMARY KEY, nome VARCHAR(100), email VARCHAR(100), telefone VARCHAR(15));"
+        },
+        {
+        "id": 2,
+        "titulo": "Desafio 2",
+        "descricao": "Insira três registros na tabela de clientes.",
+        "resposta": "INSERT INTO clientes (id, nome, email, telefone) VALUES (1, 'João', 'joao@example.com', '123456789');\nINSERT INTO clientes (id, nome, email, telefone) VALUES (2, 'Maria', 'maria@example.com', '987654321');\nINSERT INTO clientes (id, nome, email, telefone) VALUES (3, 'José', 'jose@example.com', '456789123');"
+        }
+    ]
+}
