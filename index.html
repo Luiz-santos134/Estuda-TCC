@@ -48,7 +48,7 @@
     .container h2 {
       text-align: center;
       margin-bottom: 1.5rem;
-      color: var(--cor-primaria);
+      color: var(--cor-secundaria-destaque);
     }
 
     .form-group {
@@ -81,7 +81,7 @@
       padding: 0.8rem;
       border: none;
       border-radius: 5px;
-      background-color: var(--cor-primaria);
+      background-color: var(--cor-secundaria-destaque);
       color: white;
       font-weight: bold;
       cursor: pointer;
@@ -141,16 +141,26 @@
       const email = document.getElementById("email").value;
       const senha = document.getElementById("senha").value;
 
-      const usuario = {
-        nome,
-        email,
-        senha,
-      };
 
-      localStorage.setItem("usuario", JSON.stringify(usuario));
-      alert("Cadastro realizado com sucesso!");
-      window.location.href = "home.html";
+      const usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
+
+      if (email == usuarioSalvo.email){
+        alert('Email já cadastrado')
+        return
+      }
+      else{
+        const usuario = {
+          nome,
+          email,
+          senha,
+        };
+
+        localStorage.setItem("usuario", JSON.stringify(usuario));
+        alert("Cadastro realizado com sucesso!");
+        window.location.href = "home.html";
+        }
     });
+
   </script>
 
 </body>

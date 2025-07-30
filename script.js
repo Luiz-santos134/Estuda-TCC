@@ -61,6 +61,7 @@ function enviarTH(event) {
     input.value = ""; // limpa o campo
     fecharModal(); // fecha o modal se quiser
     atualizarListaTarefas(); // função que você pode criar para mostrar na tela
+    mostrarTarefas()
 }
 
 function atualizarListaTarefas() {
@@ -101,6 +102,7 @@ function atualizarListaTarefas() {
 
     document.querySelector(".tasksPendentes h2 span").textContent = numPendentes;
     document.querySelector(".tasksDones h2 span").textContent = numConcluidas;
+    document.querySelector(".numTask").textContent = numTask;
     document.querySelector(".numConcluidas").textContent = numConcluidas;
     document.querySelector(".numPendentes").textContent = numPendentes;
 }
@@ -123,9 +125,6 @@ function mostrarTarefas() {
         botao.style.display = "none";
         limpar.style.display = "block";
     }
-
-    
-
     atualizarListaTarefas();
 }
 

@@ -31,8 +31,45 @@
             --input-fundo: #1c1c1c;
             --input-borda: #3a3a3a;
         }
+        main{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            background-color: var(--cor-fundo);
+            color: var(--texto-primario);
+        }
         main h1 {
             padding: 0px;
+        }
+        .topo{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 10px 20px;
+        }
+        .editarPerfil{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 100px;
+        }
+        .editarPerfil button{
+            padding: 10px 20px;
+            background-color: var(--cor-secundaria-destaque);
+            color: var(--texto-primario);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .editarPerfil button:hover {
+            background-color: rgb(43, 43, 250);
+            transform: scale(1.05);
         }
         .container{
             display: flex;
@@ -46,6 +83,19 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 70%;
         }
+        .topo .titulo {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 0px;
+            color: var(--texto-primario);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .container .titulo{
+            margin-bottom: 20px;
+        }
         .titulo {
             display: flex;
             align-items: center;
@@ -53,8 +103,11 @@
             color: var(--texto-primario);
             font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 20px;
         }
+        .topo .titulo p {
+            font-size: 1rem;
+            color: var(--texto-secundario);
+        }   
         .titulo i {
             color: var(--cor-secundaria-destaque);
             font-size: 1.5rem;
@@ -66,13 +119,43 @@
             align-items: flex-start;
             width: 100%;
         }
-        #foto-perfil {
+        .fotoUser{
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 150px;
             height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
+            overflow: hidden;
+            margin-bottom: 20px;
             border: 2px solid var(--cor-secundaria-destaque);
+            border-radius: 50%;
+        }
+        #iconUserSelf{
+            position: absolute;
+            font-size: 100px;
+            color: var(--cor-secundaria-destaque);
+            margin-bottom: 10px;
+            cursor: pointer;
+            color: var(--texto-secundario);
+            display: none;
+        }
+        #foto_perfil {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: var(--cor-secundaria);
+            object-fit: cover;
+        }
+        #fotoInput {
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: transparent;
+            border-radius: 50%;
+            opacity: 0;
         }
         .info{
             display: flex;
@@ -99,7 +182,7 @@
             padding: 5px 0;
         }
         .nomeInfo input, .emailInfo input {
-            width: 100%;
+            min-width: 20rem;
             padding: 8px;
             border: 1px solid var(--cor-secundaria-destaque);
             border-radius: 5px;
@@ -113,9 +196,6 @@
             background-color: var(--cor-secundaria);
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            right: 20px;
-            top: 100px;
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -178,15 +258,20 @@
         </div>
     </header>
 
-    <main>
-        <div class="topo">
-            <div class="editarPerfil">
-                <button id="editarBtn">Editar Perfil</button>
-                <button id="salvarBtn" style="display: none;">Salvar</button>
-                <button id="cancelarBtn" style="display: none;">Cancelar</button>
-            </div>
+    <div class="topo">
+        <div class="titulo">
+            <h1>Meu Perfil</h1>
+            <p>Gerencie suas informações pessoais e preferências</p>
         </div>
 
+        <div class="editarPerfil">
+            <button id="editarBtn" onclick="editarUsuario()">Editar Perfil</button>
+            <button id="salvarBtn" style="display: none;">Salvar</button>
+            <button id="cancelarBtn" style="display: none;" onclick="cancelarEdicao()">Cancelar</button>
+        </div>
+    </div>
+    <main>
+        
         <div class="container">
             <div class="titulo">
                 <i class="fas fa-user"></i>
@@ -194,8 +279,12 @@
             </div>
 
             <div class="perfilInfo">
-
-                <img src="perfil.jpeg" alt="Foto de Perfil" id="foto-perfil">
+                <div class="fotoUser">
+                    <i class="fa-solid fa-camera" id="iconUserSelf">
+                        <input type="file" id="fotoInput" accept="image/*">
+                    </i>
+                    <img src="perfil.jpeg" alt="Foto de Perfil" id="foto_perfil">
+                </div>
                 
                 <div class="info">
                     <div class="nomeInfo">
@@ -215,10 +304,10 @@
             <h2>Configurações</h2>
             <div class="configuracoes">
                 <label for="temaSelect">Tema:</label>
-                <select id="temaSelect">
-                    <option value="claro">Claro</option>
-                    <option value="escuro">Escuro</option>
-                </select>
+                <div class="temas">
+                    <i class="fas fa-moon" id="temaEscuro" onclick="alternarTema('escuro')" data-tema="escuro" style="display: none;"></i>
+                    <i class="fas fa-sun" id="temaClaro" onclick="alternarTema('claro')" data-tema="claro"></i>
+                </div>
 
                 <label for="idiomaSelect">Idioma:</label>
                 <select id="idiomaSelect">

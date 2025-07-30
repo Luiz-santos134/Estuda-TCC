@@ -1,4 +1,4 @@
-:root {
+:root{
     --cor-fundo: #121212;
     --cor-secundaria: #1e1e1e;
     --cor-detalhe: #2d2d2d;
@@ -13,6 +13,21 @@
     --input-fundo: #1c1c1c;
     --input-borda: #3a3a3a;
 }
+
+:root.tema-claro {
+    --cor-fundo: #ffffff; /* fundo geral */
+    --cor-secundaria: #f2f2f2; /* caixas e blocos */
+    --cor-detalhe: #e0e0e0; /* detalhes internos */
+    --cor-hover: #d6d6d6; /* hover em elementos */
+    --cor-primaria: #ff4d4f; /* mantém o vermelho destaque */
+    --cor-secundaria-destaque: #3a6eff; /* mantém azul contraste */
+    --texto-primario: #1e1e1e; /* texto principal */
+    --texto-secundario: #555555; /* texto auxiliar */
+    --borda: #cccccc; /* bordas sutis */
+    --input-fundo: #ffffff; /* fundo do input */
+    --input-borda: #bbbbbb; /* borda do input */
+}
+
 
 * {
     margin: 0;
@@ -103,7 +118,7 @@ main {
     background-color: var(--cor-fundo);
     padding: 20px;
     width: 100%;
-    height: 90dvh;
+    height: 100dvh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -142,7 +157,7 @@ main h1 {
     background: radial-gradient(rgb(111, 0, 255), rgba(0, 0, 255, 0.349));
     border-radius: 10px;
     /* box-shadow: 0 4px 8px var(--cor-detalhe); */
-    /* border: 1px solid var(--cor-secundaria-destaque); */
+    border: 1px solid var(--cor-secundaria-destaque);
     font-size: 1.2rem;
     font-weight: 500;
     color: var(--texto-primario);
@@ -157,7 +172,7 @@ main h1 {
     gap: 10px;
     padding: 20px;
     width: 40%;
-    height: 60%;
+    height: 80%;
     border-radius: 10px;
     border: 1px solid var(--cor-secundaria-destaque);
     font-size: 1.2rem;
@@ -189,8 +204,10 @@ main h1 {
 .frase-motivacional {
     /* background-color: var(--cor-secundaria); */
     background: radial-gradient(rgb(111, 0, 255), blue);
+    border: 1px solid var(--cor-secundaria-destaque);
     width: 100%;
     height: 40%;
+    padding: 20px;
     align-items: center;
     font-size: 25pt;
     display: flex;

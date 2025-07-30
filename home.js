@@ -16,3 +16,24 @@ if (areaSimuladosFeitos.textContent.trim() === ""){
         Que tal fazer o primeiro?
          `
 }
+
+function alternarTema(tema) {
+    const root = document.documentElement;
+
+    if (tema === "claro") {
+        root.classList.add("tema-claro");
+        document.getElementById("temaClaro").style.display = "none";
+        document.getElementById("temaEscuro").style.display = "block";
+        localStorage.setItem("tema", "claro");
+    } else {
+        root.classList.remove("tema-claro");
+        document.getElementById("temaEscuro").style.display = "none";
+        document.getElementById("temaClaro").style.display = "block";
+        localStorage.setItem("tema", "escuro");
+    }
+}
+
+window.onload = () => {
+    const temaSalvo = localStorage.getItem("tema"); // padrão: escuro
+    alternarTema(temaSalvo); // reaplica o tema corretamente
+};

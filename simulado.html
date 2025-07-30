@@ -298,30 +298,28 @@
         .FolhaSimulado{
             display: none;
         }
-        @media (max-width: 1920px) {
-            .materia{
-                font-size: 15pt;
-            }
-            .divisao{
-                margin-bottom: 25px;
-            }
-        }
-        @media (max-width: 1600px) {
-             .materia{
-                font-size: 20pt;
-            }
-            .divisao{
-                margin-bottom: 40px;
+
+        /* Telas grandes */
+        @media (min-width: 145px) {
+            .materia {
+                font-size: 18pt;
             }
         }
-        @media (max-width: 1520px) {
-            .materia{
-                font-size: 17pt;
-            }
-            .divisao{
-                margin-bottom: 0px;
+
+        /* Telas médias*/
+        @media (max-width: 1400px) {
+            .materia {
+                font-size: 10pt;
             }
         }
+
+        /*Celulares*/
+        @media (max-width: 768px) {
+            .materia {
+                font-size: 12pt;
+            }
+        }
+
 
     </style>
 
