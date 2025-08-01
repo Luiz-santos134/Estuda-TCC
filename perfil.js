@@ -3,6 +3,7 @@ window.onload = function () {
 
     if (!usuarioSalvo) {
         alert("Nenhum usuário cadastrado.");
+        window.location.href = "index.html";
         return;
     }
 
@@ -20,9 +21,9 @@ window.onload = function () {
     }
 };
 
-
-
 function editarUsuario() {
+    const editarBtn = document.getElementById('editarBtn');
+    editarBtn.style.display = 'none';
     const botaoSalvar = document.getElementById('salvarBtn');
     botaoSalvar.style.display = 'block';
     const cancelarBtn = document.getElementById('cancelarBtn');
@@ -88,18 +89,20 @@ function editarUsuario() {
 }
 
 function cancelarEdicao() {
-    // const nomeInput = document.getElementById('nomeInput');
-    // const emailInput = document.getElementById('emailInput');
-    // const imgPerfil = document.getElementById('foto_perfil');
-    // const iconUserSelf = document.getElementById('iconUserSelf');
-
-    // nomeInput.value = '';
-    // emailInput.value = '';
-    // iconUserSelf.style.display = 'none';
-    // imgPerfil.src = 'perfil.jpeg';
-    // imgPerfil.alt = 'Foto de Perfil';
-    // nomeInput.readOnly = true;
-    // emailInput.readOnly = true;
-
     window.location.reload();
+}
+
+function sair()
+{
+    window.location.href = "index.html";
+}
+
+function deletarConta()
+{
+    const confirmar = confirm("Tem certeza que deseja deletar sua conta?");
+    if (confirmar) {
+        localStorage.removeItem("usuario");
+        alert("Conta deletada com sucesso!");
+        window.location.href = "index.html";
+    }
 }

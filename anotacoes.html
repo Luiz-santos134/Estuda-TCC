@@ -14,6 +14,214 @@
     <script src="https://kit.fontawesome.com/83da9facc2.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="home.css">
+    
+    <style>
+        
+        .anotacoes {
+            width: 100%;
+            height: 80dvh;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input {
+            width: 100%;
+            height: 50px;
+            border-radius: 10px;
+            border: 1px solid var(--texto-secundario);
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: transparent;
+            color: var(--texto-primario);
+        }
+        input[type="text"]::placeholder {
+            color: var(--texto-secundario);
+        }
+        @media (max-width: 800px) {
+            #spanTitulo{
+                display: none;
+            }
+            .titulo p{
+                font-size: 20pt;
+            }
+            header {
+                height: auto;
+                padding: 10px;
+            }
+        }
+        .topo{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 50px;
+        }
+        .adicionar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 30%;
+            height: 50px;
+            background-color: var(--cor-secundaria-destaque);
+            color: var(--texto-primario);
+            border-radius: 10px;
+            cursor: pointer;
+            opacity: 1;
+        }
+        .adicionar:hover {
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        .barraPesquisa {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            width: 100%;
+            height: 50px;
+            border-radius: 10px;
+        }
+        .barraPesquisa ul{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            list-style: none;
+        }
+        .barraPesquisa ul li {
+            cursor: pointer;
+            color: var(--texto-secundario);
+            border: 1px solid var(--texto-secundario);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .barraPesquisa ul li:hover {
+            color: var(--cor-secundaria-destaque);
+            transition: color 0.3s ease;
+            border-color: var(--cor-secundaria-destaque);
+        }
+        .container{
+            margin-top: 20px;
+            border: 1px solid var(--cor-secundaria-destaque);
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .modal{
+            width: 100%;
+            height: 100%;
+            background-color: #0000007a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            z-index: 5000;
+            overflow-y: hidden;
+        }
+        .modalContainer{
+            background-color: var(--cor-fundo);
+            border: 1px solid var(--cor-secundaria-destaque);
+            width: 35rem;
+            height: 35rem;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modalContainer p{
+            font-size: 14pt;
+        }
+        #tituloTarefa{
+            width: 100%;
+            border: 1px solid var(--texto-primario);
+            box-shadow: 0 0 5px var(--texto-primario);
+            margin-top: 10px;
+        }
+        label{
+            width: 100%;
+            font-size: 15pt;
+            font-weight: 400;
+        }
+        #anotacao {
+            min-width: 100%;
+            min-height: 40%;
+            max-width: 100%;
+            max-height: 40%;
+            background-color: transparent;
+            border-radius: 10px;
+            border: 1px solid var(--texto-primario);
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            box-shadow: 0 0 5px var(--texto-primario);
+            font-size: 16pt;
+            color: var(--texto-primario);
+        }
+        input:focus,#tituloTarefa:focus,
+        #anotacao:focus,#opcoes:focus {
+            outline: none;
+            border-color: var(--cor-secundaria-destaque);
+            box-shadow: 0 0 5px var(--cor-secundaria-destaque);
+        }
+        .topoModal{
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .topoModal input{
+            width: 10%;
+        }
+        .topoModal input:hover{
+            border: 1px solid var(--cor-secundaria-destaque);
+            color: var(--cor-secundaria-destaque);
+            cursor: pointer;
+            box-shadow: 2px 4px var(--cor-secundaria-destaque);
+            
+        }
+        .topoModal input:active{
+            transform: scale(1.1);
+            transition: all .3s ease;
+        }
+        #opcoes{
+            width: 100%;
+            height: 2.5rem;
+            outline: none;
+            border: 1px solid var(--texto-primario);
+            background-color: transparent;
+            padding: 10px;
+            color: var(--texto-primario);
+            border-radius: 10px;
+        }
+        #opcoes option{
+            color: var(--texto-primario);
+            background-color: var(--cor-fundo);
+        }
+        #btnAdicionarTask{
+            width: 100%;
+            background-color: transparent;
+            border: 1px solid rgb(255, 255, 255);
+            padding: 10px;
+            color: var(--texto-primario);
+            font-size: 12pt;
+            border-radius: 10px;
+        }
+        #btnAdicionarTask:hover{
+            transform: scale(1.01);
+            cursor: pointer;
+            border: 1px solid var(--cor-secundaria-destaque);
+        }
+    </style>
 </head>
 
 <body>
@@ -73,62 +281,62 @@
     
     <main>
         <div class="anotacoes">
-            <p>Anotações</p>
+            <div class="topo">
+                <p>Minhas Anotações</p>
 
-            <div class="titulo">
-                <input type="text" name="titulo" id="titulo" placeholder="Título da Anotação">
+                <div class="adicionar" onclick="abrirModal()" id="addAnotacoes" style="user-select: none; cursor: pointer;">
+                    <i class="fa fa-circle-plus"></i>
+                    <p>Adicionar Anotação</p>
+                </div>
             </div>
 
-            <div class="ferramentas">
+            <div class="barraPesquisa">
+                <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar Anotações">
+
                 <ul>
-                    <label for="fontSize">Font:
-                        <input type="number" name="fontSize" id="fontSize" max="20" min="10" value="16">
-                    </label>
-
-                    <label for="cor">Cor:
-                        <input type="color" name="cor" id="cor">
-                    </label>
-
-                    <label for="fontFamily">Font-Family:
-                        <select name="fontFamily" id="fontFamily">
-                            <option value="Poppins">Poppins</option>
-                            <option value="Arial">Arial</option>
-                            <option value="Courier New">Courier New</option>
-                            <option value="Times New Roman">Times New Roman</option>
-                            <option value="Verdana">Verdana</option>
-                        </select>
-                    </label>
-
-                    <label for="fontStyle">Font-Style:
-                        <select name="fontStyle" id="fontStyle">
-                            <option value="normal">Normal</option>
-                            <option value="italic">Itálico</option>
-                            <option value="oblique">Oblíquo</option>
-                        </select>
-                    </label>
-
-                    <label for="alinhamento">Alinhamento:
-                        <select name="alinhamento" id="alinhamento">
-                            <option value="left">Esquerda</option>
-                            <option value="center">Centro</option>
-                            <option value="right">Direita</option>
-                            <option value="justify">Justificado</option>
-                        </select>
-                    </label>
+                    <li>Todas</li>
+                    <li>Estudos</li>
+                    <li>Trabalho</li>
+                    <li>Pessoal</li>
+                    <li>Importante</li>
+                    <li>Outros</li>
                 </ul>
             </div>
 
-            <textarea name="anotacao" id="anotacao">
-
-            </textarea>
-
-            <!-- <div class="adicionar" onclick="abrirModal(this.id)" id="addAnotacoes">
-                <i class="fa fa-circle-plus"></i>
-                <p>Adicionar Anotação</p>
-            </div> -->
+            <div class="container">
+                <p>
+                    Nenhuma Anotação ainda <br>
+                    Que tal criar a sua primeira
+                </p>
+            </div>
         </div>
-
     </main>
+
+    <div class="modal">
+        <div class="modalContainer" >
+            <div class="topoModal">
+                <p>Nova Anotação</p>
+                <input type="submit" value="X" id="fecharModal" onclick="fecharModal()">
+            </div>
+
+            <label for="tituloTarefa">Titulo da Tarefa
+                <input type="text" id="tituloTarefa" placeholder="Ex.: Resumo da História do Brasil">
+            </label>
+
+            <select id="opcoes">
+                <option value="Todas">Todas</option>
+                <option value="Estudos">Estudos</option>
+                <option value="Trabalho">Trabalho</option>
+                <option value="Pessoal">Pessoal</option>
+                <option value="Importante">Importante</option>
+                <option value="Outros">Outros</option>
+            </select>
+
+            <textarea name="anotacao" id="anotacao" placeholder="Digite o conteudo da sua anotação"></textarea>
+
+            <button id="btnAdicionarTask">Adicionar</button>
+        </div>
+    </div>
 
     <footer>
         <div class="titulo">
@@ -136,11 +344,13 @@
         </div>
         <p>&copy; 2025 Painel do Aluno | Estuda+</p>
 
+            
         <a href="https://github.com/Luiz-santos134/Estuda-TCC/tree/main">Sobre o projeto</a>
         <a href="#">Voltar ao topo</a>
     </footer>
 </body>
 
 <script src="home.js"></script>
+<script src="anotacoes.js"></script>
 
 </html>

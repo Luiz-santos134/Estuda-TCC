@@ -16,21 +16,6 @@
     <link rel="stylesheet" href="home.css">
 
     <style>
-        :root {
-            --cor-fundo: #121212;
-            --cor-secundaria: #1e1e1e;
-            --cor-detalhe: #2d2d2d;
-            --cor-hover: #333333;
-            --cor-primaria: #ff4d4f;
-            /* vermelho destaque */
-            --cor-secundaria-destaque: #3a6eff;
-            /* azul de contraste */
-            --texto-primario: #f5f5f5;
-            --texto-secundario: #aaaaaa;
-            --borda: #2b2b2b;
-            --input-fundo: #1c1c1c;
-            --input-borda: #3a3a3a;
-        }
         main{
             display: flex;
             flex-direction: row;
@@ -68,8 +53,8 @@
             transition: background-color 0.3s ease;
         }
         .editarPerfil button:hover {
-            background-color: rgb(43, 43, 250);
-            transform: scale(1.05);
+            background-color: rgb(47, 47, 179);
+            transform: scale(1.02);
         }
         .container{
             display: flex;
@@ -82,6 +67,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 70%;
+            height: 65%;
         }
         .topo .titulo {
             display: flex;
@@ -91,7 +77,7 @@
             color: var(--texto-primario);
             font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 0px;
         }
         .container .titulo{
             margin-bottom: 20px;
@@ -192,13 +178,49 @@
         }
         aside{
             width: 28%;
-            padding: 20px;
-            background-color: var(--cor-secundaria);
+            height: 65%;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 5px;
+        }
+
+        aside button{
+            padding: 10px 20px;
+            background-color: var(--cor-secundaria-destaque);
+            color: var(--texto-primario);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        aside button:hover {
+            background-color: rgb(47, 47, 179);
+            transform: scale(1.02);
+        }
+
+        .configuracoes, .conta {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 10px;
+            height: 100%;
+            background-color: var(--cor-secundaria);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .temaPart{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
     </style>
 
@@ -303,19 +325,21 @@
         <aside>
             <h2>Configurações</h2>
             <div class="configuracoes">
-                <label for="temaSelect">Tema:</label>
-                <div class="temas">
-                    <i class="fas fa-moon" id="temaEscuro" onclick="alternarTema('escuro')" data-tema="escuro" style="display: none;"></i>
-                    <i class="fas fa-sun" id="temaClaro" onclick="alternarTema('claro')" data-tema="claro"></i>
+                <div class="temaPart">
+                    <p>Temas</p>
+                    <div class="temas" id="temas">
+                        <i class="fas fa-moon" id="temaEscuro" onclick="alternarTema('escuro')" data-tema="escuro" style="display: none;"></i>
+                        <i class="fas fa-sun" id="temaClaro" onclick="alternarTema('claro')" data-tema="claro"></i>
+                    </div>
                 </div>
+                <button id="salvarBtn" onclick="salvarTema()">Salvar</button>
+            </div>
 
-                <label for="idiomaSelect">Idioma:</label>
-                <select id="idiomaSelect">
-                    <option value="pt-br">Português (Brasil)</option>
-                    <option value="en-us">Inglês (Estados Unidos)</option>
-                </select>
-
-                <button id="salvarBtn">Salvar</button>
+            <h2>Conta</h2>
+            <div class="conta">
+                <p>Gerencie sua conta e preferências.</p>
+                <button id="sairBtn" onclick="sair()">Sair</button>
+                <button id="deletarBtn" onclick="deletarConta()">Deletar Conta</button>
             </div>
         </aside>
     </main>
