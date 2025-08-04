@@ -16,7 +16,22 @@
     <link rel="stylesheet" href="home.css">
     
     <style>
-        
+        :root {
+            --cor-fundo: #121212;
+            --cor-secundaria: #1e1e1e;
+            --cor-detalhe: #2d2d2d;
+            --cor-hover: #333333;
+            --cor-primaria: #ff4d4f;
+            /* vermelho destaque */
+            --cor-secundaria-destaque: #3a6eff;
+            /* azul de contraste */
+            --texto-primario: #f5f5f5;
+            --texto-secundario: #aaaaaa;
+            --borda: #2b2b2b;
+            --input-fundo: #1c1c1c;
+            --input-borda: #3a3a3a;
+        }
+
         .anotacoes {
             width: 100%;
             height: 80dvh;
@@ -104,20 +119,11 @@
             transition: color 0.3s ease;
             border-color: var(--cor-secundaria-destaque);
         }
-        .container{
-            margin-top: 20px;
-            border: 1px solid var(--cor-secundaria-destaque);
-            height: 80%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 10px;
-        }
         .modal{
             width: 100%;
             height: 100%;
             background-color: #0000007a;
-            display: flex;
+            display: none;
             justify-content: center;
             align-items: center;
             position: absolute;
@@ -221,6 +227,77 @@
             cursor: pointer;
             border: 1px solid var(--cor-secundaria-destaque);
         }
+        .container{
+            margin-top: 10px;
+            border: 1px solid var(--cor-secundaria-destaque);
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .todas{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
+            height: 100%;
+            gap: 12px;
+            padding: 30px;
+        }
+        .task{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            background-color: var(--cor-secundaria-destaque);
+            border: 1px solid var(--texto-primario);
+            padding: 10px;
+            border-radius: 10px;
+            width: 15rem;
+            height: 10rem;
+        }
+        .tag_Data{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            font-size: 10pt;
+        }
+        .container .task input{
+            min-width: 100%;
+            max-width: 100%;
+            height: 30%;
+            background-color: transparent;
+            border: none;
+            padding: 0px;
+        }
+        .tituloTaskCriada{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+
+            align-items: center;
+        }
+        #tag{
+            background-color: var(--texto-secundario);
+            border-radius: 10px;
+            color: black;
+            padding: 5px;
+        }
+        .icons{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 10px;
+        }
+        .icons i:hover{
+            cursor: pointer;
+            color: var(--cor-fundo);
+        }
     </style>
 </head>
 
@@ -294,7 +371,7 @@
                 <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar Anotações">
 
                 <ul>
-                    <li>Todas</li>
+                    <li onclick="filtrarCategoria()">Todas</li>
                     <li>Estudos</li>
                     <li>Trabalho</li>
                     <li>Pessoal</li>
@@ -304,10 +381,37 @@
             </div>
 
             <div class="container">
-                <p>
+                <!-- <p>
                     Nenhuma Anotação ainda <br>
                     Que tal criar a sua primeira
-                </p>
+                </p> -->
+
+                <div class="todas">
+                    <div class="task">
+                        <div class="tituloTaskCriada">
+                            <p>Matematica</p>
+                            <div class="icons">
+                                <i class="fa fa-edit" id="editar" onclick="abrirModal(this.id)"></i>
+                                <i class="fa fa-trash" onclick="excluirTask(this)"></i>
+                            </div>
+                        </div>
+                        <div class="tag_Data">
+                            <p id="tag">Estudos</p>
+                            <p id="data">00/00/0000</p>
+                        </div>
+                        <input type="text" readonly value="ParalelepipedoParalelepipedoParalelepipedoParalelepipedoParalelepipedoa">
+                    </div>
+                </div>
+                <div class="estudos">
+                </div>
+                <div class="trabalho">
+                </div>
+                <div class="pessoal">
+                </div>
+                <div class="importante">
+                </div>
+                <div class="outros">
+                </div>
             </div>
         </div>
     </main>
@@ -324,7 +428,6 @@
             </label>
 
             <select id="opcoes">
-                <option value="Todas">Todas</option>
                 <option value="Estudos">Estudos</option>
                 <option value="Trabalho">Trabalho</option>
                 <option value="Pessoal">Pessoal</option>
@@ -334,7 +437,7 @@
 
             <textarea name="anotacao" id="anotacao" placeholder="Digite o conteudo da sua anotação"></textarea>
 
-            <button id="btnAdicionarTask">Adicionar</button>
+            <button id="btnAdicionarTask" onclick="adicionarTask()">Adicionar</button>
         </div>
     </div>
 
