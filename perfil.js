@@ -103,6 +103,6 @@ function deletarConta()
     if (confirmar) {
         localStorage.removeItem("usuario");
         alert("Conta deletada com sucesso!");
-        window.location.href = "index.html";
+        window.location.href = "cadastrar.html";
     }
 }
