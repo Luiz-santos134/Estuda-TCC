@@ -22,12 +22,21 @@ Este sistema não depende de dados institucionais (como boletins ou notas), e si
 
 HTML5
 
-CSS3 (design responsivo)
+CSS3
 
-JavaScript (para funcionalidades dinâmicas)
+JavaScript
 
-🚀 Funcionalidades principais ✅ Página Inicial: visão rápida de tarefas, interesses e frases motivacionais. ✅ Gestão de Tarefas: espaço para listar tarefas pendentes e concluídas. ✅Anotações: Para salvar ideias, textos complexos e Mesagens. ✅Desafios: Ajudará o usuário a ser proativo e a se desenvolver
- ✅ Perfil: personalização com interesses. ✅ Responsividade: compatível com dispositivos móveis.
+🚀 Funcionalidades principais:
+
+✅ Página Inicial: visão rápida de tarefas, interesses e frases motivacionais. 
+
+✅ Gestão de Tarefas: espaço para listar tarefas pendentes e concluídas. 
+
+✅Anotações: Para salvar ideias, textos complexos e Mesagens. 
+
+✅Desafios: Ajudará o usuário a ser proativo e a se desenvolver
+
+✅ Perfil: personalização com interesses.
 
 👨‍💻 Autores 
 
