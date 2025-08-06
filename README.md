@@ -42,7 +42,7 @@ JavaScript
 
 ✅ Perfil: personalização com interesses.
 
-👨‍💻 Autores 
+👨‍💻 Responsáveis 
 
 Luiz Cláudio - Front-end, Tech Lead
 
