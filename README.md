@@ -30,11 +30,15 @@ JavaScript
 
 ✅ Página Inicial: visão rápida de tarefas, interesses e frases motivacionais. 
 
+
 ✅ Gestão de Tarefas: espaço para listar tarefas pendentes e concluídas. 
+
 
 ✅Anotações: Para salvar ideias, textos complexos e Mesagens. 
 
+
 ✅Desafios: Ajudará o usuário a ser proativo e a se desenvolver
+
 
 ✅ Perfil: personalização com interesses.
 
