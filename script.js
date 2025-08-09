@@ -113,6 +113,8 @@ window.addEventListener("load", atualizarListaTarefas);
 function mostrarTarefas() {
     const botao = document.getElementById("mostrarTasks");
     const limpar = document.getElementById("limpar");
+    const deleteTask = document.getElementById("deleteTask");
+    const preencherEspaco = document.getElementById("preencherEspaco");
 
     let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
 
@@ -124,10 +126,24 @@ function mostrarTarefas() {
     else {
         botao.style.display = "none";
         limpar.style.display = "block";
+        deleteTask.style.display = "block";
+        preencherEspaco.style.display = "none";
     }
     atualizarListaTarefas();
 }
 
+function deletarTask(){
+    const botaoDeletar = document.getElementById("deleteTask");
+    const tasks = document.querySelectorAll('.tasksPendentes ul');
+
+    materiasEscolhidas = [];
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i].checked) {
+            tasksEscolhidas.push(tasks[i].value);
+            tasks[i].checked = false;
+        }
+    }
+}
 
 // Função para limpar tudo
 function limparTarefas() {

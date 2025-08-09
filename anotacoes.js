@@ -65,7 +65,7 @@ function criarTaskElemento({ titulo, categoria, textTask, data }, index) {
       </div>
     </div>
     <div class="tag_Data">
-      <p id="tag">${categoria}</p>
+      <p class="tag">${categoria}</p>
       <p>${data}</p>
     </div>
     <input type="text" readonly value="${textTask}">
@@ -94,31 +94,36 @@ window.addEventListener('DOMContentLoaded', () => {
   tarefas.forEach((tarefa, index) => criarTaskElemento(tarefa, index));
 });
 
+function filtrarCategoria(cat) {
+  const tarefas = document.querySelectorAll('.task');
 
+  tarefas.forEach(task => {
+    const categoria = task.querySelector('.tag').textContent.trim();
 
-const selectObj = document.getElementById('opcoes');
+    if (cat === 'todas' || cat.toLowerCase() === categoria.toLowerCase()) {
+      task.style.display = 'block';
+    } else {
+      task.style.display = 'none';
+    }
+  });
+}
+// Função para pesquisar tarefas pelo título
+function pesquisarTarefas() {
+  const termo = document.getElementById('pesquisa').value.toLowerCase();
+  const tarefas = document.querySelectorAll('.task');
 
-selectObj.addEventListener("change", function() {
-  console.log("Novo valor selecionado:", this.value);
+  tarefas.forEach(task => {
+    const titulo = task.querySelector('.tituloTaskCriada p').textContent.toLowerCase();
+    if (titulo.includes(termo)) {
+      task.style.display = 'block';
+    } else {
+      task.style.display = 'none';
+    }
+  });
+}
 
-  
-
-  if(this.value == "Estudos"){
-
-  }else if (this.value == "Trabalho")
-  {
-
-  }
-  else if (this.value == "Pessoal")
-  {
-
-  }
-  else if (this.value == "Importante")
-  {
-
-  }
-  else if (this.value == "Outros")
-  {
-
-  }
-});
+// Adiciona evento à barra de pesquisa
+const barraPesquisa = document.getElementById('pesquisa');
+if (barraPesquisa) {
+  barraPesquisa.addEventListener('input', pesquisarTarefas);
+}

@@ -1,25 +1,26 @@
-// Atualizado para usar 5 questões por matéria em todas as condições
 let Random = document.getElementById("Random");
 let Enem = document.getElementById("Enem");
 let Pas = document.getElementById("Pas");
 
 let tipoSimulado = document.getElementById("tipoSimulado");
-let estruturaSimulado = document.querySelector(".estruturaSimulado")
-let folhaSimulado = document.querySelector(".FolhaSimulado")
+let estruturaSimulado = document.querySelector(".estruturaSimulado");
+let folhaSimulado = document.querySelector(".FolhaSimulado");
 
 let questaoAtual = null;
 let questoesSelecionadas = [];
 let questaoIndex = 0;
 let acertos = 0;
 
-let alterUm = document.getElementById("alterUm")
-let alterDois = document.getElementById("alterDois")
-let alterTres = document.getElementById("alterTres")
-let alterQuatro = document.getElementById("alterQuatro")
+let alterUm = document.getElementById("alterUm");
+let alterDois = document.getElementById("alterDois");
+let alterTres = document.getElementById("alterTres");
+let alterQuatro = document.getElementById("alterQuatro");
 
 let main = document.querySelector('main');
 const materias = document.querySelectorAll('.materia input');
 let numPorcent = document.getElementById("numPorcent");
+
+let materiasEscolhidas = []; // Variável global para acesso em mostrarQuestao
 
 function sortearAleatorios(lista, quantidade) {
     const embaralhado = [...lista].sort(() => Math.random() - 0.5);
@@ -35,7 +36,7 @@ function gerarSimulado() {
     questaoIndex = 0;
     acertos = 0;
 
-    let materiasEscolhidas = [];
+    materiasEscolhidas = [];
     for (let i = 0; i < materias.length; i++) {
         if (materias[i].checked) {
             materiasEscolhidas.push(materias[i].value);
@@ -68,42 +69,37 @@ function gerarSimulado() {
     }
 
     fetch('questoes.json')
-    .then(res => res.json())
-    .then(bancoQuestoes => {
-        const porMateria = 5;
-        const totalQuestoes = materiasEscolhidas.length * porMateria;
+        .then(res => res.json())
+        .then(bancoQuestoes => {
+            const porMateria = 5;
 
-        materiasEscolhidas.forEach((materia) => {
-            if (bancoQuestoes[base][materia]) {
-                let questoes = bancoQuestoes[base][materia];
-                let sorteadas = sortearAleatorios(questoes, porMateria);
-                questoesSelecionadas.push(...sorteadas);
-            }
+            materiasEscolhidas.forEach((materia) => {
+                if (bancoQuestoes[base][materia]) {
+                    let questoes = bancoQuestoes[base][materia];
+                    let sorteadas = sortearAleatorios(questoes, porMateria);
+                    questoesSelecionadas.push(...sorteadas);
+                }
+            });
+
+            // Embaralha todas as questões
+            questoesSelecionadas = sortearAleatorios(questoesSelecionadas, questoesSelecionadas.length);
+
+            mostrarQuestao();
         });
-
-        // Embaralha todas as questões
-        questoesSelecionadas = sortearAleatorios(questoesSelecionadas, questoesSelecionadas.length);
-
-        mostrarQuestao();
-    });
 }
 
 function mostrarQuestao() {
-    let simuladosFinalizados = 0;
-
     if (questaoIndex >= questoesSelecionadas.length) {
         alert("Simulado finalizado! Você acertou " + acertos + " de " + questoesSelecionadas.length + " questões.");
 
         estruturaSimulado.style.display = "flex";
         folhaSimulado.style.display = "none";
-        
 
-        simuladosFinalizados++;
+        let porcentagem = ((acertos / questoesSelecionadas.length) * 100).toFixed(0);
+        numPorcent.innerText = porcentagem;
 
-        numPorcent.innerText = ((acertos / questoesSelecionadas.length) * 100).toFixed(0);
-        adicionarTarefaFeita(numPorcent.innerText);
+        adicionarTarefaFeita(porcentagem, tipoSimulado.innerText, materiasEscolhidas);
         return;
-        //tenho que salvar o numporcent para mostrar na pagina do simulado, e tenho que gerar o resumo do simulado
     }
 
     questaoAtual = questoesSelecionadas[questaoIndex];
@@ -116,7 +112,7 @@ function mostrarQuestao() {
     alterQuatro.innerText = questaoAtual.alternativas[3];
 }
 
-function adicionarTarefaFeita(porcentagem) {
+function adicionarTarefaFeita(porcentagem, tipo, materias) {
     const listaFeitos = document.querySelector(".feitos ul");
 
     // Pega a data atual
@@ -126,17 +122,28 @@ function adicionarTarefaFeita(porcentagem) {
     const ano = hoje.getFullYear();
     const dataFormatada = `${dia}/${mes}/${ano}`;
 
-    // Cria o elemento de tarefa feita
-    const li = document.createElement("li");
+    // Pega lista salva ou cria nova
+    let simuladosFinalizados = JSON.parse(localStorage.getItem('simuladosFinalizados')) || [];
 
-    li.innerHTML = `
-        <p><span id="numPorcent">${porcentagem}</span>%</p>
-        <span id="data">${dataFormatada}</span>
-    `;
+    // Cria novo simulado
+    const novoSimulado = {
+        porcentagem: porcentagem,
+        data: dataFormatada,
+        tipo: tipo,
+        materias: materias
+    };
 
-    listaFeitos.appendChild(li);
+    simuladosFinalizados.push(novoSimulado);
+    localStorage.setItem('simuladosFinalizados', JSON.stringify(simuladosFinalizados));
+
+    // Limpa e reexibe lista
+    listaFeitos.innerHTML = '';
+    simuladosFinalizados.forEach(simulado => {
+        const li = document.createElement('li');
+        li.innerHTML = `<p>${simulado.data} - ${simulado.tipo} - Acertos: ${simulado.porcentagem}% - Matérias: ${simulado.materias.join(', ')}</p>`;
+        listaFeitos.appendChild(li);
+    });
 }
-
 
 function responder(id) {
     const botaoClicado = document.getElementById(id);
@@ -165,3 +172,15 @@ function responder(id) {
         mostrarQuestao();
     }, 1000);
 }
+
+// Carrega simulados finalizados ao iniciar a página
+document.addEventListener('DOMContentLoaded', () => {
+    const listaFeitos = document.querySelector(".feitos ul");
+    let simuladosFinalizados = JSON.parse(localStorage.getItem('simuladosFinalizados')) || [];
+    listaFeitos.innerHTML = '';
+    simuladosFinalizados.forEach(simulado => {
+        const li = document.createElement('li');
+        li.innerHTML = `<p>${simulado.data} - ${simulado.tipo} - Acertos: ${simulado.porcentagem}% - Matérias: ${simulado.materias.join(', ')}</p>`;
+        listaFeitos.appendChild(li);
+    });
+});

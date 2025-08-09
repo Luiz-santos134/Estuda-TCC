@@ -279,10 +279,9 @@
             flex-direction: row;
             justify-content: space-between;
             width: 100%;
-
             align-items: center;
         }
-        #tag{
+        .tag{
             background-color: var(--texto-secundario);
             border-radius: 10px;
             color: black;
@@ -371,36 +370,17 @@
                 <input type="text" name="pesquisa" id="pesquisa" placeholder="Pesquisar Anotações">
 
                 <ul>
-                    <li onclick="filtrarCategoria()">Todas</li>
-                    <li>Estudos</li>
-                    <li>Trabalho</li>
-                    <li>Pessoal</li>
-                    <li>Importante</li>
-                    <li>Outros</li>
+                    <li id="todas" onclick="filtrarCategoria(this.id)">Todas</li>
+                    <li id="estudos" onclick="filtrarCategoria(this.id)">Estudos</li>
+                    <li id="trabalho" onclick="filtrarCategoria(this.id)">Trabalho</li>
+                    <li id="pessoal" onclick="filtrarCategoria(this.id)">Pessoal</li>
+                    <li id="importante" onclick="filtrarCategoria(this.id)">Importante</li>
+                    <li id="outros" onclick="filtrarCategoria(this.id)">Outros</li>
                 </ul>
             </div>
 
             <div class="container">
-                <!-- <p>
-                    Nenhuma Anotação ainda <br>
-                    Que tal criar a sua primeira
-                </p> -->
-
                 <div class="todas">
-                    <div class="task">
-                        <div class="tituloTaskCriada">
-                            <p>Matematica</p>
-                            <div class="icons">
-                                <i class="fa fa-edit" id="editar" onclick="abrirModal(this.id)"></i>
-                                <i class="fa fa-trash" onclick="excluirTask(this)"></i>
-                            </div>
-                        </div>
-                        <div class="tag_Data">
-                            <p id="tag">Estudos</p>
-                            <p id="data">00/00/0000</p>
-                        </div>
-                        <input type="text" readonly value="ParalelepipedoParalelepipedoParalelepipedoParalelepipedoParalelepipedoa">
-                    </div>
                 </div>
                 <div class="estudos">
                 </div>

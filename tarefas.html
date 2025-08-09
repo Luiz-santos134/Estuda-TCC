@@ -71,13 +71,11 @@
         .tasksPendentes, .tasksDones {
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: start;
             gap: 20px;
             width: 50%;
             min-height: 80%;
             height: 80%;
-            overflow-y: auto;
             padding: 20px;
             background-color: var(--cor-detalhe);
             border-radius: 10px;
@@ -90,22 +88,28 @@
         .tasksPendentes h2, .tasksDones h2  {
             text-align: center;
             width: 100%;
+            height: 30%;
             margin: 0;
             display: flex;
             text-align: center;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 10px;
         }
         .tasksPendentes ul {
             display: grid;
-            grid-template-columns: 200px 200px 200px;
-            width: 60%;
+            grid-template-columns: 200px 200px 150px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            height: auto;
+            width: 90%;
         }
         .tasksPendentes li {
             display: flex;
             align-items: center;
             font-size: 1.4rem; /* Tamanho da fonte maior */
             color: var(--texto-primario);
+            width: 80%;
+            padding: 10px;
             gap: 10px;
         }
         .tasksPendentes input[type="checkbox"] {
@@ -267,6 +271,47 @@
         #limpar{
             display: none;
         }
+        .tasksPendentes h2 {
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin: 0;
+        }
+
+        #limpar,
+        #deleteTask {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--texto-primario);
+            background-color: var(--cor-secundaria-destaque);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        #limpar:hover,
+        #deleteTask:hover {
+            background-color: rgb(40, 54, 134);
+            transform: scale(1.05);
+        }
+
+        #deleteTask {
+            margin-left: 8px;
+            background-color: var(--cor-primaria);
+        }
+
+        #deleteTask:hover {
+            background-color: #801e20;
+        }
+        #preencherEspaco{
+            background-color: transparent;
+            width: 40%;
+            height: 50%;
+        }
+
 
     </style>
     <script src="script.js"></script>
@@ -350,17 +395,14 @@
             </div>
         </div>
 
-        <!-- <li>
-            <input type="checkbox" id="nomeTarefa" name="nomeTarefa">
-            <label for="nomeTarefa">Matemática</label>
-        </li> -->
-
         <div class="estruturaTasks">
             <div class="content">
 
                 <div class="tasksPendentes">
                     <h2>Tarefas Pendentes (<span>0</span>) 
+                        <div id="preencherEspaco"></div>
                         <input type="submit" id="limpar" value="Limpar Tarefas" onclick="limparTarefas()">
+                        <input type="submit" id="deleteTask" value="Deletar" onclick="deletarTask()">
                     </h2>
 
                     <button id="mostrarTasks" onclick="mostrarTarefas('pendentes')">Mostrar Tarefas</button>
