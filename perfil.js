@@ -13,7 +13,6 @@ window.onload = function () {
     nomeUsuario.placeholder = usuarioSalvo.nome;
     emailUsuario.placeholder = usuarioSalvo.email;
 
-    // Agora sim, acessar a imagem
     const imgPerfil = document.getElementById('foto_perfil');
     const fotoSalva = localStorage.getItem('fotoPerfil');
     if (fotoSalva) {

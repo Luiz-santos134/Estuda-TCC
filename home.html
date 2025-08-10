@@ -60,15 +60,16 @@
                         Desafios
                     </a>
                 </li>
-
-                <li>
+                <div class="infoPerfil">
                     <a href="perfil.html" class="menu-link">
-                        <i class="fas fa-user"></i>
-                        Perfil
+                        <p id="nomeUser">Luiz-santos</p>
+                        <img src="perfil.jpeg" id="foto_perfil" alt="imgPerfil">
                     </a>
-                </li>
+                </div>
             </ul>
         </div>
+
+       
     </header>
 
     <main>
@@ -97,24 +98,39 @@
                 </div>
             </div>
 
-            <div class="interesses">
-                <p id="tituloAba">🎯 Interesses</p>
-                <div class="itensInteresse">
+            <div class="funcAdicionais">
+                <p id="tituloAba">※ + Funcionalidades</p>
+                <div class="funcionalidades">
                     <ul>
-                        <li>
-                            <i class="fas fa-book"></i>
-                            <p>Matemática</p>
-                        </li>
-                        <li>
-                            <i class="fas fa-flask"></i>
-                            <p>Física</p>
-                        </li>
-                        <li>
-                            <i class="fas fa-atom"></i>
-                            <p>Química</p>
-                        </li>
+                        <a href="resumo.html">
+                            <li>
+                                <p>Resumo</p>
+                            </li>
+                        </a>
+                        <a href="relatorio.html">
+                            <li>
+                                <p>Relatório</p>
+                            </li>
+                        </a>
+                        <button onclick="abrirOpcoesProvas()">Provas Anteriores</input>
                     </ul>
                 </div>
+            </div>
+
+            <div class="modalOpcoesProvas">
+                <ul>
+                    <a href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos" target="_blank">
+                        <li>
+                            Provas Enem
+                        </li>
+                    </a>
+                    
+                    <a href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos" target="_blank">
+                        <li>
+                            Provas PAS
+                        </li>
+                    </a>
+                </ul>
             </div>
 
             <div class="atalhos">

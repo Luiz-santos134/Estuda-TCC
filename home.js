@@ -18,7 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
              `
     }
 
+    const imgPerfil = document.getElementById('foto_perfil');
+    const fotoSalva = localStorage.getItem('fotoPerfil');
+
+    if (fotoSalva) {
+        imgPerfil.src = fotoSalva;
+    }
+
     atualizarListaHome();
+    atualizarSimuladoHome();
 });
 
 
@@ -52,7 +60,7 @@ function atualizarListaHome() {
         checkbox.checked = tarefa.concluida || false;
 
         checkbox.addEventListener("change", () => {
-            // Pega pelo índice real no array original
+            // Pega pelo índice no array 
             const posicao = tarefas.findIndex(t => t.titulo === tarefa.titulo);
             if (posicao > -1) {
                 tarefas[posicao].concluida = checkbox.checked;
@@ -71,11 +79,36 @@ function atualizarListaHome() {
         if (tarefa.concluida) concluidas++;
     });
 
+    let tasksConcluidas = 0;
+    
+    for (let i = 0; i < tarefas.length; i++) {
+        if (tarefas[i].concluida == true){
+            tasksConcluidas++
+            console.log(tasksConcluidas)
+        }
+    }
+
     const numTaskElem = document.querySelector(".numTask");
-    if (numTaskElem) numTaskElem.textContent = concluidas;
+    if (numTaskElem) numTaskElem.textContent = tasksConcluidas;
 }
 
+function atualizarSimuladoHome(){
+    let simulado = JSON.parse(localStorage.getItem("simuladosFinalizados")) || [];
+    const NumeSimulado = document.querySelector(".numSimulado");
+    NumeSimulado.textContent = simulado.length;
+}
 
-function salvarInterreses(){
-    
+let modal = document.querySelector(".modalOpcoesProvas")
+modal.style.display = "none";
+
+function abrirOpcoesProvas(){
+    if (!modal) return;
+    if(modal.style.display == "none") {
+        modal.style.display = "flex";
+        document.querySelector("body").style.overflow = "hidden"
+    }
+    else if(modal.style.display == "flex"){
+        modal.style.display = "none";
+        document.querySelector("body").style.overflow = "auto"
+    } 
 }
