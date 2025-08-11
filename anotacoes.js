@@ -1,129 +1,147 @@
 const modal = document.querySelector('.modal');
 
-function abrirModal(editar)
-{
+function abrirModal(elemento = null) {
     modal.style.display = "flex";
-
     document.body.style.overflow = "hidden";
-
-    // if (editar){
-    //   alert(editar)
-    //   document.querySelector('.tituloTaskCriada p') = 
-    // }
+    
+    // Se receber um elemento, preenche os campos
+    if (elemento) {
+        const anotacao = elemento.closest('.anotacao');
+        const index = anotacao.getAttribute('data-id');
+        const anotacoes = JSON.parse(localStorage.getItem('anotacoes')) || [];
+        const anotacaoEditar = anotacoes[index];
+        
+        document.getElementById('tituloAnotacao').value = anotacaoEditar.titulo;
+        document.getElementById('opcoes').value = anotacaoEditar.categoria;
+        document.getElementById('anotacao').value = anotacaoEditar.textoAnotacao;
+        
+        // Adiciona um atributo para saber que esta editando
+        modal.setAttribute('data-editing', index);
+    } else {
+        // Remove o atributo se for uma anotação noca
+        modal.removeAttribute('data-editing');
+    }
 }
 
-function fecharModal()
-{
+function fecharModal() {
     modal.style.display = "none";
     document.body.style.overflow = "";
 }
 
-function adicionarTask() {
-  const titulo = document.getElementById('tituloTarefa').value;
-  const categoria = document.getElementById('opcoes').value;
-  const textTask = document.getElementById('anotacao').value;
+function adicionarAnotacao() {
+    const titulo = document.getElementById('tituloAnotacao').value;
+    const categoria = document.getElementById('opcoes').value;
+    const textoAnotacao = document.getElementById('anotacao').value;
 
-  if (!titulo || !textTask) {
-    alert('Preencha os campos');
-    return;
-  }
+    if (!titulo || !textoAnotacao) {
+        alert('Preencha os campos obrigatórios');
+        return;
+    }
 
-  const data = new Date().toLocaleDateString('pt-BR');
+    const data = new Date().toLocaleDateString('pt-BR');
+    const novaAnotacao = {
+        titulo,
+        categoria,
+        textoAnotacao,
+        data
+    };
 
-  const novaTask = {
-    titulo,
-    categoria,
-    textTask,
-    data
-  };
+    let anotacoes = JSON.parse(localStorage.getItem('anotacoes')) || [];
+    
+    // Verifica se está editando
+    const editingIndex = modal.getAttribute('data-editing');
+    if (editingIndex !== null) {
+        // Atualiza a anotação existente
+        anotacoes[editingIndex] = novaAnotacao;
+    } else {
+        // Adiciona nova anotação
+        anotacoes.push(novaAnotacao);
+    }
+    
+    localStorage.setItem('anotacoes', JSON.stringify(anotacoes));
+    
+    document.querySelector('.todas').innerHTML = '';
+    anotacoes.forEach((item, i) => criarElementoAnotacao(item, i));
 
-  const tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
-  tarefas.push(novaTask);
-  localStorage.setItem('tarefas', JSON.stringify(tarefas));
-
-  criarTaskElemento(novaTask, tarefas.length - 1); // ← índice da nova tarefa
-
-  // Limpa os inputs
-  document.getElementById('tituloTarefa').value = '';
-  document.getElementById('opcoes').value = '';
-  document.getElementById('anotacao').value = '';
-
-  fecharModal();
+    // Limpa os input e fecha o modal
+    document.getElementById('tituloAnotacao').value = '';
+    document.getElementById('opcoes').value = '';
+    document.getElementById('anotacao').value = '';
+    
+    fecharModal();
 }
 
-function criarTaskElemento({ titulo, categoria, textTask, data }, index) {
-  const task = document.createElement('div');
-  task.className = 'task';
-  task.setAttribute('data-id', index); // para saber qual a tarefa
+function criarElementoAnotacao({ titulo, categoria, textoAnotacao, data }, index) {
+    const anotacao = document.createElement('div');
+    anotacao.className = 'anotacao';
+    anotacao.setAttribute('data-id', index);
 
-  task.innerHTML = `
-    <div class="tituloTaskCriada">
-      <p>${titulo}</p>
-      <div class="icons">
-        <i class="fa fa-edit" onclick="abrirModal(this.id)"></i>
-        <i class="fa fa-trash" onclick="excluirTask(this)"></i>
-      </div>
-    </div>
-    <div class="tag_Data">
-      <p class="tag">${categoria}</p>
-      <p>${data}</p>
-    </div>
-    <input type="text" readonly value="${textTask}">
-  `;
+    // Dentro da função criarElementoAnotacao, atualize a linha do ícone de edição:
+    anotacao.innerHTML = `
+        <div class="tituloAnotacaoCriada">
+            <p>${titulo}</p>
+            <div class="icons">
+                <i class="fa fa-edit" onclick="abrirModal(this)"></i>
+                <i class="fa fa-trash" onclick="excluirAnotacao(this)"></i>
+            </div>
+        </div>
+        <div class="tag_Data">
+            <p class="tag">${categoria}</p>
+            <p>${data}</p>
+        </div>
+        <input type="text" readonly value="${textoAnotacao}">
+    `;
 
-  document.querySelector('.todas').appendChild(task);
+    document.querySelector('.todas').appendChild(anotacao);
 }
 
-function excluirTask(elemento) {
-  const task = elemento.closest('.task');
-  const index = task.getAttribute('data-id');
+function excluirAnotacao(elemento) {
+    const anotacao = elemento.closest('.anotacao');
+    const index = anotacao.getAttribute('data-id');
 
-  let tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
+    let anotacoes = JSON.parse(localStorage.getItem('anotacoes')) || [];
 
-  tarefas.splice(index, 1); // ← remove 1 item no índice certo
-  localStorage.setItem('tarefas', JSON.stringify(tarefas));
+    anotacoes.splice(index, 1);
+    localStorage.setItem('anotacoes', JSON.stringify(anotacoes));
 
-  // Limpa a lista e recria tudo com os índices atualizados
-  document.querySelector('.todas').innerHTML = '';
-  tarefas.forEach((tarefa, i) => criarTaskElemento(tarefa, i));
+    document.querySelector('.todas').innerHTML = '';
+    anotacoes.forEach((item, i) => criarElementoAnotacao(item, i));
 }
-
 
 window.addEventListener('DOMContentLoaded', () => {
-  const tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
-  tarefas.forEach((tarefa, index) => criarTaskElemento(tarefa, index));
+    const anotacoes = JSON.parse(localStorage.getItem('anotacoes')) || [];
+    anotacoes.forEach((item, index) => criarElementoAnotacao(item, index));
 });
 
 function filtrarCategoria(cat) {
-  const tarefas = document.querySelectorAll('.task');
+    const anotacoes = document.querySelectorAll('.anotacao');
 
-  tarefas.forEach(task => {
-    const categoria = task.querySelector('.tag').textContent.trim();
+    anotacoes.forEach(item => {
+        const categoria = item.querySelector('.tag').textContent.trim();
 
-    if (cat === 'todas' || cat.toLowerCase() === categoria.toLowerCase()) {
-      task.style.display = 'block';
-    } else {
-      task.style.display = 'none';
-    }
-  });
-}
-// Função para pesquisar tarefas pelo título
-function pesquisarTarefas() {
-  const termo = document.getElementById('pesquisa').value.toLowerCase();
-  const tarefas = document.querySelectorAll('.task');
-
-  tarefas.forEach(task => {
-    const titulo = task.querySelector('.tituloTaskCriada p').textContent.toLowerCase();
-    if (titulo.includes(termo)) {
-      task.style.display = 'block';
-    } else {
-      task.style.display = 'none';
-    }
-  });
+        if (cat === 'todas' || cat.toLowerCase() === categoria.toLowerCase()) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
 }
 
-// Adiciona evento à barra de pesquisa
+function pesquisarAnotacoes() {
+    const termo = document.getElementById('pesquisa').value.toLowerCase();
+    const anotacoes = document.querySelectorAll('.anotacao');
+
+    anotacoes.forEach(item => {
+        const titulo = item.querySelector('.tituloAnotacaoCriada p').textContent.toLowerCase();
+        if (titulo.includes(termo)) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
 const barraPesquisa = document.getElementById('pesquisa');
 if (barraPesquisa) {
-  barraPesquisa.addEventListener('input', pesquisarTarefas);
+    barraPesquisa.addEventListener('input', pesquisarAnotacoes);
 }

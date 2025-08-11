@@ -1,0 +1,17 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" rx="30" fill="#121212"/>
+  
+  <!-- Livro aberto -->
+  <path d="M60 60L60 140C80 130 100 135 100 150C100 135 120 130 140 140L140 60C120 70 100 65 100 50C100 65 80 70 60 60Z" fill="url(#bookGradient)"/>
+  
+  <!-- Texto circular -->
+  <text x="100" y="185" font-family="Arial" font-size="22" font-weight="bold" text-anchor="middle" fill="white">ESTUDA MAIS</text>
+  
+  <defs>
+    <linearGradient id="bookGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3a6eff"/>
+      <stop offset="50%" stop-color="#7a4ed9"/>
+      <stop offset="100%" stop-color="#9d4edd"/>
+    </linearGradient>
+  </defs>
+</svg>

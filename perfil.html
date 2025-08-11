@@ -55,7 +55,7 @@
             display: flex;
             flex-direction: row;
             justify-content: space-around;
-            gap: 100px;
+            gap: 10px;
         }
         .editarPerfil button{
             padding: 10px 20px;
@@ -225,6 +225,8 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 13pt;
+            font-weight: 600;
         }
         .interessesContainer{
             display: flex;
@@ -266,7 +268,7 @@
             </a>
         </div>
 
-        <div class="menu">
+       <div class="menu">
             <ul>
                 <li>
                     <a href="home.html" class="menu-link">
@@ -302,13 +304,12 @@
                         Desafios
                     </a>
                 </li>
-
-                <li>
+                <div class="infoPerfil">
                     <a href="perfil.html" class="menu-link">
-                        <i class="fas fa-user"></i>
-                        Perfil
+                        <p id="nomeUser">Luiz-santos</p>
+                        <img src="perfil.jpeg" id="img_perfil" alt="imgPerfil">
                     </a>
-                </li>
+                </div>
             </ul>
         </div>
     </header>

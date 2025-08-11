@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Entrar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --cor-fundo: #121212;
@@ -23,7 +24,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     body {
@@ -33,67 +34,154 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      background-image: radial-gradient(circle at 25% 50%, rgba(58, 110, 255, 0.1) 0%, transparent 50%);
+    }
+
+    .infoMeio {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 90%;
+      max-width: 1200px;
+      gap: 60px;
+    }
+
+    .hero-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 500px;
+    }
+
+    .hero-section p {
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: none;
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 2rem;
+      color: var(--texto-primario);
+    }
+
+    .hero-section p::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--cor-secundaria-destaque);
+      margin-top: 1rem;
+      border-radius: 2px;
+    }
+
+    .imgBoy {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .imgBoy:hover {
+      transform: translateY(-5px);
+    }
+
+    .imgBoy img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
     }
 
     .container {
       background-color: var(--cor-secundaria);
-      padding: 2rem;
-      border-radius: 10px;
+      padding: 2.5rem;
+      border-radius: 16px;
       width: 100%;
       max-width: 400px;
-      box-shadow: 0 0 10px #00000050;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       border: 1px solid var(--borda);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--cor-secundaria-destaque);
     }
 
     .container h2 {
       text-align: center;
-      margin-bottom: 1.5rem;
-      color: var(--cor-secundaria-destaque);
+      margin-bottom: 2rem;
+      color: var(--texto-primario);
+      font-size: 1.8rem;
+      font-weight: 600;
     }
 
     .form-group {
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      position: relative;
     }
 
     label {
       display: block;
       margin-bottom: 0.5rem;
       color: var(--texto-secundario);
+      font-size: 0.9rem;
+      font-weight: 500;
     }
 
     input {
       width: 100%;
-      padding: 0.7rem;
+      padding: 0.9rem;
       border: 1px solid var(--input-borda);
-      border-radius: 5px;
+      border-radius: 8px;
       background-color: var(--input-fundo);
       color: var(--texto-primario);
       outline: none;
-      transition: border 0.3s;
+      transition: all 0.3s;
+      font-size: 0.95rem;
     }
 
     input:focus {
       border-color: var(--cor-secundaria-destaque);
+      box-shadow: 0 0 0 3px rgba(58, 110, 255, 0.2);
     }
 
     .btn {
       width: 100%;
-      padding: 0.8rem;
+      padding: 1rem;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       background-color: var(--cor-secundaria-destaque);
       color: white;
-      font-weight: bold;
+      font-weight: 600;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: all 0.3s;
+      font-size: 1rem;
+      margin-top: 0.5rem;
     }
 
     .btn:hover {
-      background-color: var(--cor-hover);
+      background-color: #2a5bd8;
+      transform: translateY(-2px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
     }
 
     .link {
-      margin-top: 1rem;
+      margin-top: 1.5rem;
       text-align: center;
       font-size: 0.9rem;
       color: var(--texto-secundario);
@@ -102,31 +190,139 @@
     .link a {
       color: var(--cor-secundaria-destaque);
       text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s;
     }
 
     .link a:hover {
       text-decoration: underline;
+      color: #4d7eff;
+    }
+
+    .social-login {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--input-fundo);
+      border: 1px solid var(--input-borda);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      color: var(--texto-secundario);
+    }
+
+    .social-btn:hover {
+      background: var(--cor-detalhe);
+      color: var(--texto-primario);
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 1.5rem 0;
+      color: var(--texto-secundario);
+      font-size: 0.8rem;
+    }
+
+    .divider::before, .divider::after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .divider::before {
+      margin-right: 1rem;
+    }
+
+    .divider::after {
+      margin-left: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .infoMeio {
+        flex-direction: column;
+        gap: 40px;
+      }
+      
+      .hero-section {
+        align-items: center;
+        text-align: center;
+      }
+      
+      .hero-section p::after {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .imgBoy {
+        max-width: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 1.5rem;
+      }
+      
+      .hero-section p {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h2>Entrar</h2>
-    <form id="formLogin">
-      <div class="form-group">
-        <label for="emailLogin">E-mail</label>
-        <input type="email" id="emailLogin" placeholder="seu@email.com" required />
+  <div class="infoMeio">
+    <div class="hero-section">
+      <p>O conhecimento é o seu melhor investimento.</p>
+      <div class="imgBoy">
+        <img src="ImgBoyLogin.png" alt="Ilustração de aprendizado">
       </div>
-      <div class="form-group">
-        <label for="senhaLogin">Senha</label>
-        <input type="password" id="senhaLogin" placeholder="Insira sua senha" required />
-      </div>
-      <button type="submit" class="btn">Entrar</button>
-    </form>
+    </div>
 
-    <div class="link">
-      Não tem uma conta? <a href="cadastrar.html">Criar conta</a>
+    <div class="container">
+      <h2>Entrar</h2>
+      <form id="formLogin">
+        <div class="form-group">
+          <label for="emailLogin">E-mail</label>
+          <input type="email" id="emailLogin" placeholder="seu@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="senhaLogin">Senha</label>
+          <input type="password" id="senhaLogin" placeholder="Insira sua senha" required />
+        </div>
+        <button type="submit" class="btn">
+          <i class="fas fa-sign-in-alt" style="margin-right: 8px;"></i>
+          Entrar
+        </button>
+        
+        <div class="divider">ou</div>
+        
+        <div class="social-login">
+          <div class="social-btn">
+            <i class="fab fa-google"></i>
+          </div>
+          <div class="social-btn">
+            <i class="fab fa-apple"></i>
+          </div>
+          <div class="social-btn">
+            <i class="fab fa-facebook-f"></i>
+          </div>
+        </div>
+      </form>
+
+      <div class="link">
+        Não tem uma conta? <a href="cadastrar.html">Criar conta</a>
+      </div>
     </div>
   </div>
 

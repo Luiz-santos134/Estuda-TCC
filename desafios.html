@@ -41,7 +41,7 @@
         }
         .desafios, .progressao {
             width: 45%;
-            height: 100%;
+            height: 80%;
             padding: 20px;
             border-radius: 10px;
             /* box-shadow: 0 4px 8px var(--cor-detalhe);
@@ -169,13 +169,12 @@
                         Desafios
                     </a>
                 </li>
-
-                <li>
+                <div class="infoPerfil">
                     <a href="perfil.html" class="menu-link">
-                        <i class="fas fa-user"></i>
-                        Perfil
+                        <p id="nomeUser">Luiz-santos</p>
+                        <img src="perfil.jpeg" id="img_perfil" alt="imgPerfil">
                     </a>
-                </li>
+                </div>
             </ul>
         </div>
     </header>
@@ -213,12 +212,10 @@
             <div class="containerProgressao">
                 <span>Back-end</span>
 
-                <p>Abaixo estão as habilidades necessárias que você precisa estudar para se desenvolver na área:</p>
+                <p></p>
 
                 <ul>
-                    <li>Node.js</li>
-                    <li>Express</li>
-                    <li>Banco de Dados (SQL e NoSQL)</li>
+                    
                 </ul>
             </div>
             
@@ -239,7 +236,7 @@
 
 <script src="script.js"></script>
 <script src="home.js"></script>
-
+<script src="desafios.js"></script>
 </script>
 
 </html>

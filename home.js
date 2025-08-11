@@ -18,11 +18,28 @@ document.addEventListener("DOMContentLoaded", () => {
              `
     }
 
-    const imgPerfil = document.getElementById('foto_perfil');
-    const fotoSalva = localStorage.getItem('fotoPerfil');
+    const usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
 
-    if (fotoSalva) {
-        imgPerfil.src = fotoSalva;
+    if (usuarioSalvo) {
+        const elementoNome = document.querySelector('.infoPerfil p');
+        if (elementoNome) {
+            elementoNome.textContent = usuarioSalvo.nome;
+        } else {
+            console.error("Elemento para exibir o nome do usuário não encontrado");
+        }
+
+        const imgPerfil = document.getElementById('img_perfil');
+        if (imgPerfil) {
+            const fotoSalva = localStorage.getItem('fotoPerfil');
+            if (fotoSalva) {
+                imgPerfil.src = fotoSalva;
+            }
+        } else {
+            console.error("Elemento de imagem de perfil não encontrado");
+        }
+    } else {
+        console.log("Nenhum usuário logado");
+        window.location.href = "login.html";
     }
 
     atualizarListaHome();
@@ -32,10 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function atualizarListaHome() {
     const lista = document.querySelector(".tarefasPendentes .itens");
+    const fraseSumir = document.getElementById("fraseSumir");
+    
     if (!lista){ 
         return;
-    }else{
-        document.getElementById("fraseSumir").style.display = "none";
     }
     lista.innerHTML = "";
 
@@ -44,6 +61,12 @@ function atualizarListaHome() {
         tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
     } catch (e) {
         tarefas = [];
+    }
+
+    if (tarefas.length === 0) {
+        fraseSumir.style.display = "block";
+    } else {
+        fraseSumir.style.display = "none";
     }
     let concluidas = 0;
 
@@ -98,17 +121,17 @@ function atualizarSimuladoHome(){
     NumeSimulado.textContent = simulado.length;
 }
 
-let modal = document.querySelector(".modalOpcoesProvas")
-modal.style.display = "none";
+let modalProvas = document.querySelector(".modalOpcoesProvas")
+modalProvas.style.display = "none";
 
 function abrirOpcoesProvas(){
-    if (!modal) return;
-    if(modal.style.display == "none") {
-        modal.style.display = "flex";
+    if (!modalProvas) return;
+    if(modalProvas.style.display == "none") {
+        modalProvas.style.display = "flex";
         document.querySelector("body").style.overflow = "hidden"
     }
-    else if(modal.style.display == "flex"){
-        modal.style.display = "none";
+    else if(modalProvas.style.display == "flex"){
+        modalProvas.style.display = "none";
         document.querySelector("body").style.overflow = "auto"
     } 
 }

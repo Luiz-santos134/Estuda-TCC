@@ -146,7 +146,7 @@
         .modalContainer p{
             font-size: 14pt;
         }
-        #tituloTarefa{
+        #tituloAnotacao{
             width: 100%;
             border: 1px solid var(--texto-primario);
             box-shadow: 0 0 5px var(--texto-primario);
@@ -172,7 +172,7 @@
             font-size: 16pt;
             color: var(--texto-primario);
         }
-        input:focus,#tituloTarefa:focus,
+        input:focus,#tituloAnotacao:focus,
         #anotacao:focus,#opcoes:focus {
             outline: none;
             border-color: var(--cor-secundaria-destaque);
@@ -213,7 +213,7 @@
             color: var(--texto-primario);
             background-color: var(--cor-fundo);
         }
-        #btnAdicionarTask{
+        #btnAdicionarAnotacao{
             width: 100%;
             background-color: transparent;
             border: 1px solid rgb(255, 255, 255);
@@ -222,7 +222,7 @@
             font-size: 12pt;
             border-radius: 10px;
         }
-        #btnAdicionarTask:hover{
+        #btnAdicionarAnotacao:hover{
             transform: scale(1.01);
             cursor: pointer;
             border: 1px solid var(--cor-secundaria-destaque);
@@ -230,7 +230,7 @@
         .container{
             margin-top: 10px;
             border: 1px solid var(--cor-secundaria-destaque);
-            min-height: 80% auto;
+            min-height: 60vh;
             padding: 20px;
             display: flex;
             justify-content: center;
@@ -244,8 +244,7 @@
             gap: 30px;
             padding: 10px;
         }
-
-        .task{
+        .anotacao{
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -264,7 +263,7 @@
             gap: 10px;
             font-size: 10pt;
         }
-        .container .task input{
+        .container .anotacao input{
             min-width: 100%;
             max-width: 100%;
             height: 30%;
@@ -272,7 +271,7 @@
             border: none;
             padding: 0px;
         }
-        .tituloTaskCriada{
+        .tituloAnotacaoCriada{
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -342,13 +341,12 @@
                         Desafios
                     </a>
                 </li>
-
-                <li>
+                <div class="infoPerfil">
                     <a href="perfil.html" class="menu-link">
-                        <i class="fas fa-user"></i>
-                        Perfil
+                        <p id="nomeUser">Luiz-santos</p>
+                        <img src="perfil.jpeg" id="img_perfil" alt="imgPerfil">
                     </a>
-                </li>
+                </div>
             </ul>
         </div>
     </header>
@@ -401,8 +399,8 @@
                 <input type="submit" value="X" id="fecharModal" onclick="fecharModal()">
             </div>
 
-            <label for="tituloTarefa">Titulo da Tarefa
-                <input type="text" id="tituloTarefa" placeholder="Ex.: Resumo da História do Brasil">
+            <label for="tituloAnotacao">Titulo da Anotação
+                <input type="text" id="tituloAnotacao" placeholder="Ex.: Resumo da História do Brasil">
             </label>
 
             <select id="opcoes">
@@ -415,7 +413,7 @@
 
             <textarea name="anotacao" id="anotacao" placeholder="Digite o conteudo da sua anotação"></textarea>
 
-            <button id="btnAdicionarTask" onclick="adicionarTask()">Adicionar</button>
+            <button id="btnAdicionarAnotacao" onclick="adicionarAnotacao()">Adicionar</button>
         </div>
     </div>
 
@@ -431,7 +429,6 @@
     </footer>
 </body>
 
-<script src="home.js"></script>
 <script src="anotacoes.js"></script>
-
+<script src="home.js"></script>
 </html>

@@ -43,7 +43,6 @@ function editarUsuario() {
     const imgPerfil = document.getElementById('foto_perfil')
     const iconUserSelf = document.getElementById('iconUserSelf')
 
-    imgPerfil.src = '';
     imgPerfil.alt = '';
     iconUserSelf.style.display = 'flex';
 
