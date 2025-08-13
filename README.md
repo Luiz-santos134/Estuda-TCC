@@ -8,17 +8,17 @@ Link para o projeto: https://aluno-estuda-mais.netlify.app/
 
 ✅ Frases motivacionais personalizadas.
 
-✅ Gestão de interesses (ex.: programação, TI, idiomas, economia).
-
 ✅ Interface moderna, minimalista e responsiva.
 
 ✅ Criação de Simulados.
 
-✅ Criação de anotações
+✅ Criação de anotações.
 
-✅ Progressão de carreira
+✅ Progressão de carreira.
 
-Este sistema não depende de dados institucionais (como boletins ou notas), e sim foca na autogestão do estudante.
+✅ Desafios
+
+Este sistema foca na autogestão do estudante.
 
 🛠️ Tecnologias utilizadas
 
@@ -36,19 +36,19 @@ JavaScript
 ✅ Gestão de Tarefas: espaço para listar tarefas pendentes e concluídas. 
 
 
-✅Anotações: Para salvar ideias, textos complexos e Mesagens. 
+✅ Anotações: Para salvar ideias, textos complexos e Mesagens. 
 
 
-✅Desafios: Ajudará o usuário a ser proativo e a se desenvolver
+✅ Desafios: Ajudará o usuário a ser proativo e a se desenvolver
 
 
-✅ Perfil: personalização com interesses.
+✅ Perfil: personalizado.
 
-👨‍💻 Responsáveis 
+👨‍💻 Responsáveis:
 
 Luiz Cláudio - Front-end, Tech Lead
 
-Marcos - Front-end, Idealista
+Marcos - Redator, Idealista
 
 Gabriel - Pesquisador, relator 
 

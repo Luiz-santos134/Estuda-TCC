@@ -14,9 +14,126 @@
     <script src="https://kit.fontawesome.com/83da9facc2.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="home.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
-        
+        :root{
+            --cor-fundo: #121212;
+            --cor-secundaria: #1e1e1e;
+            --cor-detalhe: #2d2d2d;
+            --cor-hover: #333333;
+            --cor-primaria: #ff4d4f;
+            /* vermelho destaque */
+            --cor-secundaria-destaque: #3a6eff;
+            /* azul de contraste */
+            --texto-primario: #f5f5f5;
+            --texto-secundario: #aaaaaa;
+            --borda: #2b2b2b;
+            --input-fundo: #1c1c1c;
+            --input-borda: #3a3a3a;
+        }
+        aside{
+            margin: 0;
+            width: 20%;
+        }
+        aside ul{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: flex-start;
+            padding: 10px;
+        }
+        main{
+            height: 90dvh;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--input-borda);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .resumo{
+            padding: 20px;
+            height: 20%;
+        }
+        .simuFeitos, .simuMedia, .melhoria, .MelhorDiciplina{
+            width: 100%;
+            height: 5rem;
+            border-radius: 10px;
+            background-color: var(--cor-detalhe);
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .dadosSimulados{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 50%;
+            padding: 20px;
+            gap: 20px;
+        }
+        .dadosSimulados .bloco1, .bloco2{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 50%;
+            height: 100%;
+            gap: 5px;
+        }
+        .dadosSimulados .containerBloco1, .dadosSimulados .containerBloco2{
+            width: 100%;
+            height: calc(100% - 25px); /* Subtrai a altura do titulo */
+            background-color: var(--cor-detalhe);
+            border-radius: 10px;
+            overflow: auto;
+        }
+        .containerBloco1{
+            display: flex;
+            flex-direction: column;
+        }
+        .containerBloco1 li{
+            width: 100%;
+            border-bottom: 1px solid;
+        }
+        .containerBloco1 .titulo{
+            width: 100%;
+            height: 2rem;
+        }
+        .containerBloco1 .titulo ul{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .bloco1 p, .bloco2 p{
+            font-size: 13pt;
+        }
+        .objetivos{
+            width: 100%;
+            height: 30%;
+            background-color: #121212;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            padding: 20px;
+        }
+        .meta, .conquistas{
+            width: 100%;
+            background-color: var(--cor-detalhe);
+            border-radius: 10px;
+        }
+        #graficoLinha{
+            margin-left: 50px;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 
 </head>
@@ -38,10 +155,66 @@
     </header>
 
     <main>
+        <aside>
+            <ul>
+                <li>home</li>
+                <li>Simulados</li>
+                <li>Tarefas</li>
+                <li>Anotações</li>
+                <li>Desafios</li>
+            </ul>
+        </aside>
         <div class="container">
-            <div class="resumo"></div>
+            <div class="resumo">
+                <div class="simuFeitos">
+                    <span>5</span>
+                    <p>Simulados Feitos</p>
+                </div>
+                <div class="simuMedia">
+                    40%
+                    <p>Média de acerto</p>
+                </div>
+                <div class="melhoria">
+                    10%
+                    <p>Melhoria</p>
+                </div>
+                <div class="MelhorDiciplina">
+                    Física
+                    <p>Melhor diciplina</p>
+                </div>
+            </div>
 
-            
+            <div class="dadosSimulados">
+                <div class="bloco1">
+                    <p>Ultimos Simulados</p>
+                    <div class="containerBloco1">
+                        <div class="titulo">
+                            <ul>
+                                <li>Data</li>
+                                <li>Tipo</li>
+                                <li>Acertos</li>
+                                <li>Erros</li>
+                            </ul>
+                        </div>
+                        <div class="placeSimulados"></div>
+                    </div>
+                </div>
+                <div class="bloco2">
+                    <p>Histórico</p>
+                    <div class="containerBloco2">
+                        <canvas id="graficoLinha"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="objetivos">
+                <div class="meta">
+                    <p>3 simulados por semana</p>
+                </div>
+                <div class="conquistas">
+                    <p>Primeiro simulado de matematica </p>
+                </div>
+            </div>
         </div>
     </main>
 

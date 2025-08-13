@@ -14,20 +14,6 @@
     --input-borda: #3a3a3a;
 }
 
-:root.tema-claro {
-    --cor-fundo: #ffffff; /* fundo geral */
-    --cor-secundaria: #f2f2f2; /* caixas e blocos */
-    --cor-detalhe: #e0e0e0; /* detalhes internos */
-    --cor-hover: #d6d6d6; /* hover em elementos */
-    --cor-primaria: #ff4d4f; /* mantém o vermelho destaque */
-    --cor-secundaria-destaque: #3a6eff; /* mantém azul contraste */
-    --texto-primario: #1e1e1e; /* texto principal */
-    --texto-secundario: #555555; /* texto auxiliar */
-    --borda: #cccccc; /* bordas sutis */
-    --input-fundo: #ffffff; /* fundo do input */
-    --input-borda: #bbbbbb; /* borda do input */
-}
-
 * {
     margin: 0;
     padding: 0;
