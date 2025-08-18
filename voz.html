@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconhecimento de Voz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Reconhecimento de Voz para Texto</h1>
+        <button id="startButton">🎤 Iniciar Gravação</button>
+        <div id="output" class="output"></div>
+    </div>
+    <script>
+        const startButton = document.getElementById('startButton');
+        const output = document.getElementById('output');
+
+        // Verifica se o navegador suporta a Web Speech API
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            const recognition = new SpeechRecognition();
+
+            // Configurações
+            recognition.lang = 'pt-BR'; // Define o idioma para Português do Brasil
+            recognition.interimResults = false; // Retorna apenas resultados finais
+
+            // Evento de clique no botão
+            startButton.addEventListener('click', () => {
+                if (startButton.textContent === '🎤 Iniciar Gravação') {
+                    recognition.start();
+                    startButton.textContent = '⏹ Parar Gravação';
+                    output.textContent = "Ouvindo...";
+                } else {
+                    recognition.stop();
+                    startButton.textContent = '🎤 Iniciar Gravação';
+                    output.textContent += " (Fim da gravação)";
+                }
+            });
+
+            // Quando o reconhecimento começa
+            recognition.onstart = () => {
+                console.log("Reconhecimento de voz ativado.");
+            };
+
+            // Quando o reconhecimento retorna um resultado
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                output.textContent = transcript;
+            };
+
+            // Em caso de erro
+            recognition.onerror = (event) => {
+                console.error("Erro no reconhecimento:", event.error);
+                output.textContent = "Erro: " + event.error;
+                startButton.textContent = '🎤 Iniciar Gravação';
+            };
+
+            // Quando o reconhecimento termina
+            recognition.onend = () => {
+                if (startButton.textContent === '⏹ Parar Gravação') {
+                    startButton.textContent = '🎤 Iniciar Gravação';
+                }
+            };
+        } else {
+            // Caso o navegador não suporte a API
+            output.textContent = "Seu navegador não suporta reconhecimento de voz.";
+            startButton.disabled = true;
+        }
+    </script>
+</body>
+</html>

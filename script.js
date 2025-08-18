@@ -1,7 +1,6 @@
 let frase = document.querySelector('.frase-motivacional');
 let ultimaFrase = "";
 gerarFrase();
-atualizarListaTarefas();
 
 function gerarFrase() {
     const frases = [
@@ -18,7 +17,7 @@ function gerarFrase() {
     } while (novaFrase === ultimaFrase);
 
     ultimaFrase = novaFrase;
-    frase.innerText = novaFrase;
+    if(frase)frase.innerText = novaFrase;
 }
 
 function abrirModal() {
@@ -49,27 +48,34 @@ function enviarTH(event) {
 
     if (titulo === "") return;
 
-    // Recupera tarefas salvas (ou cria array vazio)
     let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
 
-    // Adiciona nova tarefa
     tarefas.push({ titulo: titulo, concluida: false });
 
-    // Salva no localStorage
     localStorage.setItem("tarefas", JSON.stringify(tarefas));
 
-    input.value = ""; // limpa o campo
-    fecharModal(); // fecha o modal se quiser
-    atualizarListaTarefas(); // função que você pode criar para mostrar na tela
-    mostrarTarefas()
+    input.value = "";
+    fecharModal();
+    atualizarListaTarefas();
+    mostrarTarefas();
 }
 
 function atualizarListaTarefas() {
-    const lista = document.querySelector(".tasksPendentes ul");
-    lista.innerHTML = "";
+    const lista = document.querySelector("#listaTarefasPendentes");
+    if(lista)lista.innerHTML = "";
 
     let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
     let concluidas = 0;
+    
+    if (!tarefas.length) {
+        
+        const li = document.createElement("li");
+        li.innerHTML = "<p>Nenhuma tarefa pendente.</p>";
+        li.style.textAlign = "center";
+        li.style.color = "#888";
+        lista.appendChild(li);
+        return;
+    }
 
     tarefas.forEach((tarefa, index) => {
         const li = document.createElement("li");
@@ -107,30 +113,7 @@ function atualizarListaTarefas() {
     document.querySelector(".numPendentes").textContent = numPendentes;
 }
 
-// Chama a função ao abrir a página
 window.addEventListener("load", atualizarListaTarefas);
-
-function mostrarTarefas() {
-    const botao = document.getElementById("mostrarTasks");
-    const limpar = document.getElementById("limpar");
-    const deleteTask = document.getElementById("deleteTask");
-    const preencherEspaco = document.getElementById("preencherEspaco");
-
-    let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
-
-    if (tarefas.length === 0) {
-        alert("Nenhuma tarefa pendente.");
-        botao.style.display = "block";
-        return;
-    }
-    else {
-        botao.style.display = "none";
-        limpar.style.display = "block";
-        deleteTask.style.display = "block";
-        preencherEspaco.style.display = "none";
-    }
-    atualizarListaTarefas();
-}
 
 function deletarTask(){
     const botaoDeletar = document.getElementById("deleteTask");

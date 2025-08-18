@@ -3,10 +3,10 @@ const ctx = document.getElementById('graficoLinha').getContext('2d');
 const chart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+        labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago'],
         datasets: [{
             label: 'Desempenho nos Simulados',
-            data: [45, 50, 55, 60, 65, 70],
+            data: [0, 50, 10, 60, 65, 70, 85],
             borderColor: '#3a6eff',
             backgroundColor: 'rgba(58, 110, 255, 0.1)',
             tension: 0.3,
@@ -45,33 +45,24 @@ const chart = new Chart(ctx, {
     }
 });
 
-
-document.addEventListener("DOMContentLoaded", () => {
-    carregarSimulados()
-});
-
-function carregarSimulados(){
-    let SimuladosPlace = document.querySelector(".containerBloco1")
-
-    let simulados = JSON.parse(localStorage.getItem("simuladosFinalizados")) || [];
-    const NumeSimulado = document.querySelector(".simuFeitos span");
-    NumeSimulado.textContent = simulados.length;
-
-    let simulado = document.createElement("div")
-    simulado.classList.add("simulado")
-
-    SimuladosPlace.appendChild(simulado)
-}
-
 // Carrega simulados finalizados ao iniciar a página
 document.addEventListener('DOMContentLoaded', () => {
-    let SimuladosPlace = document.querySelector(".containerBloco1 .placeSimulados")
+    let SimuladosPlace = document.querySelector(".containerBloco1 .placeSimulados");
 
     let simuladosFinalizados = JSON.parse(localStorage.getItem('simuladosFinalizados')) || [];
     SimuladosPlace.innerHTML = '';
+
     simuladosFinalizados.forEach(simulado => {
         const li = document.createElement('li');
-        li.innerHTML = `<p>${simulado.data} - ${simulado.tipo} - Acertos: ${simulado.porcentagem}%</p>`;
+        li.classList.add('simulado-item');
+
+        li.innerHTML = `
+            <span class="data">${simulado.data}</span>
+            <span class="tipo">${simulado.tipo}</span>
+            <span class="porcentagem">${simulado.porcentagem}%</span>
+            <span class="erro">${(100 - simulado.porcentagem)/10}</span>
+        `;
+        
         SimuladosPlace.appendChild(li);
     });
 });

@@ -50,6 +50,7 @@
             width: 100%;
             height: 100%;
             gap: 20px;
+            margin-top: 20px;
         }
         .materias, .configuracoesSimulado {
             display: flex;
@@ -163,7 +164,7 @@
         .feitos{
             width: 100%;
             height: 80%;
-            
+            overflow-y: auto;
             border: 1px solid var(--cor-secundaria-destaque);
             border-radius: 10px;
             display: flex;
@@ -174,7 +175,6 @@
         }
         .feitos ul{
             list-style: none;
-            overflow-y: auto;
             padding: 0;
             margin: 0;
             margin-top: 20px;
@@ -212,7 +212,7 @@
             margin: 0 auto; */
         }
         .FolhaSimulado {
-            display: flex;
+            display: none;
             flex-direction: column;
             justify-content: start;
             align-items: start;
@@ -224,7 +224,9 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             font-family: 'Segoe UI', sans-serif;
             color: var(--texto-primario);
-            transition: 0.3s;
+        }
+        .estruturaSimulado, .FolhaSimulado {
+            transition: all 0.3s ease;
         }
         .FolhaSimulado p {
             font-size: 18px;
@@ -262,6 +264,26 @@
         .resposta:active {
             background-color: var(--cor-primaria);
         }
+        
+        .configuracoes input{
+            padding: 0px 10px;
+            width: 4rem;
+            outline: none;
+        }
+        .configSimu{
+            display: flex;
+            justify-content: space-between;
+        }
+        .configSimu button{
+            background-color: var(--cor-primaria);
+            border: 1px solid var(--texto-primario);
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .configSimu button:hover{
+            transform: scale(1.1);
+            cursor: pointer;
+        }
         @media (max-width: 800px) {
             body {
                 height: 180dvh;
@@ -298,18 +320,12 @@
                 padding: 20px;
             }
         }
-
-        .FolhaSimulado{
-            display: none;
-        }
-
         /* Telas grandes */
         @media (min-width: 1450px) {
             .materia {
                 font-size: 18pt;
             }
         }
-
         /* Telas médias*/
         @media (max-width: 1400px) {
             /* .content{
@@ -326,16 +342,65 @@
             main{
                 height: 110dvh;
             }
+            .content{
+                margin-top: 0px;
+            }
         }
-
         /*Celulares*/
         @media (max-width: 768px) {
             .materia {
                 font-size: 12pt;
             }
+            .materias, .configuracoesSimulado {
+                width: 100%;
+                height: 100%;
+                padding: 10px;
+            }
+            .divisao {
+                flex-direction: row;
+                align-items: center;
+                gap: 20px;
+            }
+            .content{
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 70%;
+            }
+            main,body, html{
+                overflow-x: hidden;
+            }
+            footer{
+                position: fixed;
+                margin-top: 0px;
+                bottom: 0;
+                width: 100%;
+                height: 10vh;
+            }
+            .estruturaSimulado{
+                height: 100%;
+                position: relative;
+                top: 0%;
+                transform: translate(0%, -10%);
+            }
+            .FolhaSimulado {
+                flex-direction: column;
+                justify-content: start;
+                align-items: start;
+                width: 100%;
+                margin: 40px auto;
+                padding: 20px 25px;
+                background: var(--cor-secundaria);
+                border-radius: 16px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+                font-family: 'Segoe UI', sans-serif;
+                color: var(--texto-primario);
+            }
+            body{
+                height: 130vh;
+            }
         }
-
-
     </style>
 
 </head>
@@ -474,10 +539,22 @@
 
                         <label for="opc">Pas</label>
                         <input type="radio" name="opc" id="Pas">
+
                         <span>|</span>
+
                         <label for="opc">Aleatório</label>
                         <input type="radio" name="opc" id="Random">
+
+                        
+
                     </div>
+
+                    <div class="configuracoes">
+                            <label>
+                                Número de Questões:
+                                <input type="number" id="numQuestoes" min="10" max="100" value="20">
+                            </label>
+                        </div>
 
                     <div class="feitos">
                         <ul>
@@ -491,11 +568,18 @@
             </div>
         </div> 
         
-       
         <div class="FolhaSimulado">
-            <p>Questão <span>1</span> de 10</p>
+            <div class="configSimu">
+                <button onclick="voltarParaConfiguracao()" style="align-self: flex-end; margin-bottom: 15px;">
+                    <i class="fas fa-arrow-left"></i> Voltar
+                </button>
+                <p class="tempo-decorrido">Tempo: <span id="tempoDecorrido">00:00</span></p>
+            </div>
+            <p>Questão <span id="questaoAtual">1</span> de <span id="totalQuestoes">20</span></p>
 
             <p>Questoes <span id="tipoSimulado"></span>:</p>
+
+            
 
             <p id="Pergunta"></p>
 

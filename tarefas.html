@@ -72,11 +72,12 @@
             display: flex;
             flex-direction: column;
             justify-content: start;
+            align-items: center;
             gap: 20px;
             width: 50%;
             min-height: 80%;
             height: 80%;
-            padding: 20px;
+            padding: 10px 20px;
             background-color: var(--cor-detalhe);
             border-radius: 10px;
             box-shadow: 0 4px 8px var(--cor-detalhe);
@@ -93,22 +94,25 @@
             display: flex;
             text-align: center;
             justify-content: flex-start;
+            align-items: center;
             gap: 10px;
         }
         .tasksPendentes ul {
-            display: grid;
-            grid-template-columns: 200px 200px 150px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
             overflow-y: auto;
             overflow-x: hidden;
             height: auto;
-            width: 90%;
+            justify-content: center;
+            width: 100%;
         }
         .tasksPendentes li {
             display: flex;
             align-items: center;
             font-size: 1.4rem; /* Tamanho da fonte maior */
             color: var(--texto-primario);
-            width: 80%;
+            width: auto;
             padding: 10px;
             gap: 10px;
         }
@@ -268,53 +272,32 @@
             transform: scale(1.01);
             transition: background-color 0.5s ease, box-shadow 0.5s ease;
         }
-        #limpar{
-            display: none;
-        }
-        .tasksPendentes h2 {
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            margin: 0;
-        }
 
-        #limpar,
-        #deleteTask {
-            padding: 8px 12px;
+        #limpar {
+            padding: 8px 16px;
+            background-color: var(--cor-primaria);
+            color: var(--texto-primario);
+            border: none;
+            border-radius: 6px;
             font-size: 0.9rem;
             font-weight: 500;
-            color: var(--texto-primario);
-            background-color: var(--cor-secundaria-destaque);
-            border: none;
-            border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
-            display: none;
+            margin-left: auto;
         }
 
-        #limpar:hover,
-        #deleteTask:hover {
-            background-color: rgb(40, 54, 134);
+        #limpar:hover {
+            background-color: #e63946; /* Tom mais escuro de vermelho */
             transform: scale(1.05);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        #deleteTask {
-            margin-left: 8px;
-            background-color: var(--cor-primaria);
+        /* Remova o #preencherEspaco ou ajuste para: */
+        #preencherEspaco {
+            display: none; /* Não é mais necessário */
         }
-
-        #deleteTask:hover {
-            background-color: #801e20;
-        }
-        #preencherEspaco{
-            background-color: transparent;
-            width: 40%;
-            height: 50%;
-        }
-
 
     </style>
-    <script src="script.js"></script>
 </head>
 
 <body>
@@ -401,11 +384,9 @@
                     <h2>Tarefas Pendentes (<span>0</span>) 
                         <div id="preencherEspaco"></div>
                         <input type="submit" id="limpar" value="Limpar Tarefas" onclick="limparTarefas()">
-                        <input type="submit" id="deleteTask" value="Deletar" onclick="deletarTask()">
                     </h2>
 
-                    <button id="mostrarTasks" onclick="mostrarTarefas('pendentes')">Mostrar Tarefas</button>
-                    <ul>
+                    <ul id="listaTarefasPendentes">
                     </ul>
                 </div>
 
@@ -441,6 +422,6 @@
         <a href="#">Voltar ao topo</a>
     </footer>
 </body>
-<script src="home.js"></script>
 <script src="script.js"></script>
+<script src="home.js"></script>
 </html>

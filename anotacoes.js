@@ -145,3 +145,59 @@ const barraPesquisa = document.getElementById('pesquisa');
 if (barraPesquisa) {
     barraPesquisa.addEventListener('input', pesquisarAnotacoes);
 }
+
+let isListening = false; // Controla o estado do microfone
+const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+function ouvir() {
+    const startButton = document.getElementById('startButton');
+    const output = document.getElementById('anotacao');
+
+    // Configurações do reconhecimento
+    recognition.lang = 'pt-BR';
+    recognition.interimResults = false;
+
+    if (!isListening) {
+        // Inicia a escuta
+        recognition.start();
+        isListening = true;
+        startButton.innerHTML = '<i class="fa-solid fa-microphone-slash" title="Parar"></i>';
+        output.textContent = "Ouvindo...";
+        startButton.style.background = "var(--cor-primaria)";
+        startButton.style.transform = "scale(1.1)";
+    } else {
+        // Para a escuta
+        recognition.stop();
+        isListening = false;
+        startButton.innerHTML = '<i class="fa-solid fa-microphone" title="Falar"></i>';
+        startButton.style.background = "var(--cor-secundaria-destaque)";
+        startButton.style.transform = "scale(1)";
+    }
+
+    // Eventos do reconhecimento
+    recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        output.textContent = transcript;
+    };
+
+    recognition.onerror = (event) => {
+        console.error("Erro:", event.error);
+        output.textContent = "Erro: " + event.error;
+        resetMicrophone();
+    };
+
+    recognition.onend = () => {
+        if (isListening) {
+            recognition.start(); // Reativa se ainda estiver no modo "ouvindo"
+        } else {
+            resetMicrophone();
+        }
+    };
+}
+
+// Reseta o ícone e estado
+function resetMicrophone() {
+    const startButton = document.getElementById('startButton');
+    isListening = false;
+    startButton.innerHTML = '<i class="fa-solid fa-microphone" title="Falar"></i>';
+}

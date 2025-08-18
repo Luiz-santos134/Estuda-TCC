@@ -31,7 +31,9 @@
             --input-fundo: #1c1c1c;
             --input-borda: #3a3a3a;
         }
-
+        main{
+            height: 110dvh;
+        }
         .anotacoes {
             width: 100%;
             height: 80dvh;
@@ -52,18 +54,6 @@
         }
         input[type="text"]::placeholder {
             color: var(--texto-secundario);
-        }
-        @media (max-width: 800px) {
-            #spanTitulo{
-                display: none;
-            }
-            .titulo p{
-                font-size: 20pt;
-            }
-            header {
-                height: auto;
-                padding: 10px;
-            }
         }
         .topo{
             display: flex;
@@ -158,6 +148,7 @@
             font-weight: 400;
         }
         #anotacao {
+            position: relative;
             min-width: 100%;
             min-height: 40%;
             max-width: 100%;
@@ -230,8 +221,9 @@
         .container{
             margin-top: 10px;
             border: 1px solid var(--cor-secundaria-destaque);
-            min-height: 60vh;
-            padding: 20px;
+            height: 60dvh;
+            min-height: fit-content;
+            padding: 20px 0px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -240,9 +232,8 @@
         .todas {
             display: grid;
             grid-template-columns: repeat(5, 1fr); /* 6 colunas iguais */
-            justify-items: center; /* Centraliza cada item na célula */
-            gap: 30px;
-            padding: 10px;
+            justify-items: center;
+            gap: 20px;
         }
         .anotacao{
             display: flex;
@@ -293,6 +284,46 @@
         .icons i:hover{
             cursor: pointer;
             color: var(--cor-fundo);
+        }
+        #startButton {
+            position: absolute;
+            z-index: 1;
+            top: 50%;
+            left: 64%;
+            transform: translate(0%, 0%);
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background-color: var(--cor-secundaria-destaque);
+            border: 1px solid var(--texto-primario);
+            cursor: pointer;
+        }
+        #startButton:hover{
+            transform: scale(1.1);
+        }
+        @media (max-width: 800px) {
+            #spanTitulo{
+                display: none;
+            }
+            .titulo p{
+                font-size: 20pt;
+            }
+            header {
+                height: auto;
+                padding: 10px;
+            }
+            #startButton {
+                top: 50%;
+                left: 78%;
+                transform: translate(0%, 0%);
+            }
+            .todas {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr); /* 6 colunas iguais */
+                justify-items: center; /* Centraliza cada item na célula */
+                gap: 30px;
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -410,6 +441,10 @@
                 <option value="Importante">Importante</option>
                 <option value="Outros">Outros</option>
             </select>
+
+            <button id="startButton" onclick="ouvir()">
+                <i class="fa-solid fa-microphone" title="microfone"></i>
+            </button>
 
             <textarea name="anotacao" id="anotacao" placeholder="Digite o conteudo da sua anotação"></textarea>
 

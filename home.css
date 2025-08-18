@@ -327,6 +327,27 @@ main h1 {
     background-color: var(--cor-hover);
 }
 
+.item-historico {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #2d2d2d;
+    border-radius: 5px;
+}
+
+.porcentagem {
+    color: #4CAF50; /* Verde para acertos */
+}
+
+.erro {
+    color: #ff4d4f; /* Vermelho para erros */
+}
+
+.tempo {
+    color: #3a6eff; /* Azul para tempo */
+}
+
 
 
 

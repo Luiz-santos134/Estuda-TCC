@@ -118,11 +118,12 @@ function atualizarListaHome() {
 function atualizarSimuladoHome(){
     let simulado = JSON.parse(localStorage.getItem("simuladosFinalizados")) || [];
     const NumeSimulado = document.querySelector(".numSimulado");
-    NumeSimulado.textContent = simulado.length;
+    if(NumeSimulado)NumeSimulado.textContent = simulado.length;
 }
 
 let modalProvas = document.querySelector(".modalOpcoesProvas")
-modalProvas.style.display = "none";
+
+if(modalProvas)modalProvas.style.display = "none";
 
 function abrirOpcoesProvas(){
     if (!modalProvas) return;
