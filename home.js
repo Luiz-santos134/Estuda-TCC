@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // ======== Ativa o link do menu ========
     const currentPage = window.location.pathname.split("/").pop();
     const links = document.querySelectorAll(".menu-link");
     links.forEach(link => {
@@ -7,25 +8,31 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // ======== Mensagem de simulados feitos ========
     let areaSimuladosFeitos = document.querySelector('.feitos');
-
-    if (areaSimuladosFeitos && areaSimuladosFeitos.textContent.trim() === ""){
+    if (areaSimuladosFeitos && areaSimuladosFeitos.textContent.trim() === "") {
         areaSimuladosFeitos.innerHTML = `
             <i class="fas fa-file-alt"></i>
             Nenhum simulado realizado ainda.
             <br>
             Que tal fazer o primeiro?
-             `
+        `;
     }
 
+    // ======== Checa usuário logado apenas em páginas que requerem login ========
     const usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
+    const bodyRequerLogin = document.body.classList.contains("requer-login");
 
+    if (bodyRequerLogin && !usuarioSalvo) {
+        console.log("Nenhum usuário logado");
+        window.location.href = "login.html";
+    }
+
+    // ======== Atualiza informações do perfil se houver usuário ========
     if (usuarioSalvo) {
         const elementoNome = document.querySelector('.infoPerfil p');
         if (elementoNome) {
             elementoNome.textContent = usuarioSalvo.nome;
-        } else {
-            console.error("Elemento para exibir o nome do usuário não encontrado");
         }
 
         const imgPerfil = document.getElementById('img_perfil');
@@ -34,26 +41,21 @@ document.addEventListener("DOMContentLoaded", () => {
             if (fotoSalva) {
                 imgPerfil.src = fotoSalva;
             }
-        } else {
-            console.error("Elemento de imagem de perfil não encontrado");
         }
-    } else {
-        console.log("Nenhum usuário logado");
-        window.location.href = "login.html";
     }
 
+    // ======== Atualizações da home ========
     atualizarListaHome();
     atualizarSimuladoHome();
 });
 
-
+// ================= Função para atualizar lista de tarefas na home =================
 function atualizarListaHome() {
     const lista = document.querySelector(".tarefasPendentes .itens");
     const fraseSumir = document.getElementById("fraseSumir");
     
-    if (!lista){ 
-        return;
-    }
+    if (!lista) return;
+
     lista.innerHTML = "";
 
     let tarefas = [];
@@ -63,18 +65,20 @@ function atualizarListaHome() {
         tarefas = [];
     }
 
-    if (tarefas.length === 0) {
+    if (tarefas.length === 0 && fraseSumir) {
         fraseSumir.style.display = "block";
-    } else {
+    } else if (fraseSumir) {
         fraseSumir.style.display = "none";
     }
+
     let concluidas = 0;
 
-    // Pega só as 3 primeiras
+    // Pega só as 3 primeiras tarefas
     let primeirasTarefas = tarefas.slice(0, 3);
 
     primeirasTarefas.forEach((tarefa, index) => {
-        if (!tarefa || !tarefa.titulo) return; // Evita erro se tarefa nao existir
+        if (!tarefa || !tarefa.titulo) return;
+        
         const divTarefa = document.createElement("div");
         divTarefa.classList.add("tarefa");
 
@@ -83,7 +87,6 @@ function atualizarListaHome() {
         checkbox.checked = tarefa.concluida || false;
 
         checkbox.addEventListener("change", () => {
-            // Pega pelo índice no array 
             const posicao = tarefas.findIndex(t => t.titulo === tarefa.titulo);
             if (posicao > -1) {
                 tarefas[posicao].concluida = checkbox.checked;
@@ -102,37 +105,29 @@ function atualizarListaHome() {
         if (tarefa.concluida) concluidas++;
     });
 
-    let tasksConcluidas = 0;
-    
-    for (let i = 0; i < tarefas.length; i++) {
-        if (tarefas[i].concluida == true){
-            tasksConcluidas++
-            console.log(tasksConcluidas)
-        }
-    }
-
     const numTaskElem = document.querySelector(".numTask");
-    if (numTaskElem) numTaskElem.textContent = tasksConcluidas;
+    if (numTaskElem) numTaskElem.textContent = concluidas;
 }
 
-function atualizarSimuladoHome(){
+// ================= Função para atualizar simulados =================
+function atualizarSimuladoHome() {
     let simulado = JSON.parse(localStorage.getItem("simuladosFinalizados")) || [];
     const NumeSimulado = document.querySelector(".numSimulado");
-    if(NumeSimulado)NumeSimulado.textContent = simulado.length;
+    if (NumeSimulado) NumeSimulado.textContent = simulado.length;
 }
 
-let modalProvas = document.querySelector(".modalOpcoesProvas")
+// ================= Modais =================
+let modalProvas = document.querySelector(".modalOpcoesProvas");
+if (modalProvas) modalProvas.style.display = "none";
 
-if(modalProvas)modalProvas.style.display = "none";
-
-function abrirOpcoesProvas(){
+function abrirOpcoesProvas() {
     if (!modalProvas) return;
-    if(modalProvas.style.display == "none") {
+
+    if (modalProvas.style.display === "none") {
         modalProvas.style.display = "flex";
-        document.querySelector("body").style.overflow = "hidden"
-    }
-    else if(modalProvas.style.display == "flex"){
+        document.body.style.overflow = "hidden";
+    } else {
         modalProvas.style.display = "none";
-        document.querySelector("body").style.overflow = "auto"
-    } 
+        document.body.style.overflow = "auto";
+    }
 }

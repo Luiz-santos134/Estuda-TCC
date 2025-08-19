@@ -177,6 +177,7 @@ function adicionarTarefaFeita(porcentagem, tipo, materias, tempoDecorrido) {
             </p>`;
         listaFeitos.appendChild(li);
     });
+    content.style.display = "flex";
 }
 
 function responder(id) {

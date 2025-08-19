@@ -36,12 +36,14 @@
         body{
             height: 100%;
             font-family: Arial, sans-serif;
+            background: linear-gradient(to right, rgb(0, 0, 0), black, rgb(11, 11, 65), rgb(39, 39, 182));
             /* background-color: var(--cor-fundo); */
         }
         header {
             position: sticky;
             top: 0;
-            background: linear-gradient(to bottom, #042161, transparent);
+            /* background: linear-gradient(to bottom, #042161, transparent); */
+            background-color: transparent;
             color: var(--texto-primario);
             padding: 0px 20px;
             text-align: center;
@@ -53,14 +55,8 @@
             font-size: 11pt;
             z-index: 1000;
         }
-        .video-bg {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            opacity: 0.4;
+        .menu ul li a:hover{
+            background-color: var(--cor-fundo);
         }
         .conteudo {
             position: relative;
@@ -132,7 +128,7 @@
         footer {
             margin-top: 60px;
             padding: 20px 30px;
-            background-color: var(--cor-secundaria-destaque);
+            background-color: var(--cor-fundo);
             color: var(--texto-secundario);
             text-align: center;
             font-size: 0.9em;
@@ -141,8 +137,9 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 200px;
-            background: radial-gradient( rgb(14, 6, 126), var(--cor-fundo), var(--cor-fundo));
+            background: linear-gradient(to right, rgb(0, 0, 0), black, rgb(11, 11, 65), rgb(39, 39, 182));
+            border-top: 5px solid var(--texto-primario);
+            margin-bottom: 100px;
         }
         #simuladoImg, #tarefasImg, #anotacoesImg{
             object-fit: cover;
@@ -163,13 +160,110 @@
         .img2 p{
             padding-left: 50px;
         }
+        .tablet{
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(#4facfe, #0066ff);
+            text-align: center;
+            color: var(--texto-primario);
+            border-radius: 10px;
+            padding: 20px;
+            width: 40rem;
+            height: 10rem;
+            font-size: 2em;
+            font-weight: bold;
+            z-index: 10;
+            box-shadow: 0 6px 10px rgba(0,0,0,0.4);
+            animation: mover 3s  infinite alternate ease-in-out;
+        }
+        .img2_celular{
+            display: none;
+            flex-direction: row;
+            align-items: center;
+            gap: 50px;
+            line-height: 30px;
+        }
+
+        @keyframes mover{
+            from{
+                transform: rotateX(-90deg);
+            }
+            to{
+                transform: rotateX(0deg);
+            }
+        }
+        @media (max-width: 768px) {
+            body{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            header {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 120px;
+            }
+            .conteudo {
+                width: 90%;
+                padding: 20px;
+                padding: 0px 20px;
+            }
+            .conteudo h1 {
+                font-size: 2em;
+            }
+            .conteudo span{
+                font-size: 1.3em;
+            }
+            .linha1, .linha2 {
+                font-size: 1.2em;
+            }
+            .botao {
+                width: 100%;
+                text-align: center;
+            }
+            .imgsFuncoes {
+                flex-direction: column;
+                gap: 50px;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+            .img1, .img2, .img3 {
+                flex-direction: column;
+                align-items: center;
+            }
+            .img2{
+                display: none;
+            }
+            .img2_celular{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            #simuladoImg, #tarefasImg, #anotacoesImg {
+                width: 100%;
+                height: auto;
+                max-width: 500px;
+            }
+            .tablet {
+                position: relative;
+                top: 5rem;
+                left: 0%;
+                width: 22rem;
+                height: 6rem;
+                font-size: 1.2em;
+            }
+        }
     </style>
 </head>
 
 <body>
     <header>
         <div class="titulo">
-            <a href="home.html">
+            <a href="index.html">
                 <p>E<span id="spanTitulo"></span> <span>+</span></p>
             </a>
         </div>
@@ -186,17 +280,17 @@
                 <li>
                     <a href="cadastrar.html" class="menu-link">
                         <i class="fa-solid fa-user-plus"></i>
-                        Sing Up
+                        Sign Up
                     </a>
                 </li>
             </ul>
         </div>
     </header>
 
-    <video class="video-bg" autoplay muted loop>
-        <source src="VideoFundoTCC.mp4" type="video/mp4">
-        Seu navegador não suporta vídeo HTML5.
-    </video>
+    <div class="tablet">
+        <p>Estuda +</p>
+        <p>A sua plataforma de estudos</p>
+    </div>
 
     <div class="conteudo">
         <h1>
@@ -223,6 +317,12 @@
             </p>
             <img src="tarefasImg.png" id="tarefasImg" alt="tarefas">
         </div>
+        <div class="img2_celular">
+            <img src="tarefasImg.png" id="tarefasImg" alt="tarefas">
+            <p>✅ Tarefas <br>
+                Organize suas atividades de estudo e do dia a dia. Priorize o que é mais importante e mantenha tudo sob controle.
+            </p>
+        </div>
         <div class="img3">
             <img src="anotacoesImg.png" id="anotacoesImg" alt="anotações">
             <p>
@@ -232,9 +332,9 @@
         </div>
     </div>
 
-    <!-- <footer>
+    <footer>
     © 2025 Estuda + • Desenvolvido por Luiz Cláudio • Todos os direitos reservados
-  </footer> -->
+  </footer>
 </body>
 <script src="script.js"></script>
 <script src="home.js"></script>

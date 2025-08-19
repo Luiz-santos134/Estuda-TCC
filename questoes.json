@@ -111,12 +111,12 @@
     "biologia": [
       {
         "pergunta": "Enem(2019) Qual a função da mitocôndria na célula?",
-        "alternativas": ["Produzir energia", "Sintetizar proteínas", "Armazenar água", "Controlar o núcleo"],
+        "alternativas": ["Sintetizar proteínas", "Produzir energia", "Armazenar água", "Controlar o núcleo"],
         "resposta": "Produzir energia"
       },
       {
         "pergunta": "Enem(2018) Qual é o material genético presente no núcleo das células?",
-        "alternativas": ["DNA", "RNA", "Proteínas", "Lipídios"],
+        "alternativas": ["RNA", "Proteínas", "DNA", "Lipídios"],
         "resposta": "DNA"
       },
       {

@@ -101,13 +101,12 @@
             height: calc(100% - 25px); /* Subtrai a altura do titulo */
             background-color: var(--cor-detalhe);
             border-radius: 10px;
-            overflow: auto;
         }
         .containerBloco1 {
-    background-color: var(--cor-detalhe);
-    border-radius: 10px;
-    overflow: hidden;
-    font-size: 14px;
+            background-color: var(--cor-detalhe);
+            border-radius: 10px;
+            overflow: hidden;
+            font-size: 14px;
         }
         .containerBloco1 .titulo{
             top: 0%;
@@ -123,6 +122,11 @@
             padding: 10px;
             font-weight: 600;
             color: var(--texto-primario);
+        }
+        .placeSimulados{
+            overflow-y: auto;
+            height: calc(100% - 40px); /* Subtrai a altura do cabeçalho */
+            padding: 10px;
         }
         .placeSimulados .simulado-item {
             display: grid;
@@ -158,10 +162,36 @@
             background-color: var(--cor-detalhe);
             border-radius: 10px;
         }
-        #graficoLinha{
-            margin-left: 50px;
+        #graficoLinha {
             width: 100%;
-            height: 100%;
+            height: 400px;
+            margin-top: 20px;
+            background-color: var(--cor-secundaria);
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .simulado-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            margin: 8px 0;
+            background-color: var(--cor-detalhe);
+            border-radius: 5px;
+        }
+
+        .simulado-item .porcentagem {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .simulado-item .erro {
+            color: var(--cor-primaria);
+        }
+
+        .simulado-item .tempo {
+            color: var(--cor-secundaria-destaque);
+            font-style: italic;
         }
     </style>
 
