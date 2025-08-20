@@ -128,7 +128,6 @@ function deletarTask(){
     }
 }
 
-// Função para limpar tudo
 function limparTarefas() {
     localStorage.removeItem("tarefas");
     atualizarListaTarefas(); // Atualiza a lista após limpar

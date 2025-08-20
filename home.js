@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // ======== Ativa o link do menu ========
     const currentPage = window.location.pathname.split("/").pop();
     const links = document.querySelectorAll(".menu-link");
     links.forEach(link => {
@@ -8,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // ======== Mensagem de simulados feitos ========
     let areaSimuladosFeitos = document.querySelector('.feitos');
     if (areaSimuladosFeitos && areaSimuladosFeitos.textContent.trim() === "") {
         areaSimuladosFeitos.innerHTML = `
@@ -19,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
     }
 
-    // ======== Checa usuário logado apenas em páginas que requerem login ========
     const usuarioSalvo = JSON.parse(localStorage.getItem("usuario"));
     const bodyRequerLogin = document.body.classList.contains("requer-login");
 
@@ -28,9 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "login.html";
     }
 
-    // ======== Atualiza informações do perfil se houver usuário ========
     if (usuarioSalvo) {
-        const elementoNome = document.querySelector('.infoPerfil p');
+        const elementoNome = document.querySelector('.infoPerfil span');
         if (elementoNome) {
             elementoNome.textContent = usuarioSalvo.nome;
         }
@@ -44,12 +40,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // ======== Atualizações da home ========
+    if (screen.width <= 768) {
+        const textIconLink = document.querySelectorAll('.textIconLink');
+        textIconLink.forEach(link => {
+            link.style.display = 'none';
+        });
+    }
+
     atualizarListaHome();
     atualizarSimuladoHome();
 });
 
-// ================= Função para atualizar lista de tarefas na home =================
 function atualizarListaHome() {
     const lista = document.querySelector(".tarefasPendentes .itens");
     const fraseSumir = document.getElementById("fraseSumir");
@@ -109,14 +110,12 @@ function atualizarListaHome() {
     if (numTaskElem) numTaskElem.textContent = concluidas;
 }
 
-// ================= Função para atualizar simulados =================
 function atualizarSimuladoHome() {
     let simulado = JSON.parse(localStorage.getItem("simuladosFinalizados")) || [];
     const NumeSimulado = document.querySelector(".numSimulado");
     if (NumeSimulado) NumeSimulado.textContent = simulado.length;
 }
 
-// ================= Modais =================
 let modalProvas = document.querySelector(".modalOpcoesProvas");
 if (modalProvas) modalProvas.style.display = "none";
 
