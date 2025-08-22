@@ -292,7 +292,7 @@ main h1 {
     background-color: transparent;
 }
 .funcionalidades ul a:hover, .funcionalidades button:hover{
-    background: radial-gradient(circle, rgb(55, 0, 128) 40%, var(--cor-fundo) 100%);
+    background: radial-gradient(circle, var(--cor-secundaria-destaque) 10%, rgb(0, 0, 0) 100%);
     transform: scale(0.98);
 }
 .itensAtalho {
@@ -357,7 +357,7 @@ main h1 {
 
 ::-webkit-scrollbar-thumb {
     /* background-color: rgb(161, 65, 224); */
-    background: linear-gradient(blue, rgb(75, 1, 97));
+    background: linear-gradient(gray);
     /* border-top-right-radius: 10px;
     border-bottom-right-radius: 10px; */
     border-radius: 10px;
