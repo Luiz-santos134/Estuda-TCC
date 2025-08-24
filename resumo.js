@@ -1,20 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Recupera os simulados do localStorage
     const simuladosFinalizados = JSON.parse(localStorage.getItem('simuladosFinalizados')) || [];
     
     // Ordena por data (do mais antigo para o mais recente)
     simuladosFinalizados.sort((a, b) => new Date(a.data.split('/').reverse().join('-')) - new Date(b.data.split('/').reverse().join('-')));
     
-    // Prepara os dados para o gráfico
     const labels = simuladosFinalizados.map(simulado => {
-        // Formata a data para exibição (dd/mm)
         const [dia, mes] = simulado.data.split('/');
         return `${dia}/${mes}`;
     });
     
     const dados = simuladosFinalizados.map(simulado => simulado.porcentagem);
     
-    // Cria o gráfico
     const ctx = document.getElementById('graficoLinha').getContext('2d');
     new Chart(ctx, {
         type: 'line',
@@ -88,14 +84,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Atualiza a lista de simulados (se necessário)
     let SimuladosPlace = document.querySelector(".containerBloco1 .placeSimulados");
     if (SimuladosPlace) {
         SimuladosPlace.innerHTML = '';
+
+        let numAcertor = [];
         
         simuladosFinalizados.forEach(simulado => {
             const li = document.createElement('li');
             li.classList.add('simulado-item');
+            
+            numAcertor.push(simulado.porcentagem);
             
             // Calcula erros considerando o número de questões (assumindo 10 questões por simulado)
             const qtdErros = ((100 - simulado.porcentagem)/10).toFixed(1);
@@ -110,5 +109,17 @@ document.addEventListener('DOMContentLoaded', () => {
             
             SimuladosPlace.appendChild(li);
         });
+        
+        let mediaUI = document.querySelector(".simuMedia span");
+        let simuFeitos = document.querySelector(".simuFeitos span");
+
+        simuFeitos.textContent = simuladosFinalizados.length;
+
+        let media = 0;
+
+        for(let i = 0; i < numAcertor.length; i++){
+            media+= (parseInt(numAcertor[i]))/numAcertor.length;
+        }
+        mediaUI.textContent = media + "%";
     }
 });

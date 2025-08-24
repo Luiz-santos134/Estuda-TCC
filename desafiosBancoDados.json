@@ -1,16 +1,188 @@
 {
     "desafiosBancoDados": [
         {
-        "id": 1,
-        "titulo": "Desafio 1",
-        "descricao": "Crie uma tabela de clientes com os campos id, nome, email e telefone.",
-        "resposta": "CREATE TABLE clientes (id INT PRIMARY KEY, nome VARCHAR(100), email VARCHAR(100), telefone VARCHAR(15));"
+            "id": 1,
+            "titulo": "Desafio 1",
+            "descricao": "Beba pelo menos 2 litros de água durante o dia.",
+            "resposta": "Marque no seu planner ou aplicativo cada copo de água tomado até completar 2L."
         },
         {
-        "id": 2,
-        "titulo": "Desafio 2",
-        "descricao": "Insira três registros na tabela de clientes.",
-        "resposta": "INSERT INTO clientes (id, nome, email, telefone) VALUES (1, 'João', 'joao@example.com', '123456789');\nINSERT INTO clientes (id, nome, email, telefone) VALUES (2, 'Maria', 'maria@example.com', '987654321');\nINSERT INTO clientes (id, nome, email, telefone) VALUES (3, 'José', 'jose@example.com', '456789123');"
+            "id": 2,
+            "titulo": "Desafio 2",
+            "descricao": "Faça uma caminhada leve de 20 minutos.",
+            "resposta": "Escolha um horário fixo no dia (manhã ou tarde) e caminhe em ritmo confortável."
+        },
+        {
+            "id": 3,
+            "titulo": "Desafio 3",
+            "descricao": "Inclua 1 fruta no café da manhã.",
+            "resposta": "Pode ser uma banana, maçã, mamão ou a fruta que você mais gosta."
+        },
+        {
+            "id": 4,
+            "titulo": "Desafio 4",
+            "descricao": "Alongue-se por 5 minutos ao acordar.",
+            "resposta": "Faça movimentos de alongamento nos braços, pernas e coluna para despertar o corpo."
+        },
+        {
+            "id": 5,
+            "titulo": "Desafio 5",
+            "descricao": "Desconecte-se das telas 30 minutos antes de dormir.",
+            "resposta": "Troque o celular por leitura leve, meditação ou música relaxante."
+        }
+
+    ],
+    "progressaoCarreira": [
+        {
+            "titulo": "Back-end",
+            "descricao": "Desenvolvedor Back-end",
+            "competencias": [
+                "Domínio de SQL",
+                "Experiência com bancos de dados relacionais",
+                "Conhecimento em modelagem de dados",
+                "Python, Java ou Node.js",
+                "Conhecimento em APIs",
+                "Segurança de dados",
+                "Versionamento de código",
+                "Testes automatizados",
+                "Docker e Kubernetes"
+            ]
+        },
+        {
+            "titulo": "Front-end",
+            "descricao": "Desenvolvedor Front-end",
+            "competencias": [
+                "Domínio de HTML, CSS e JavaScript",
+                "Experiência com frameworks como React ou Angular",
+                "Conhecimento em design responsivo",
+                "Git e controle de versão",
+                "UX/UI",
+                "Acessibilidade",
+                "Performance web",
+                "SEO",
+                "Integração com APIs"
+            ]
+        },
+        {
+            "titulo": "Mobile",
+            "descricao": "Desenvolvedor Mobile",
+            "competencias": [
+                "Kotlin ou Java (Android)",
+                "Swift ou Objective-C (iOS)",
+                "Frameworks multiplataforma (Flutter, React Native)",
+                "Consumo de APIs",
+                "Boas práticas de UX mobile",
+                "Publicação em lojas de apps",
+                "Gerenciamento de memória e performance",
+                "Testes unitários e funcionais",
+                "Integração com sensores e hardware"
+            ]
+        },
+        {
+            "titulo": "Full-stack",
+            "descricao": "Desenvolvedor Full-stack",
+            "competencias": [
+                "Conhecimento em Back-end (Node.js, Python, Java)",
+                "Conhecimento em Front-end (React, Angular ou Vue)",
+                "Banco de dados SQL e NoSQL",
+                "Integração com APIs",
+                "Controle de versão (Git/GitHub)",
+                "Noções de DevOps",
+                "Testes automatizados",
+                "Boas práticas de segurança",
+                "Arquitetura de software"
+            ]
+        },
+        {
+            "titulo": "Cientista de Dados",
+            "descricao": "Data Scientist",
+            "competencias": [
+                "Python e R",
+                "Pandas, NumPy, Scikit-learn",
+                "Machine Learning",
+                "Big Data (Hadoop, Spark)",
+                "Banco de dados SQL e NoSQL",
+                "Estatística avançada",
+                "Visualização de dados (Power BI, Tableau)",
+                "Linguagem SQL avançada",
+                "Deep Learning (TensorFlow, PyTorch)"
+            ]
+        },
+        {
+            "titulo": "Engenheiro de Dados",
+            "descricao": "Data Engineer",
+            "competencias": [
+                "Banco de dados relacionais e NoSQL",
+                "ETL (Extract, Transform, Load)",
+                "Python e SQL avançado",
+                "Plataformas de nuvem (AWS, Azure, GCP)",
+                "Big Data (Hadoop, Spark)",
+                "Streaming de dados (Kafka)",
+                "Docker e Kubernetes",
+                "Automação de pipelines",
+                "Modelagem de dados eficiente"
+            ]
+        },
+        {
+            "titulo": "DevOps",
+            "descricao": "Engenheiro DevOps",
+            "competencias": [
+                "CI/CD (Jenkins, GitHub Actions)",
+                "Docker e Kubernetes",
+                "Infraestrutura como código (Terraform, Ansible)",
+                "Linux avançado",
+                "Monitoramento (Prometheus, Grafana)",
+                "Cloud (AWS, Azure, GCP)",
+                "Automatização de processos",
+                "Segurança em ambientes de produção",
+                "Balanceamento e escalabilidade"
+            ]
+        },
+        {
+            "titulo": "Segurança da Informação",
+            "descricao": "Especialista em Cybersecurity",
+            "competencias": [
+                "Pentest e Ethical Hacking",
+                "Firewalls e IDS/IPS",
+                "Criptografia",
+                "Segurança em redes",
+                "Segurança em nuvem",
+                "Políticas de segurança",
+                "Análise de vulnerabilidades",
+                "Resposta a incidentes",
+                "Certificações (CEH, CISSP)"
+            ]
+        },
+        {
+            "titulo": "Inteligência Artificial",
+            "descricao": "Engenheiro de IA",
+            "competencias": [
+                "Machine Learning e Deep Learning",
+                "Redes neurais",
+                "Python (TensorFlow, PyTorch)",
+                "Processamento de linguagem natural (NLP)",
+                "Visão computacional",
+                "MLOps",
+                "Grandes modelos de linguagem (LLMs)",
+                "Estatística e probabilidade",
+                "Matemática aplicada"
+            ]
+        },
+        {
+            "titulo": "Cloud Computing",
+            "descricao": "Arquiteto de Nuvem",
+            "competencias": [
+                "AWS, Azure ou Google Cloud",
+                "Infraestrutura como código (Terraform)",
+                "Segurança em nuvem",
+                "Banco de dados em nuvem",
+                "Escalabilidade e alta disponibilidade",
+                "Gerenciamento de custos em nuvem",
+                "Containers (Docker e Kubernetes)",
+                "Serverless (Lambda, Cloud Functions)",
+                "Rede e conectividade em nuvem"
+            ]
         }
     ]
+
 }

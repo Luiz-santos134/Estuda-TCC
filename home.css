@@ -189,7 +189,7 @@ main h1 {
 
 .modalOpcoesProvas{
     position: absolute;
-    background-color: rgb(44, 0, 102);
+    background-color: var(--cor-secundaria);
     border: 1px solid var(--texto-primario);
     box-shadow: 0px 0px 10px;
     border-radius: 10px;

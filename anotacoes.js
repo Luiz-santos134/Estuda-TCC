@@ -1,4 +1,5 @@
 const modal = document.querySelector('.modal');
+let isListening = false;
 
 function abrirModal(elemento = null) {
     modal.style.display = "flex";
@@ -26,6 +27,7 @@ function abrirModal(elemento = null) {
 function fecharModal() {
     modal.style.display = "none";
     document.body.style.overflow = "";
+    resetMicrophone();
 }
 
 function adicionarAnotacao() {
@@ -63,7 +65,6 @@ function adicionarAnotacao() {
     document.querySelector('.todas').innerHTML = '';
     anotacoes.forEach((item, i) => criarElementoAnotacao(item, i));
 
-    // Limpa os input e fecha o modal
     document.getElementById('tituloAnotacao').value = '';
     document.getElementById('opcoes').value = '';
     document.getElementById('anotacao').value = '';
@@ -76,7 +77,6 @@ function criarElementoAnotacao({ titulo, categoria, textoAnotacao, data }, index
     anotacao.className = 'anotacao';
     anotacao.setAttribute('data-id', index);
 
-    // Dentro da função criarElementoAnotacao, atualize a linha do ícone de edição:
     anotacao.innerHTML = `
         <div class="tituloAnotacaoCriada">
             <p>${titulo}</p>
@@ -146,19 +146,16 @@ if (barraPesquisa) {
     barraPesquisa.addEventListener('input', pesquisarAnotacoes);
 }
 
-let isListening = false; // Controla o estado do microfone
 const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
 
 function ouvir() {
     const startButton = document.getElementById('startButton');
     const output = document.getElementById('anotacao');
 
-    // Configurações do reconhecimento
     recognition.lang = 'pt-BR';
     recognition.interimResults = false;
 
     if (!isListening) {
-        // Inicia a escuta
         recognition.start();
         isListening = true;
         startButton.innerHTML = '<i class="fa-solid fa-microphone-slash" title="Parar"></i>';
@@ -166,7 +163,6 @@ function ouvir() {
         startButton.style.background = "var(--cor-primaria)";
         startButton.style.transform = "scale(1.1)";
     } else {
-        // Para a escuta
         recognition.stop();
         isListening = false;
         startButton.innerHTML = '<i class="fa-solid fa-microphone" title="Falar"></i>';
@@ -174,7 +170,6 @@ function ouvir() {
         startButton.style.transform = "scale(1)";
     }
 
-    // Eventos do reconhecimento
     recognition.onresult = (event) => {
         const transcript = event.results[0][0].transcript;
         output.textContent = transcript;
@@ -195,9 +190,9 @@ function ouvir() {
     };
 }
 
-// Reseta o ícone e estado
 function resetMicrophone() {
     const startButton = document.getElementById('startButton');
     isListening = false;
     startButton.innerHTML = '<i class="fa-solid fa-microphone" title="Falar"></i>';
+    startButton.style.background = "var(--cor-secundaria-destaque)";
 }

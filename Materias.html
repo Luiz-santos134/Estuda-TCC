@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estuda + Matérias</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+       <link rel="icon" href="logoTCCGuia.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/83da9facc2.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="home.css">
+    
+    <style>
+        :root{
+            --cor-fundo: #121212;
+            --cor-secundaria: #1e1e1e;
+            --cor-detalhe: #2d2d2d;
+            --cor-hover: #333333;
+            --cor-primaria: #ff4d4f;
+            /* vermelho destaque */
+            --cor-secundaria-destaque: #3a6eff;
+            /* azul de contraste */
+            --texto-primario: #f5f5f5;
+            --texto-secundario: #aaaaaa;
+            --borda: #2b2b2b;
+            --input-fundo: #1c1c1c;
+            --input-borda: #3a3a3a;
+        }
+        header{
+            position: fixed;
+            width: 100%;
+            top: 0px;
+            z-index: 1000;
+        }
+        aside{
+            height: 100vh;
+            position: fixed;
+        }
+        .menu-materias {
+            width: 200px;
+            height: 100%;
+            position: fixed;
+            top: 10dvh;
+            left: 0;
+            background-color: var(--cor-secundaria);
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+        .menu-materias ul li a{
+            display: block;
+            padding: 15px 20px;
+            color: var(--texto-primario);
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s;
+            border-bottom: 1px solid var(--borda);
+        }
+        .menu-materias ul li a:hover {
+            background-color: var(--cor-hover);
+            color: var(--cor-secundaria-destaque);
+        }
+
+        main {
+            margin-left: 210px;
+            padding: 90px 20px 20px 20px;
+            width: calc(100% - 210px);
+            height: 100vh;
+        }
+        .materia-section {
+            scroll-margin-top: 80px; /* Para a rolagem não esconder o título atrás do header */
+        }
+        
+        .materia-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: var(--cor-secundaria);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .materia-section h2 {
+            color: var(--cor-secundaria-destaque);
+            border-bottom: 2px solid var(--cor-secundaria-destaque);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .topico {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: var(--cor-detalhe);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .topico:hover {
+            background-color: var(--cor-hover);
+        }
+        
+        .topico h3 {
+            color: var(--texto-primario);
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .topico-conteudo {
+            display: none;
+            padding: 10px;
+            background-color: var(--input-fundo);
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        .topico.ativo .topico-conteudo {
+            display: block;
+        }
+        
+        .topico-conteudo ul {
+            padding-left: 20px;
+            color: var(--texto-secundario);
+        }
+        
+        .topico-conteudo li {
+            margin-bottom: 8px;
+        }
+        
+        .seta {
+            transition: transform 0.3s;
+        }
+        
+        .topico.ativo .seta {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="titulo">
+            <a href="home.html">
+                <p>E<span id="spanTitulo"></span> <span>+</span></p>
+            </a>
+        </div>
+
+       <div class="menu">
+            <ul>
+                <li>
+                    <a href="home.html" class="menu-link">
+                        <i class="fas fa-home"></i>
+                        <span class="textIconLink">Home</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="simulado.html" class="menu-link">
+                        <i class="fas fa-file-alt"></i>
+                        <span class="textIconLink">Simulados</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="tarefas.html" class="menu-link">
+                        <i class="fas fa-tasks"></i>
+                        <span class="textIconLink">Tarefas</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="anotacoes.html" class="menu-link">
+                        <i class="fas fa-sticky-note"></i>
+                        <span class="textIconLink">Anotações</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="desafios.html" class="menu-link">
+                        <i class="fas fa-brain"></i>
+                        <span class="textIconLink">Desafios</span>
+                    </a>
+                </li>
+                <div class="infoPerfil">
+                    <a href="perfil.html" class="menu-link">
+                        <span id="nomeUser"></span>
+                    </a>
+                    <img src="perfil.jpeg" id="img_perfil" alt="imgPerfil">
+                </div>
+            </ul>
+        </div>
+       
+    </header>
+
+    <aside>
+        <div class="menu-materias">
+            <ul>
+                <li><a href="#matematica">Matemática</a></li>
+                <li><a href="#fisica">Física</a></li>
+                <li><a href="#quimica">Química</a></li>
+                <li><a href="#biologia">Biologia</a></li>
+                <li><a href="#portugues">Português</a></li>
+                <li><a href="#historia">História</a></li>
+                <li><a href="#geografia">Geografia</a></li>
+                <li><a href="#ingles">Inglês</a></li>
+                <li><a href="#literatura">Literatura</a></li>
+                <li><a href="#espanhol">Espanhol</a></li>
+                <li><a href="#filosofia">Filosofia</a></li>
+                <li><a href="#sociologia">Sociologia</a></li>
+                <li><a href="#artes">Artes</a></li>
+                <li><a href="#redacao">Redação</a></li>
+
+            </ul>
+        </div>
+    </aside>
+
+    <main>
+        <!-- Conteúdo de Matemática -->
+        <section id="matematica" class="materia-section">
+            <h2>Matemática</h2>
+            
+            <div class="topico">
+                <h3>Álgebra <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Equações e inequações do 1º e 2º graus</li>
+                        <li>Funções (afim, quadrática, exponencial, logarítmica)</li>
+                        <li>Polinômios</li>
+                        <li>Matrizes e determinantes</li>
+                        <li>Sistemas lineares</li>
+                        <li>Progressões (PA e PG)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Geometria <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Geometria plana (áreas, perímetros, relações métricas)</li>
+                        <li>Geometria espacial (prismas, pirâmides, cilindros, cones, esferas)</li>
+                        <li>Geometria analítica (pontos, retas, circunferências)</li>
+                        <li>Trigonometria (razões trigonométricas, lei dos senos e cossenos)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Matemática Financeira <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Porcentagem</li>
+                        <li>Juros simples e compostos</li>
+                        <li>Descontos</li>
+                        <li>Taxas proporcionais e equivalentes</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Análise Combinatória e Probabilidade <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Princípio fundamental da contagem</li>
+                        <li>Permutações, arranjos e combinações</li>
+                        <li>Probabilidade (conceitos básicos, probabilidade condicional)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Estatística <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Medidas de tendência central (média, mediana, moda)</li>
+                        <li>Medidas de dispersão (variância, desvio padrão)</li>
+                        <li>Interpretação de gráficos e tabelas</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Conteúdo de Física -->
+        <section id="fisica" class="materia-section">
+            <h2>Física</h2>
+            
+            <div class="topico">
+                <h3>Mecânica <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Cinemática (movimento uniforme, uniformemente variado)</li>
+                        <li>Dinâmica (leis de Newton, forças)</li>
+                        <li>Energia, trabalho e potência</li>
+                        <li>Quantidade de movimento e impulso</li>
+                        <li>Gravitação universal</li>
+                        <li>Hidrostática</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Termologia <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Termometria</li>
+                        <li>Calorimetria</li>
+                        <li>Dilatação térmica</li>
+                        <li>Termodinâmica (leis, máquinas térmicas)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Óptica <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Reflexão e refração da luz</li>
+                        <li>Espelhos e lentes</li>
+                        <li>Óptica da visão</li>
+                        <li>Fenômenos ópticos (dispersão, interferência, difração)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Ondulatória <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Características das ondas</li>
+                        <li>Propagação de ondas</li>
+                        <li>Acústica</li>
+                        <li>Efeito Doppler</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Eletricidade <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Eletrostática (carga elétrica, campo elétrico, potencial elétrico)</li>
+                        <li>Corrente elétrica</li>
+                        <li>Circuitos elétricos</li>
+                        <li>Magnetismo e eletromagnetismo</li>
+                        <li>Indução eletromagnética</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Física Moderna <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Teoria da relatividade</li>
+                        <li>Física quântica</li>
+                        <li>Radioatividade</li>
+                        <li>Física nuclear</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Conteúdo de Química -->
+        <section id="quimica" class="materia-section">
+            <h2>Química</h2>
+            
+            <div class="topico">
+                <h3>Química Geral <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Matéria e energia</li>
+                        <li>Estrutura atômica</li>
+                        <li>Tabela periódica</li>
+                        <li>Ligações químicas</li>
+                        <li>Funções inorgânicas</li>
+                        <li>Reações químicas</li>
+                        <li>Estequiometria</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Físico-Química <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Termoquímica</li>
+                        <li>Cinética química</li>
+                        <li>Equilíbrio químico</li>
+                        <li>Eletroquímica (pilhas, eletrólise)</li>
+                        <li>Propriedades coligativas</li>
+                        <li>Soluções</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Química Orgânica <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Características do átomo de carbono</li>
+                        <li>Funções orgânicas</li>
+                        <li>Reações orgânicas</li>
+                        <li>Isomeria</li>
+                        <li>Polímeros</li>
+                        <li>Petróleo e combustíveis</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Química Ambiental <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Poluição ambiental</li>
+                        <li>Tratamento de água e esgoto</li>
+                        <li>Chuva ácida</li>
+                        <li>Efeito estufa</li>
+                        <li>Camada de ozônio</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Conteúdo de Biologia -->
+        <section id="biologia" class="materia-section">
+            <h2>Biologia</h2>
+            
+            <div class="topico">
+                <h3>Biologia Celular <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Estrutura e fisiologia celular</li>
+                        <li>Metabolismo energético (fotossíntese, respiração)</li>
+                        <li>Divisão celular (mitose, meiose)</li>
+                        <li>Membrana plasmática e transportes</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Genética <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Conceitos básicos</li>
+                        <li>Primeira e segunda leis de Mendel</li>
+                        <li>Herança ligada ao sexo</li>
+                        <li>Grupos sanguíneos</li>
+                        <li>Engenharia genética e biotecnologia</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Evolução <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Teorias evolutivas</li>
+                        <li>Evidências da evolução</li>
+                        <li>Seleção natural e artificial</li>
+                        <li>Especiação</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Ecologia <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Cadeias e teias alimentares</li>
+                        <li>Relações ecológicas</li>
+                        <li>Ciclos biogeoquímicos</li>
+                        <li>Biomas brasileiros</li>
+                        <li>Problemas ambientais</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Anatomia e Fisiologia Humana <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Sistemas: digestório, respiratório, circulatório, nervoso, endócrino, excretor, locomotor</li>
+                        <li>Saúde e doenças</li>
+                        <li>Imunologia</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Reinos Biológicos <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Vírus, bactérias, protistas, fungos</li>
+                        <li>Plantas (briófitas, pteridófitas, gimnospermas, angiospermas)</li>
+                        <li>Animais (invertebrados e vertebrados)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Conteúdo de Português -->
+        <section id="portugues" class="materia-section">
+            <h2>Português</h2>
+            
+            <div class="topico">
+                <h3>Gramática <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Classes gramaticais</li>
+                        <li>Sintaxe (termos da oração, períodos compostos)</li>
+                        <li>Concordância verbal e nominal</li>
+                        <li>Regência verbal e nominal</li>
+                        <li>Colocação pronominal</li>
+                        <li>Pontuação</li>
+                        <li>Figuras de linguagem</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Interpretação de Texto <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Gêneros textuais</li>
+                        <li>Tipologia textual (narração, descrição, dissertação)</li>
+                        <li>Coesão e coerência textual</li>
+                        <li>Variação linguística</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Conteúdo de História -->
+        <section id="historia" class="materia-section">
+            <h2>História</h2>
+            
+            <div class="topico">
+                <h3>História do Brasil <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Período colonial</li>
+                        <li>Processo de independência</li>
+                        <li>Período imperial</li>
+                        <li>República Velha</li>
+                        <li>Era Vargas</li>
+                        <li>Regimes militares</li>
+                        <li>Redemocratização</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>História Geral <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Pré-história e Antiguidade</li>
+                        <li>Idade Média</li>
+                        <li>Idade Moderna (Renascimento, Reformas, Absolutismo)</li>
+                        <li>Idade Contemporânea (Revoluções Industriais, Guerras Mundiais, Guerra Fria)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Conteúdo de Geografia -->
+        <section id="geografia" class="materia-section">
+            <h2>Geografia</h2>
+            
+            <div class="topico">
+                <h3>Geografia Física <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Geologia e relevo</li>
+                        <li>Climatologia</li>
+                        <li>Hidrografia</li>
+                        <li>Biogeografia</li>
+                        <li>Problemas ambientais</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Geografia Humana e Econômica <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Demografia</li>
+                        <li>Urbanização</li>
+                        <li>Industrialização</li>
+                        <li>Agricultura e pecuária</li>
+                        <li>Globalização</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Geografia do Brasil <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Regiões brasileiras</li>
+                        <li>Aspectos físicos do território</li>
+                        <li>População brasileira</li>
+                        <li>Economia brasileira</li>
+                        <li>Problemas ambientais no Brasil</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Conteúdo de Inglês -->
+        <section id="ingles" class="materia-section">
+            <h2>Inglês</h2>
+            
+            <div class="topico">
+                <h3>Interpretação de Texto <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Leitura e compreensão de textos diversos</li>
+                        <li>Identificação de ideias principais e secundárias</li>
+                        <li>Inferência de informações implícitas</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Vocabulário <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Palavras e expressões de uso frequente</li>
+                        <li>Falsos cognatos</li>
+                        <li>Phrasal verbs</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Gramática <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Tempos verbais</li>
+                        <li>Estruturas gramaticais básicas</li>
+                        <li>Pronomes, preposições, artigos</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Conteúdo de Literatura -->
+        <section id="literatura" class="materia-section">
+            <h2>Literatura</h2>
+            
+            <div class="topico">
+                <h3>Escolas Literárias <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Literatura portuguesa (Trovadorismo, Humanismo, Classicismo, Barroco, Arcadismo)</li>
+                        <li>Literatura brasileira (Romantismo, Realismo, Naturalismo, Parnasianismo, Simbolismo)</li>
+                        <li>Modernismo e contemporaneidade</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Gêneros Literários <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Lírico, épico, dramático</li>
+                        <li>Conto, crônica, romance</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Obras e Autores <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Principais autores brasileiros</li>
+                        <li>Obras literárias importantes</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Conteúdo de Espanhol -->
+        <section id="espanhol" class="materia-section">
+            <h2>Espanhol</h2>
+            
+            <div class="topico">
+                <h3>Interpretación de Texto <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Lectura y comprensión de textos diversos</li>
+                        <li>Identificación de ideas principales y secundarias</li>
+                        <li>Inferencia de información implícita</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Vocabulario <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Palabras y expresiones de uso frecuente</li>
+                        <li>Falsos amigos (falsos cognatos)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Gramática <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Tiempos verbales</li>
+                        <li>Estructuras gramaticales básicas</li>
+                        <li>Pronombres, preposiciones, artículos</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Aspectos Culturales <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Cultura de los países hispanohablantes</li>
+                        <li>Diferencias entre el español de España y de América Latina</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Conteúdo de Filosofia -->
+        <section id="filosofia" class="materia-section">
+            <h2>Filosofia</h2>
+            
+            <div class="topico">
+                <h3>Filosofia Antiga <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Pré-socráticos</li>
+                        <li>Sócrates, Platão e Aristóteles</li>
+                        <li>Escolas helenísticas</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Filosofia Medieval <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Patrística</li>
+                        <li>Escolástica (Santo Agostinho, São Tomás de Aquino)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Filosofia Moderna <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Racionalismo (Descartes)</li>
+                        <li>Empirismo (Locke, Hume)</li>
+                        <li>Iluminismo</li>
+                        <li>Idealismo alemão (Kant, Hegel)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Filosofia Contemporânea <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Marxismo</li>
+                        <li>Existencialismo</li>
+                        <li>Fenomenologia</li>
+                        <li>Filosofia analítica</li>
+                        <li>Pós-modernismo</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Ética e Política <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Teorias éticas</li>
+                        <li>Teorias políticas</li>
+                        <li>Justiça e direitos humanos</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Conteúdo de Sociologia -->
+        <section id="sociologia" class="materia-section">
+            <h2>Sociologia</h2>
+            
+            <div class="topico">
+                <h3>Teorias Sociológicas <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Auguste Comte e o positivismo</li>
+                        <li>Émile Durkheim e o fato social</li>
+                        <li>Karl Marx e o materialismo histórico</li>
+                        <li>Max Weber e a ação social</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Conceitos Sociológicos <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Cultura e sociedade</li>
+                        <li>Socialização</li>
+                        <li>Estratificação social</li>
+                        <li>Movimentos sociais</li>
+                        <li>Trabalho e sociedade</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Sociologia Brasileira <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Formação da sociedade brasileira</li>
+                        <li>Desigualdades sociais no Brasil</li>
+                        <li>Questões raciais e de gênero</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Conteúdo de Artes -->
+        <section id="artes" class="materia-section">
+            <h2>Artes</h2>
+            
+            <div class="topico">
+                <h3>História da Arte <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Arte pré-histórica</li>
+                        <li>Arte antiga (egípcia, grega, romana)</li>
+                        <li>Arte medieval (românica, gótica)</li>
+                        <li>Renascimento</li>
+                        <li>Barroco e Rococó</li>
+                        <li>Arte moderna e contemporânea</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Movimentos Artísticos <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Romantismo</li>
+                        <li>Realismo</li>
+                        <li>Impressionismo</li>
+                        <li>Expressionismo</li>
+                        <li>Cubismo</li>
+                        <li>Surrealismo</li>
+                        <li>Abstracionismo</li>
+                        <li>Arte conceitual</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Artes no Brasil <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Arte indígena e africana</li>
+                        <li>Barroco brasileiro</li>
+                        <li>Modernismo brasileiro</li>
+                        <li>Arte contemporânea brasileira</li>
+                        <li>Artistas brasileiros importantes</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Linguagens Artísticas <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Artes visuais (pintura, escultura, gravura)</li>
+                        <li>Música</li>
+                        <li>Teatro</li>
+                        <li>Dança</li>
+                        <li>Cinema</li>
+                        <li>Fotografia</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Conteúdo de Redação -->
+        <section id="redacao" class="materia-section">
+            <h2>Redação</h2>
+            
+            <div class="topico">
+                <h3>Estrutura da Redação <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Introdução</li>
+                        <li>Desenvolvimento</li>
+                        <li>Conclusão</li>
+                        <li>Tese e argumentos</li>
+                        <li>Proposta de intervenção</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Tipos Textuais <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Dissertação-argumentativa</li>
+                        <li>Artigo de opinião</li>
+                        <li>Carta argumentativa</li>
+                        <li>Editorial</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Competências Avaliadas <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Domínio da norma padrão</li>
+                        <li>Compreensão da proposta</li>
+                        <li>Seleção e organização de informações</li>
+                        <li>Construção da argumentação</li>
+                        <li>Elaboração de proposta de intervenção</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Temas Atuais <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Meio ambiente e sustentabilidade</li>
+                        <li>Diversidade e inclusão social</li>
+                        <li>Saúde pública</li>
+                        <li>Educação</li>
+                        <li>Tecnologia e sociedade</li>
+                        <li>Política e cidadania</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="topico">
+                <h3>Coesão e Coerência <i class="fas fa-chevron-right seta"></i></h3>
+                <div class="topico-conteudo">
+                    <ul>
+                        <li>Conectivos e articuladores textuais</li>
+                        <li>Parágrafo bem construído</li>
+                        <li>Progressão temática</li>
+                        <li>Não-contradição</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    </body>
+    <script src="script.js"></script><script src="home.js"></script><script> // Script para funcionalidade dos tópicos expansíveis document.addEventListener('DOMContentLoaded', function() { const topicos = document.querySelectorAll('.topico'); topicos.forEach(topico => { topico.addEventListener('click', function() { this.classList.toggle('ativo'); }); }); // Rolagem suave para as seções const linksMenu = document.querySelectorAll('.menu-materias a'); linksMenu.forEach(link => { link.addEventListener('click', function(e) { e.preventDefault(); const targetId = this.getAttribute('href'); const targetSection = document.querySelector(targetId); if (targetSection) { window.scrollTo({ top: targetSection.offsetTop - 20, behavior: 'smooth' }); } }); }); }); </script></html>

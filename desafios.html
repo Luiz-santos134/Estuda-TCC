@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estuda +</title>
+    <title>Estuda + Desafios</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -38,6 +38,7 @@
             justify-content: space-around;
             padding: 20px;
             width: 100%;
+            height: calc(100vh - 70px);
         }
         .desafios, .progressao {
             width: 45%;
@@ -52,22 +53,45 @@
             justify-content: start;
             align-items: start;
         }
+        .desafioItem {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .desafioItem span {
+            font-weight: 400;
+            font-size: 1rem;
+            color: var(--texto-primario);
+        }
         .desafios #titulo, .progressao #titulo {
             color: var(--texto-primario);
             margin-bottom: 20px;
             font-size: 1.8rem;
             font-weight: 300;
+            width: 100%;
+            text-align: start;
+            padding: 0px 10px;
+        }
+        .topo{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+            height: 2.5rem;
+            text-align: start;
+            margin-bottom: 20px;
         }
         .desafios ul{
             list-style-type: none;
-            padding: 0;
+            padding: 0px 10px;
             color: var(--texto-primario);
             width: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: start;
             gap: 10px;
             width: 100%;
+            overflow-y: auto;
         }
         .desafios li{
             background-color: rgb(24, 24, 24);
@@ -76,7 +100,7 @@
             display: flex;
             flex-direction: column;
             gap: 5px;
-            justify-content: center;
+            text-align: start;
             align-items: start;
             box-shadow: 0 4px 8px black;
         }
@@ -85,6 +109,8 @@
             cursor: pointer;
             opacity: 0.6;
         }
+
+        
         .containerProgressao{
             width: 100%;
             height: 100%;
@@ -104,23 +130,158 @@
             color: var(--texto-primario);
             font-size: 1.1rem;
         }
+        .containerProgressao span {
+            background-color: transparent;
+        }
         .containerProgressao ul{
-            padding: 0;
+            padding: 10px;
             color: var(--texto-primario);
             width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: start;
+            text-align: start;
             font-size: 1.1rem;
             gap: 10px;
+            overflow-y: auto;
         }
         .containerProgressao ul li{
             margin-left: 20px;
             list-style: circle;
             padding: 5px;
         }
-        
+        .primeiraVez{
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+        .primeiraVez img{
+            width: 20rem;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: all 0.3s ease-in-out;
+        }
+        .primeiraVez #img1 img{
+            transition: all 0.3s ease-in-out;
+        }
+        .primeiraVez #img2 img{
+            transition: all 0.3s ease-in-out;
+        }
+
+        .primeiraVez #img1:hover{
+            transform: scale(1.06);
+            transform: rotate(-10deg);
+            cursor: pointer;
+        }
+        .primeiraVez #img2:hover{
+            transform: scale(1.06);
+            transform: rotate(10deg);
+            cursor: pointer;
+        }
+        .primeiraVez .imagens{
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+        }
+        #carreiraSelect {
+            width: 50%;
+            padding: 5px;
+            border-radius: 8px;
+            background-color: var(--cor-secundaria);
+            color: var(--cor-secundaria-destaque);
+            border: 1px solid var(--input-borda);
+            font-size: 1rem;
+            font-family: "Poppins", sans-serif;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #carreiraSelect:hover {
+            background-color: var(--cor-hover);
+            border-color: var(--cor-secundaria-destaque);
+        }
+        #carreiraSelect:focus {
+            border-color: var(--texto-primario);
+            box-shadow: 0 0 6px var(--texto-primario);
+            color: var(--cor-secundaria-destaque);
+        }
+        #carreiraSelect option {
+            background-color: var(--cor-fundo);
+            color: var(--texto-primario);
+            padding: 10px;
+        }
+
+        .bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .bubbles span {
+            position: absolute;
+            bottom: -150px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: rise 10s infinite ease-in;
+        }
+        .bubbles span:nth-child(1) {
+            left: 20%;
+            width: 60px;
+            height: 60px;
+            animation-duration: 8s;
+            background-color: var(--cor-secundaria-destaque);
+        }
+        .bubbles span:nth-child(2) {
+            left: 40%;
+            animation-duration: 12s;
+            background-color: var(--cor-secundaria-destaque);
+        }
+        .bubbles span:nth-child(3) {
+            left: 60%;
+            width: 30px;
+            height: 30px;
+            animation-duration: 10s;
+            background-color: var(--cor-secundaria-destaque);
+        }
+        .bubbles span:nth-child(4) {
+            left: 80%;
+            width: 70px;
+            height: 70px;
+            animation-duration: 14s;
+            background-color: var(--cor-secundaria-destaque);
+        }
+        .bubbles span:nth-child(5) {
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            animation-duration: 6s;
+            background-color: var(--cor-secundaria-destaque);
+        }
+        @keyframes rise {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(0.5);
+                opacity: 0;
+            }
+        }
     </style>
 
 </head>
@@ -179,59 +340,58 @@
         </div>
     </header>
 
-    <main>
+    <div class="primeiraVez" style="display: none;">
+        <div id="frase">Escolha uma linha de carreira</div>
+        <div class="imagens">
+            <img src="imgCarreira1.jpg" id="img1" alt="ilustração carreira">
+            <img src="imgCarreira2.jpg" id="img2" alt="ilustração carreira">
+        </div>
+        <div class="bubbles">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    
+
+    <main style="display: none;">
         <div class="desafios">
             <p id="titulo">Desafios</p>
             <ul>
-                <li>
-                    <p>
-                        Desafio 1: <span id="desafio1"></span>
-                        <p>Monte uma panela</p>
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        Desafio 2: <span id="desafio2"></span>
-                        <p>Monte um fogão</p>
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        Desafio 3: <span id="desafio3"></span>
-                        <p>Monte uma geladeira</p>
-                    </p>
-                </li>
+                
             </ul>
         </div>
 <!-- <p>Você está atualmente no nível: <span id="nivelAtual"></span></p>
 <p>Para avançar para o próximo nível, complete os seguintes desafios:</p> -->
 
         <div class="progressao">
-            <p id="titulo">Progressão de Carreira</p>
-
+            <div class="topo">
+                <p id="titulo">Progressão de Carreira</p>
+                <select id="carreiraSelect">
+                    <option value="Back-end">Back-end</option>
+                    <option value="Front-end">Front-end</option>
+                    <option value="Mobile">Mobile</option>
+                    <option value="Full-stack">Full-stack</option>
+                    <option value="Cientista de Dados">Cientista de Dados</option>
+                    <option value="Engenheiro de Dados">Engenheiro de Dados</option>
+                    <option value="DevOps">DevOps</option>
+                    <option value="Segurança da Informação">Segurança da Informação</option>
+                    <option value="Inteligência Artificial">Inteligência Artificial</option>
+                    <option value="Cloud Computing">Cloud Computing</option>
+                </select>
+                <i class="fa-solid fa home"></i>
+            </div>
             <div class="containerProgressao">
-                <span>Back-end</span>
-
+                <span></span>
                 <p></p>
-
-                <ul>
-                    
-                </ul>
+                <ul></ul>
             </div>
             
         </div>
 
     </main>
-
-    <footer>
-        <div class="titulo">
-            <p>Plataforma Estuda <span>+</span></p>
-        </div>
-        <p>&copy; 2025 Painel do Aluno | Estuda+</p>
-
-        <a href="https://github.com/Luiz-santos134/Estuda-TCC/tree/main">Sobre o projeto</a>
-        <a href="#">Voltar ao topo</a>
-    </footer>
 </body>
 
 <script src="script.js"></script>

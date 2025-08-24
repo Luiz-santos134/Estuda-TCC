@@ -1,47 +1,59 @@
-let frase = document.querySelector('.frase-motivacional');
+let frase = document.querySelector(".frase-motivacional");
 let ultimaFrase = "";
 gerarFrase();
 
 function gerarFrase() {
-    const frases = [
-        "A vida é uma aventura ousada ou não é nada.",
-        "O sucesso é a soma de pequenos esforços repetidos dia após dia.",
-        "A felicidade não é algo pronto. Ela vem de suas próprias ações.",
-        "A única maneira de fazer um excelente trabalho é amar o que você faz.",
-        "A vida é 10% o que acontece conosco e 90% como reagimos a isso."
-    ];
+  const frases = [
+    "A vida é uma aventura ousada ou não é nada.",
+    "O sucesso é a soma de pequenos esforços repetidos dia após dia.",
+    "A felicidade não é algo pronto. Ela vem de suas próprias ações.",
+    "A única maneira de fazer um excelente trabalho é amar o que você faz.",
+    "A vida é 10% o que acontece conosco e 90% como reagimos a isso.",
+  ];
 
-    let novaFrase;
-    do {
-        novaFrase = frases[Math.floor(Math.random() * frases.length)];
-    } while (novaFrase === ultimaFrase);
+  let novaFrase;
+  do {
+    novaFrase = frases[Math.floor(Math.random() * frases.length)];
+  } while (novaFrase === ultimaFrase);
 
-    ultimaFrase = novaFrase;
-    if(frase)frase.innerText = novaFrase;
+  ultimaFrase = novaFrase;
+  if (frase) frase.innerText = novaFrase;
+}
+
+function excluirTarefa(index) {
+  let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+
+  if (index >= 0 && index < tarefas.length) {
+    if (confirm("Tem certeza que deseja excluir esta tarefa?")) {
+      tarefas.splice(index, 1);
+      localStorage.setItem("tarefas", JSON.stringify(tarefas));
+      atualizarListaTarefas();
+    }
+  }
 }
 
 function abrirModal() {
-    const modal = document.querySelector(".modal");
-    const overlay = document.querySelector(".overlay");
+  const modal = document.querySelector(".modal");
+  const overlay = document.querySelector(".overlay");
 
-    modal.style.display = "flex";
-    overlay.style.display = "block";
+  modal.style.display = "flex";
+  overlay.style.display = "block";
 
-    document.body.classList.add("no-scroll");
+  document.body.classList.add("no-scroll");
 }
 
 function fecharModal() {
-    const modal = document.querySelector(".modal");
-    const overlay = document.querySelector(".overlay");
+  const modal = document.querySelector(".modal");
+  const overlay = document.querySelector(".overlay");
 
-    modal.style.display = "none";
-    overlay.style.display = "none";
+  modal.style.display = "none";
+  overlay.style.display = "none";
 
-    document.body.classList.remove("no-scroll");
+  document.body.classList.remove("no-scroll");
 }
 
 function enviarTH(event) {
-    event.preventDefault(); // impede o envio padrão do form
+    event.preventDefault();
 
     const input = document.getElementById("tituloTarefa");
     const titulo = input.value.trim();
@@ -61,74 +73,88 @@ function enviarTH(event) {
 }
 
 function atualizarListaTarefas() {
-    const lista = document.querySelector("#listaTarefasPendentes");
-    if(lista)lista.innerHTML = "";
+  const listaPendentes = document.querySelector("#listaTarefasPendentes");
+  const listaConcluidas = document.querySelector(".tasksDones ul");
 
-    let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
-    let concluidas = 0;
-    
-    if (!tarefas.length) {
-        
-        const li = document.createElement("li");
-        li.innerHTML = "<p>Nenhuma tarefa pendente.</p>";
-        li.style.textAlign = "center";
-        li.style.color = "#888";
-        lista.appendChild(li);
-        return;
-    }
+  if (listaPendentes) listaPendentes.innerHTML = "";
+  if (listaConcluidas) listaConcluidas.innerHTML = "";
 
-    tarefas.forEach((tarefa, index) => {
-        const li = document.createElement("li");
+  let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+  let concluidas = 0;
 
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.id = `tarefa_${index}`;
-        checkbox.checked = tarefa.concluida;
+  if (!tarefas.length) {
+    const li = document.createElement("li");
+    li.innerHTML = "<p>Nenhuma tarefa pendente.</p>";
+    li.style.textAlign = "center";
+    li.style.color = "#888";
+    listaPendentes.appendChild(li);
 
-        checkbox.addEventListener("change", () => {
-            tarefas[index].concluida = checkbox.checked;
-            localStorage.setItem("tarefas", JSON.stringify(tarefas));
-            atualizarListaTarefas();
-        });
+    document.querySelector(".tasksPendentes h2 span").textContent = 0;
+    document.querySelector(".tasksDones h2 span").textContent = 0;
+    document.querySelector(".numTask").textContent = 0;
+    document.querySelector(".numConcluidas").textContent = 0;
+    document.querySelector(".numPendentes").textContent = 0;
+    return;
+  }
 
-        const label = document.createElement("label");
-        label.setAttribute("for", `tarefa_${index}`);
-        label.textContent = tarefa.titulo;
+  tarefas.forEach((tarefa, index) => {
+    const li = document.createElement("li");
 
-        li.appendChild(checkbox);
-        li.appendChild(label);
-        lista.appendChild(li);
+    const taskItem = document.createElement("div");
+    taskItem.className = "task-item";
 
-        if (tarefa.concluida) concluidas++;
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.id = `tarefa_${index}`;
+    checkbox.checked = tarefa.concluida;
+
+    checkbox.addEventListener("change", () => {
+      tarefas[index].concluida = checkbox.checked;
+      localStorage.setItem("tarefas", JSON.stringify(tarefas));
+      atualizarListaTarefas();
     });
 
-    const numTask = tarefas.length;
-    const numConcluidas = concluidas;
-    const numPendentes = numTask - concluidas;
+    const label = document.createElement("label");
+    label.setAttribute("for", `tarefa_${index}`);
+    label.textContent = tarefa.titulo;
 
-    document.querySelector(".tasksPendentes h2 span").textContent = numPendentes;
-    document.querySelector(".tasksDones h2 span").textContent = numConcluidas;
-    document.querySelector(".numTask").textContent = numTask;
-    document.querySelector(".numConcluidas").textContent = numConcluidas;
-    document.querySelector(".numPendentes").textContent = numPendentes;
-}
+    taskItem.appendChild(checkbox);
+    taskItem.appendChild(label);
 
-window.addEventListener("load", atualizarListaTarefas);
+    const deleteBtn = document.createElement("button");
+    deleteBtn.className = "delete-btn";
+    deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+    deleteBtn.onclick = () => excluirTarefa(index);
 
-function deletarTask(){
-    const botaoDeletar = document.getElementById("deleteTask");
-    const tasks = document.querySelectorAll('.tasksPendentes ul');
+    li.appendChild(taskItem);
+    li.appendChild(deleteBtn);
 
-    materiasEscolhidas = [];
-    for (let i = 0; i < tasks.length; i++) {
-        if (tasks[i].checked) {
-            tasksEscolhidas.push(tasks[i].value);
-            tasks[i].checked = false;
-        }
+    if (tarefa.concluida) {
+      listaConcluidas.appendChild(li);
+      concluidas++;
+    } else {
+      listaPendentes.appendChild(li);
     }
+  });
+
+  const numTask = tarefas.length;
+  const numConcluidas = concluidas;
+  const numPendentes = numTask - concluidas;
+
+  document.querySelector(".tasksPendentes h2 span").textContent = numPendentes;
+  document.querySelector(".tasksDones h2 span").textContent = numConcluidas;
+  document.querySelector(".numTask").textContent = numTask;
+  document.querySelector(".numConcluidas").textContent = numConcluidas;
+  document.querySelector(".numPendentes").textContent = numPendentes;
 }
+
+window.addEventListener("load", function () {
+  atualizarListaTarefas();
+});
 
 function limparTarefas() {
+  if (confirm("Tem certeza que deseja excluir todas as tarefas?")) {
     localStorage.removeItem("tarefas");
-    atualizarListaTarefas(); // Atualiza a lista após limpar
+    atualizarListaTarefas();
+  }
 }

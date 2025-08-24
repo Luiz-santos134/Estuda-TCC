@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estuda +</title>
+    <title>Estuda + Tarefas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -79,8 +79,8 @@
             align-items: center;
             gap: 20px;
             width: 50%;
-            min-height: 60%;
-            height: 60%;
+            min-height: 80%;
+            height: 90%;
             padding: 10px 20px;
             background-color: var(--cor-detalhe);
             border-radius: 10px;
@@ -101,7 +101,7 @@
             align-items: center;
             gap: 10px;
         }
-        .tasksPendentes ul {
+        .tasksPendentes ul, .tasksDones ul {
             display: flex;
             flex-wrap: nowrap;
             flex-direction: column;
@@ -112,7 +112,7 @@
             justify-content: flex-start;
             width: 100%;
         }
-        .tasksPendentes li {
+        .tasksPendentes li, .tasksDones li {
             display: flex;
             align-items: center;
             font-size: 1.4rem;
@@ -120,15 +120,33 @@
             background-color: var(--cor-secundaria);
             border-radius: 10px;
             border: 1px solid var(--cor-secundaria-destaque);
-            width: auto;
-            padding: 10px;
+            width: 100%;
+            justify-content: space-between;
+            padding: 10px 20px;
             gap: 10px;
         }
-        .tasksPendentes input[type="checkbox"] {
+        .task-item{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+        }
+        .tasksPendentes .delete-btn, .tasksDones .delete-btn{
+            color: var(--cor-primaria);
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+        }
+        .tasksPendentes .delete-btn:hover, .tasksDones .delete-btn:hover{
+            background-color: var(--cor-primaria);
+            color: var(--texto-primario);
+            border: 1px solid var(--texto-primario);
+        }
+        .tasksPendentes input[type="checkbox"], .tasksDones input[type="checkbox"] {
             transform: scale(1.8); /* Aumenta o tamanho do checkbox */
             cursor: pointer;
         }
-        .tasksPendentes input[type="checkbox"]:hover {
+        .tasksPendentes input[type="checkbox"]:hover, .tasksDones input[type="checkbox"]:hover {
             transform: scale(2);
             cursor: pointer;
         }
@@ -195,8 +213,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 30%;
-            height: 40%;
+            width: 25rem;
+            height: 20rem;
             border-radius: 10px;
             border: 1px solid var(--cor-secundaria-destaque);
             z-index: 200;
@@ -236,7 +254,6 @@
             cursor: pointer;
             background-color: var(--cor-secundaria-destaque);
             transition: all .5s ease;
-            transform: scale(1.01);
         }
         .modal-content{
             display: flex;
@@ -263,7 +280,7 @@
             z-index: 100;
             display: none;
         }
-        .tasksPendentes input, .tasksPendentes button {
+        .tasksPendentes input, .tasksPendentes button, .tasksDones input, .tasksDones button {
             padding: 10px 20px;
             background-color: var(--cor-detalhe);
             color: var(--texto-primario);
@@ -277,7 +294,6 @@
         .tasksPendentes input:hover, .tasksPendentes button:hover {
             background-color: var(--cor-secundaria-destaque);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transform: scale(1.01);
             transition: background-color 0.5s ease, box-shadow 0.5s ease;
         }
 
@@ -299,6 +315,7 @@
             transform: scale(1.05);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }       
+        
     </style>
 </head>
 
@@ -394,6 +411,7 @@
 
                 <div class="tasksDones">
                     <h2>Tarefas Concluídas (<span>0</span>) </h2>
+                    <ul></ul>
                 </div>
             </div>
         </div>

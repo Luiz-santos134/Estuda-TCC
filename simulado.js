@@ -33,12 +33,8 @@ function sortearAleatorios(lista, quantidade) {
 }
 
 function gerarSimulado() {
-    tempoInicio = new Date(); // Inicia o cronômetro
+    tempoInicio = new Date();
     iniciarTemporizador();
-    estruturaSimulado.style.display = "none";
-    content.style.display = "none";
-    folhaSimulado.style.display = "flex";
-    main.style.transform = 'translateY(-2%)';
 
     questoesSelecionadas = [];
     questaoIndex = 0;
@@ -55,8 +51,6 @@ function gerarSimulado() {
 
     if (materiasEscolhidas.length < 2) {
         alert("Selecione pelo menos duas matérias");
-        estruturaSimulado.style.display = "flex";
-        folhaSimulado.style.display = "none";
         return;
     }
 
@@ -72,10 +66,13 @@ function gerarSimulado() {
         base = 'pas';
     } else {
         alert('Selecione um tipo de simulado');
-        estruturaSimulado.style.display = "flex";
-        folhaSimulado.style.display = "none";
         return;
     }
+
+    estruturaSimulado.style.display = "none";
+    content.style.display = "none";
+    folhaSimulado.style.display = "flex";
+    main.style.transform = 'translateY(-2%)';
 
     fetch('questoes.json')
         .then(res => res.json())
@@ -90,20 +87,19 @@ function gerarSimulado() {
                 }
             });
 
-            // Completa o total com questões aleatórias, se precisar
             if (questoesSelecionadas.length < TOTAL_QUESTOES) {
                 const faltam = TOTAL_QUESTOES - questoesSelecionadas.length;
                 const todasQuestoes = materiasEscolhidas.flatMap(materia => bancoQuestoes[base][materia] || []);
                 const extras = sortearAleatorios(todasQuestoes, faltam);
                 questoesSelecionadas.push(...extras);
             }
+            
             questoesSelecionadas = sortearAleatorios(questoesSelecionadas, TOTAL_QUESTOES);
-            
             document.getElementById("totalQuestoes").textContent = questoesSelecionadas.length;
-            
             mostrarQuestao();
         });
 }
+
 
 function mostrarQuestao() {
     if (questaoIndex >= questoesSelecionadas.length) {
@@ -159,7 +155,7 @@ function adicionarTarefaFeita(porcentagem, tipo, materias, tempoDecorrido) {
         data: dataFormatada,
         tipo: tipo,
         materias: materias,
-        tempo: tempoFormatado  // Adiciona o tempo formatado
+        tempo: tempoFormatado
     };
 
     simuladosFinalizados.push(novoSimulado);
