@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const primeiraVezContainer = document.querySelector(".primeiraVez");
-    const mainContainer = document.querySelector("main");
+    // const primeiraVezContainer = document.querySelector(".primeiraVez");
+    // const mainContainer = document.querySelector("main");
 
-    if (!localStorage.getItem("primeiraVez")) {
-        localStorage.setItem("primeiraVez", "true");
-        primeiraVezContainer.style.display = "flex";
-        mainContainer.style.display = "none";
-    } else {
-        mainContainer.style.display = "flex";
-        primeiraVezContainer.style.display = "none";
-    }
+    // if (!localStorage.getItem("primeiraVez")) {
+    //     localStorage.setItem("primeiraVez", "true");
+    //     primeiraVezContainer.style.display = "flex";
+    //     mainContainer.style.display = "none";
+    // } else {
+    //     mainContainer.style.display = "flex";
+    //     primeiraVezContainer.style.display = "none";
+    // }
     
     const titulo = document.querySelector(".containerProgressao span");
     const descricao = document.querySelector(".containerProgressao p");
