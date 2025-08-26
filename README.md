@@ -2,35 +2,12 @@
 
 Link para o projeto: https://aluno-estuda-mais.netlify.app/
 
-📋 Descrição O Portal do Aluno é uma aplicação web focada em:
-
-✅ Organização de tarefas.
-
-✅ Frases motivacionais personalizadas.
-
-✅ Interface moderna, minimalista e responsiva.
-
-✅ Criação de Simulados.
-
-✅ Criação de anotações.
-
-✅ Progressão de carreira.
-
-✅ Desafios
-
-Este sistema foca na autogestão do estudante.
-
-🛠️ Tecnologias utilizadas
-
-HTML5
-
-CSS3
-
-JavaScript
-
 🚀 Funcionalidades principais:
 
-✅ Página Inicial: visão rápida de tarefas, interesses e frases motivacionais. 
+✅ Página Inicial: visão rápida de tarefas, resumo, e frases motivacionais. 
+
+
+✅ Simulados: Faça questoes do ENEM, PAS e questoes diversas.
 
 
 ✅ Gestão de Tarefas: espaço para listar tarefas pendentes e concluídas. 
@@ -44,12 +21,26 @@ JavaScript
 
 ✅ Perfil: personalizado.
 
+
+✅ Resumo: Mostrará uma avaliação detalhada dos simulados com gráfico de linha.
+
+
+Este sistema foca na autogestão do estudante.
+
+🛠️ Tecnologias utilizadas
+
+HTML5
+
+CSS3
+
+JavaScript
+
 👨‍💻 Responsáveis:
 
 Luiz Cláudio - Front-end, Tech Lead
 
 Marcos - Redator, Idealista
 
-Gabriel - Pesquisador, relator 
+Gabriel - Pesquisador, Redator 
 
 Guilherme - Pesquisador, Redator, Suporte
