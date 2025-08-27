@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estuda + Teste Vocacional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="logoTCCGuia.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/83da9facc2.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="home.css">
+
+  <style>
+    :root {
+      --cor-fundo: #121212;
+      --cor-secundaria: #1e1e1e;
+      --cor-detalhe: #2d2d2d;
+      --cor-hover: #333333;
+      --cor-primaria: #ff4d4f;
+      --cor-secundaria-destaque: #3a6eff;
+      --texto-primario: #f5f5f5;
+      --texto-secundario: #aaaaaa;
+      --borda: #2b2b2b;
+      --input-fundo: #1c1c1c;
+      --input-borda: #3a3a3a;
+    }
+
+    body {
+      background-color: var(--cor-fundo);
+      font-family: "Poppins", sans-serif;
+      color: var(--texto-primario);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: var(--cor-secundaria);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--borda);
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px;
+      width: 100%;
+      min-height: calc(100vh - 70px);
+    }
+
+    .quiz-container {
+      background-color: var(--cor-secundaria);
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 700px;
+      width: 100%;
+      box-shadow: 0 4px 8px black;
+    }
+
+    .quiz-container h2 {
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .pergunta {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    .opcoes button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 8px;
+      background-color: var(--cor-detalhe);
+      color: var(--texto-primario);
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: left;
+      font-size: 1rem;
+    }
+
+    .opcoes button:hover {
+      background-color: var(--cor-secundaria-destaque);
+    }
+
+    #proximo {
+      margin-top: 20px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: var(--cor-primaria);
+      color: white;
+      cursor: pointer;
+      display: none;
+      transition: 0.3s;
+    }
+
+    #proximo:hover {
+      opacity: 0.8;
+    }
+
+    #resultado {
+      margin-top: 30px;
+      font-size: 1.3rem;
+      font-weight: 500;
+      text-align: center;
+      color: var(--cor-secundaria-destaque);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+        <div class="titulo">
+            <a href="home.html">
+                <p>E<span id="spanTitulo"></span> <span>+</span></p>
+            </a>
+        </div>
+
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="home.html" class="menu-link">
+                        <i class="fas fa-home"></i>
+                        <span class="textIconLink">Home</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="simulado.html" class="menu-link">
+                        <i class="fas fa-file-alt"></i>
+                        <span class="textIconLink">Simulados</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="tarefas.html" class="menu-link">
+                        <i class="fas fa-tasks"></i>
+                        <span class="textIconLink">Tarefas</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="anotacoes.html" class="menu-link">
+                        <i class="fas fa-sticky-note"></i>
+                        <span class="textIconLink">Anotações</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="desafios.html" class="menu-link">
+                        <i class="fas fa-brain"></i>
+                        <span class="textIconLink">Desafios</span>
+                    </a>
+                </li>
+                <div class="infoPerfil">
+                    <a href="perfil.html" class="menu-link">
+                        <span id="nomeUser"></span>
+                    </a>
+                    <img src="perfil.jpeg" id="img_perfil" alt="imgPerfil">
+                </div>
+            </ul>
+        </div>
+    </header>
+
+  <main>
+    <div class="quiz-container">
+      <h2>Descubra sua área ideal na Programação 🚀</h2>
+      <div id="quiz"></div>
+      <button id="proximo" onclick="proximaPergunta()">Próxima</button>
+      <p id="resultado"></p>
+    </div>
+  </main>
+
+  <script>
+    const perguntas = [
+      { texto: "Você prefere trabalhar com lógica ou design?", opcoes: [
+        {texto: "Design e interfaces", carreira: "Front-end"},
+        {texto: "Lógica e dados", carreira: "Back-end"},
+        {texto: "Ambos", carreira: "Full-stack"}
+      ]},
+      { texto: "Prefere desenvolver apps para celular ou web?", opcoes: [
+        {texto: "Aplicativos Mobile", carreira: "Mobile"},
+        {texto: "Sites e sistemas Web", carreira: "Front-end"},
+        {texto: "Ambos", carreira: "Full-stack"}
+      ]},
+      { texto: "Você gosta de analisar e interpretar dados?", opcoes: [
+        {texto: "Sim, adoro!", carreira: "Cientista de Dados"},
+        {texto: "Prefiro organizar os dados", carreira: "Engenheiro de Dados"},
+        {texto: "Não muito", carreira: "Back-end"}
+      ]},
+      { texto: "Automação de processos te atrai?", opcoes: [
+        {texto: "Sim, gosto de automatizar", carreira: "DevOps"},
+        {texto: "Prefiro programar lógica", carreira: "Back-end"},
+        {texto: "Prefiro design", carreira: "Front-end"}
+      ]},
+      { texto: "Você gostaria de proteger sistemas contra ataques?", opcoes: [
+        {texto: "Sim, Segurança da Informação!", carreira: "Segurança da Informação"},
+        {texto: "Prefiro criar sistemas", carreira: "Back-end"},
+        {texto: "Prefiro análise de dados", carreira: "Cientista de Dados"}
+      ]},
+      { texto: "Você tem interesse em inteligência artificial?", opcoes: [
+        {texto: "Sim, quero treinar máquinas", carreira: "Inteligência Artificial"},
+        {texto: "Prefiro dados estruturados", carreira: "Engenheiro de Dados"},
+        {texto: "Não, prefiro web", carreira: "Front-end"}
+      ]},
+      { texto: "Você se imagina trabalhando com servidores em nuvem?", opcoes: [
+        {texto: "Sim, Cloud Computing", carreira: "Cloud Computing"},
+        {texto: "Prefiro DevOps", carreira: "DevOps"},
+        {texto: "Não, prefiro aplicativos", carreira: "Mobile"}
+      ]},
+      { texto: "Você gosta mais de resolver problemas visuais ou matemáticos?", opcoes: [
+        {texto: "Visuais", carreira: "Front-end"},
+        {texto: "Matemáticos", carreira: "Back-end"},
+        {texto: "Ambos", carreira: "Full-stack"}
+      ]},
+      { texto: "Trabalhar em equipe ou sozinho?", opcoes: [
+        {texto: "Equipe", carreira: "DevOps"},
+        {texto: "Sozinho", carreira: "Back-end"},
+        {texto: "Ambos", carreira: "Full-stack"}
+      ]},
+      { texto: "Você prefere ver resultados rápidos ou projetos de longo prazo?", opcoes: [
+        {texto: "Rápidos", carreira: "Front-end"},
+        {texto: "Longo prazo", carreira: "Inteligência Artificial"},
+        {texto: "Depende", carreira: "Full-stack"}
+      ]},
+      { texto: "Prefere trabalhar com segurança digital?", opcoes: [
+        {texto: "Sim, Segurança", carreira: "Segurança da Informação"},
+        {texto: "Prefiro análise de dados", carreira: "Cientista de Dados"},
+        {texto: "Prefiro design", carreira: "Front-end"}
+      ]},
+      { texto: "Gosta de mexer em infraestrutura de servidores?", opcoes: [
+        {texto: "Sim, Cloud Computing", carreira: "Cloud Computing"},
+        {texto: "Sim, DevOps", carreira: "DevOps"},
+        {texto: "Prefiro código", carreira: "Back-end"}
+      ]},
+      { texto: "Prefere mexer com APIs ou interfaces visuais?", opcoes: [
+        {texto: "APIs", carreira: "Back-end"},
+        {texto: "Interfaces", carreira: "Front-end"},
+        {texto: "Os dois", carreira: "Full-stack"}
+      ]},
+      { texto: "Quer trabalhar com Big Data?", opcoes: [
+        {texto: "Sim, Engenheiro de Dados", carreira: "Engenheiro de Dados"},
+        {texto: "Sim, Cientista de Dados", carreira: "Cientista de Dados"},
+        {texto: "Não, prefiro web", carreira: "Front-end"}
+      ]},
+      { texto: "Você gosta de prever tendências e padrões?", opcoes: [
+        {texto: "Sim, Cientista de Dados", carreira: "Cientista de Dados"},
+        {texto: "Sim, Inteligência Artificial", carreira: "Inteligência Artificial"},
+        {texto: "Não muito", carreira: "Back-end"}
+      ]},
+      { texto: "Prefere otimizar sistemas ou criar do zero?", opcoes: [
+        {texto: "Otimizar", carreira: "DevOps"},
+        {texto: "Criar do zero", carreira: "Back-end"},
+        {texto: "Design", carreira: "Front-end"}
+      ]},
+      { texto: "Gosta de criar dashboards e relatórios?", opcoes: [
+        {texto: "Sim, Cientista de Dados", carreira: "Cientista de Dados"},
+        {texto: "Sim, Front-end", carreira: "Front-end"},
+        {texto: "Não, prefiro servidores", carreira: "Back-end"}
+      ]},
+      { texto: "Você gostaria de construir modelos preditivos?", opcoes: [
+        {texto: "Sim, Inteligência Artificial", carreira: "Inteligência Artificial"},
+        {texto: "Sim, Cientista de Dados", carreira: "Cientista de Dados"},
+        {texto: "Prefiro sistemas web", carreira: "Full-stack"}
+      ]},
+      { texto: "Você gostaria de trabalhar com escalabilidade de sistemas?", opcoes: [
+        {texto: "Sim, Cloud Computing", carreira: "Cloud Computing"},
+        {texto: "Sim, DevOps", carreira: "DevOps"},
+        {texto: "Não, prefiro interfaces", carreira: "Front-end"}
+      ]},
+      { texto: "O que mais te motiva?", opcoes: [
+        {texto: "Impactar usuários diretamente", carreira: "Front-end"},
+        {texto: "Fazer sistemas funcionarem por trás", carreira: "Back-end"},
+        {texto: "Transformar dados em valor", carreira: "Cientista de Dados"}
+      ]}
+    ];
+
+    let indice = 0;
+    let pontos = {};
+
+    function mostrarPergunta() {
+      const quiz = document.getElementById("quiz");
+      quiz.innerHTML = "";
+
+      const pergunta = perguntas[indice];
+      const titulo = document.createElement("div");
+      titulo.classList.add("pergunta");
+      titulo.textContent = pergunta.texto;
+      quiz.appendChild(titulo);
+
+      const opcoesDiv = document.createElement("div");
+      opcoesDiv.classList.add("opcoes");
+
+      pergunta.opcoes.forEach(opcao => {
+        const btn = document.createElement("button");
+        btn.textContent = opcao.texto;
+        btn.onclick = () => selecionarResposta(opcao.carreira);
+        opcoesDiv.appendChild(btn);
+      });
+
+      quiz.appendChild(opcoesDiv);
+    }
+
+    function selecionarResposta(carreira) {
+      if (!pontos[carreira]) {
+        pontos[carreira] = 0;
+      }
+      pontos[carreira]++;
+      document.getElementById("proximo").style.display = "inline-block";
+    }
+
+    function proximaPergunta() {
+      indice++;
+      document.getElementById("proximo").style.display = "none";
+
+      if (indice < perguntas.length) {
+        mostrarPergunta();
+      } else {
+        mostrarResultado();
+      }
+    }
+
+    function mostrarResultado() {
+      const resultado = document.getElementById("resultado");
+
+      let carreiraFinal = null;
+      let maxPontos = 0;
+
+      for (let carreira in pontos) {
+        if (pontos[carreira] > maxPontos) {
+          maxPontos = pontos[carreira];
+          carreiraFinal = carreira;
+        }
+      }
+
+      resultado.textContent = "Sua carreira ideal é: " + carreiraFinal + " 🚀";
+      document.getElementById("quiz").innerHTML = "";
+    }
+
+    mostrarPergunta();
+  </script>
+</body>
+<script src="script.js"></script>
+<script src="home.js"></script>
+</html>
