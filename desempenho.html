@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estuda +</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="logoTCCGuia.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/83da9facc2.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="home.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        :root {
+            --cor-fundo: #121212;
+            --cor-secundaria: #1e1e1e;
+            --cor-detalhe: #2d2d2d;
+            --cor-hover: #333333;
+            --cor-primaria: #ff4d4f;
+            --cor-secundaria-destaque: #3a6eff;
+            --texto-primario: #f5f5f5;
+            --texto-secundario: #aaaaaa;
+            --borda: #2b2b2b;
+            --input-fundo: #1c1c1c;
+            --input-borda: #3a3a3a;
+        }
+        #graficoPizza{
+            width: 600px;
+            height: 300px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <div class="titulo">
+            <a href="home.html">
+                <p>E<span id="spanTitulo"></span> <span>+</span></p>
+            </a>
+        </div>
+
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="home.html" class="menu-link">
+                        <i class="fas fa-home"></i>
+                        <span class="textIconLink">Home</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="simulado.html" class="menu-link">
+                        <i class="fas fa-file-alt"></i>
+                        <span class="textIconLink">Simulados</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="tarefas.html" class="menu-link">
+                        <i class="fas fa-tasks"></i>
+                        <span class="textIconLink">Tarefas</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="anotacoes.html" class="menu-link">
+                        <i class="fas fa-sticky-note"></i>
+                        <span class="textIconLink">Anotações</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="desafios.html" class="menu-link">
+                        <i class="fas fa-brain"></i>
+                        <span class="textIconLink">Desafios</span>
+                    </a>
+                </li>
+
+                <div class="infoPerfil">
+                    <a href="perfil.html" class="menu-link">
+                        <span id="nomeUser"></span>
+                    </a>
+                    <img src="perfil.jpeg" id="img_perfil" alt="imgPerfil">
+                </div>
+            </ul>
+        </div>
+    </header>
+
+    <h2>Distribuição de Investimentos</h2>
+    <div id="graficoPizza"></div>
+
+    <script>
+    var data = [{
+        values: [40, 25, 20, 10, 5],
+        labels: ['Ações', 'Renda Fixa', 'Fundos', 'Cripto', 'Outros'],
+        type: 'pie',
+        textinfo: 'label+percent',
+        textposition: "inside",
+        hole: 0.5,
+        insidetextorientation: 'radial',
+        marker: {
+            colors: [
+                '#ff4d4f', // cor primária
+                '#3a6eff', // cor secundária destaquej
+                '#f5f5f5', // texto primário
+                '#aaaaaa', // texto secundário
+                '#2d2d2d'  // detalhe escuro
+            ],
+            line: {
+                color: 'black', // cor de fundo
+                width: 2
+            }
+        }
+    }];
+
+    var layout = {
+        title: {
+            text: 'Carteira de Investimentos',
+            font: {
+                size: 22,
+                color: '#f5f5f5' // texto primário
+            }
+        },
+        paper_bgcolor: '#4CAF50',//'#121212', // fundo total
+        plot_bgcolor: '#1e1e1e',  // fundo do gráfico
+        height: 400,
+        width: 500,
+        legend: {
+            font: {
+                color: '#aaaaaa', // cor da legenda
+                size: 14
+            }
+        }
+    };
+
+    Plotly.newPlot('graficoPizza', data, layout);
+</script>
+
+</body>
+
+<script src="script.js"></script>
+<script src="home.js"></script>
+<script src="resumo.js"></script>
+
+</html>

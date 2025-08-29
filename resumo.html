@@ -27,9 +27,7 @@
             --cor-detalhe: #2d2d2d;
             --cor-hover: #333333;
             --cor-primaria: #ff4d4f;
-            /* vermelho destaque */
             --cor-secundaria-destaque: #3a6eff;
-            /* azul de contraste */
             --texto-primario: #f5f5f5;
             --texto-secundario: #aaaaaa;
             --borda: #2b2b2b;
@@ -45,7 +43,17 @@
             flex-direction: column;
             gap: 20px;
             align-items: flex-start;
+        }
+        aside ul li{
+            text-align: start;
             padding: 10px;
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        aside ul li:hover{
+            background-color: var(--input-fundo);
         }
         main{
             height: 90dvh;
@@ -168,7 +176,6 @@
             border-radius: 10px;
             padding: 15px;
         }
-
         .simulado-item {
             display: flex;
             justify-content: space-between;
@@ -177,16 +184,13 @@
             background-color: var(--cor-detalhe);
             border-radius: 5px;
         }
-
         .simulado-item .porcentagem {
             color: #4CAF50;
             font-weight: bold;
         }
-
         .simulado-item .erro {
             color: var(--cor-primaria);
         }
-
         .simulado-item .tempo {
             color: var(--cor-secundaria-destaque);
             font-style: italic;
@@ -196,29 +200,65 @@
 </head>
 
 <body>
-    <header>
+   <header>
         <div class="titulo">
             <a href="home.html">
                 <p>E<span id="spanTitulo"></span> <span>+</span></p>
             </a>
         </div>
 
-        <div class="infoPerfil">
-            <a href="perfil.html">
-                <p id="nomeUser" class="menu-link">Luiz-santos</p>
-                <img src="perfil.jpeg" id="img_perfil" alt="imgPerfil">
-            </a>
-        </div>
+       <div class="menu">
+            <ul>
+                <li>
+                    <a href="home.html" class="menu-link">
+                        <i class="fas fa-home"></i>
+                        <span class="textIconLink">Home</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="simulado.html" class="menu-link">
+                        <i class="fas fa-file-alt"></i>
+                        <span class="textIconLink">Simulados</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="tarefas.html" class="menu-link">
+                        <i class="fas fa-tasks"></i>
+                        <span class="textIconLink">Tarefas</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="anotacoes.html" class="menu-link">
+                        <i class="fas fa-sticky-note"></i>
+                        <span class="textIconLink">Anotações</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="desafios.html" class="menu-link">
+                        <i class="fas fa-brain"></i>
+                        <span class="textIconLink">Desafios</span>
+                    </a>
+                </li>
+                <div class="infoPerfil">
+                    <a href="perfil.html" class="menu-link">
+                        <span id="nomeUser"></span>
+                    </a>
+                    <img src="perfil.jpeg" id="img_perfil" alt="imgPerfil">
+                </div>
+            </ul>
+       </div>
     </header>
 
     <main>
         <aside>
             <ul>
-                <li>home</li>
-                <li>Simulados</li>
-                <li>Tarefas</li>
-                <li>Anotações</li>
-                <li>Desafios</li>
+                <a href="desempenho.html">
+                    <li>Desempenho</li>
+                </a>
             </ul>
         </aside>
         <div class="container">

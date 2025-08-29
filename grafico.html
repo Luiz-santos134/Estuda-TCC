@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gráfico Pizza com Plotly</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h2>Distribuição de Investimentos</h2>
+  <div id="graficoPizza" style="width:600px;height:400px;"></div>
+
+  <script>
+    var data = [{
+      values: [40, 25, 20, 10, 5],
+      labels: ['Ações', 'Renda Fixa', 'Fundos', 'Cripto', 'Outros'],
+      type: 'pie',
+      textinfo: 'label+percent', // mostra nome + porcentagem
+      insidetextorientation: 'radial'
+    }];
+
+    var layout = {
+      title: 'Carteira de Investimentos',
+      height: 400,
+      width: 500
+    };
+
+    Plotly.newPlot('graficoPizza', data, layout);
+  </script>
+</body>
+</html>
