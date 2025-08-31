@@ -67,6 +67,7 @@ function enviarTH(event) {
     localStorage.setItem("tarefas", JSON.stringify(tarefas));
 
     input.value = "";
+    location.reload();
     fecharModal();
     atualizarListaTarefas();
     mostrarTarefas();
