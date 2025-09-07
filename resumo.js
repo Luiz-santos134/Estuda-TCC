@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const simuladosFinalizados = JSON.parse(localStorage.getItem('simuladosFinalizados')) || [];
-    
-    // Ordena por data (do mais antigo para o mais recente)
     simuladosFinalizados.sort((a, b) => new Date(a.data.split('/').reverse().join('-')) - new Date(b.data.split('/').reverse().join('-')));
     
     const labels = simuladosFinalizados.map(simulado => {
@@ -96,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
             
             numAcertor.push(simulado.porcentagem);
             
-            // Calcula erros considerando o número de questões (assumindo 10 questões por simulado)
             const qtdErros = ((100 - simulado.porcentagem)/10).toFixed(1);
             
             li.innerHTML = `
