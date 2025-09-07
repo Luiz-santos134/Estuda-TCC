@@ -13,7 +13,6 @@
     --input-fundo: #1c1c1c;
     --input-borda: #3a3a3a;
 }
-
 * {
     margin: 0;
     padding: 0;
@@ -35,7 +34,6 @@
     object-fit: cover;
     border-radius: 50%;
 }
-
 header {
     position: sticky;
     top: 0;
@@ -51,13 +49,11 @@ header {
     font-size: 11pt;
     z-index: 1000;
 }
-
 .menu ul li span, #nomeUser{
     font-size: 11pt;
     color: var(--texto-primario);
     font-weight: 500;
 }
-
 footer{
     position: relative;
     bottom: 0;
@@ -71,7 +67,6 @@ footer{
     height: 10dvh;
     border-top: 1px solid var(--borda);
 }
-
 .titulo p, #spanTitulo::after{
     content: "studa";
     font-size: 1.2rem;
@@ -81,13 +76,11 @@ footer{
     cursor: pointer;
     color: var(--texto-primario);
 }
-
 span {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--cor-secundaria-destaque);
 }
-
 .menu ul {
     display: flex;
     align-items: center;
@@ -95,13 +88,11 @@ span {
     flex-direction: row;
     gap: 10px;
 }
-
 .menu ul a:hover {
     color: var(--cor-secundaria-destaque);
     background-color: var(--cor-hover);
     border-radius: 5px;
 }
-
 a {
     text-decoration: none;
     color: var(--texto-primario);
@@ -121,7 +112,6 @@ body {
     flex-direction: column;
     min-height: 100dvh; /* ocupa a tela, mas cresce se tiver mais conteúdo */
 }
-
 main {
     text-align: center;
     background-color: var(--cor-fundo);
@@ -135,7 +125,6 @@ main {
 main h1 {
     padding: 40px 0;
 }
-
 .funcoesIniciais, .resumo {
     display: flex;
     flex-direction: row;
@@ -146,11 +135,9 @@ main h1 {
     margin: 0;
     padding: 0;
 }
-
 .resumo{
     margin-top: 20px;
 }
-
 .funcoesIniciais .tarefasPendentes,
 .funcoesIniciais .funcAdicionais,
 .funcoesIniciais .atalhos {
@@ -170,7 +157,6 @@ main h1 {
     font-weight: 500;
     color: var(--texto-primario);
 }
-
 .taskDone, 
 .simuladosDone,
 .desafiosDone{
@@ -190,30 +176,55 @@ main h1 {
 
 .modalOpcoesProvas{
     position: absolute;
-    background-color: var(--cor-secundaria);
+    background-color: var(--texto-secundario);
     border: 1px solid var(--texto-primario);
-    box-shadow: 0px 0px 10px;
+    /* box-shadow: 0px 0px 10px; */
     border-radius: 10px;
-    top: 33%;
+    top: 69%;
     width: 20rem;
-    height: 20rem;
+    height: 4rem;
 }
 .modalOpcoesProvas ul{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     text-align: center;
     gap: 20px;
     width: 100%;
 }
-
+.modalOpcoesProvas ul a{
+    color: black;
+    font-size: 15pt;
+    font-weight: 700;
+}
+.modalOpcoesProvas button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-top: 5px;
+    right: 2%;
+    background-color: var(--cor-detalhe);
+    border: 1px solid var(--texto-primario);
+    color: white;
+    padding: 10px;
+    width: 2rem;
+    height: 2rem;
+    font-size: 10pt;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+}
+.modalOpcoesProvas button:hover{
+    transform: scale(1.07);
+}
 #tituloAba{
     font-size: 1.2rem;
     font-weight: 500;
     color: var(--texto-primario);
 }
-
 #fraseSumir{
     font-size: 12pt;
     margin-top: 20px;
@@ -221,22 +232,18 @@ main h1 {
 #fraseSumir a:hover{
     color: var(--cor-secundaria-destaque);
 }
-
 .itens{
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-
 .itens input {
     cursor: pointer;
     transform: scale(1.1);
 }
-
 .itens input:hover{
     transform: scale(1.5);
 }
-
 .frase-motivacional {
     background-color: var(--cor-secundaria);
     /* background: radial-gradient(rgb(111, 0, 255), blue); */
@@ -253,7 +260,6 @@ main h1 {
     border-radius: 10px;
     margin-bottom: 50px;
 }
-
 .tarefa {
     display: flex;
     flex-direction: row;

@@ -157,24 +157,10 @@
         .bloco1 p, .bloco2 p{
             font-size: 13pt;
         }
-        .objetivos {
-            width: 100%;
-            height: 15rem;
-            background-color: #121212;
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
-            padding: 20px;
-            flex-shrink: 0;
-        }
-        .meta, .conquistas{
-            width: 100%;
-            background-color: var(--cor-detalhe);
-            border-radius: 10px;
-        }
+        
         #graficoLinha {
             width: 100%;
-            height: 50%;
+            height: 100%;
             background-color: var(--cor-secundaria);
             border-radius: 10px;
             padding: 15px;
@@ -197,6 +183,65 @@
         .simulado-item .tempo {
             color: var(--cor-secundaria-destaque);
             font-style: italic;
+        }
+        .objetivos {
+            width: 100%;
+            height: 15rem;
+            background-color: #121212;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            padding: 20px;
+            flex-shrink: 0;
+        }
+        .meta, .conquistas{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            border: 1px solid var(--input-fundo);
+            border-radius: 10px;
+        }
+        .metasContainer, .conquistasContainer{
+            width: 100%;
+            height: 80%;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            gap: 20px;
+        }
+        .conquista{
+            background-color: var(--input-fundo);
+            width: 50%;
+            height: 80%;
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        .conquista i{
+            width: 50%;
+            font-size: 20pt;
+            color: yellow;
+        }
+        .objetivos .topo{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .objetivos .topo a{
+            color: var(--cor-secundaria-destaque);
         }
     </style>
 
@@ -310,10 +355,37 @@
 
             <div class="objetivos">
                 <div class="meta">
-                    <p>3 simulados por semana</p>
+                    <div class="topo">
+                        <p>METAS</p>
+                        <a href="#">Ver Tudo</a>
+                    </div>
+                    <div class="metasContainer">
+                        <div class="conquista">
+                            <i class="fa-solid fa-star"></i>
+                            <p>Faça 3 simulados por semana</p>
+                        </div>
+                        <div class="conquista">
+                            <i class="fa-solid fa-star"></i>
+                            <p>Acerte mais de 80% em 5 simulados</p>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="conquistas">
-                    <p>Primeiro simulado de matematica </p>
+                    <div class="topo">
+                        <p>CONQUISTAS</p>
+                        <a href="#">Ver Tudo</a>
+                    </div>
+                    <div class="conquistasContainer">
+                        <div class="conquista">
+                            <i class="fa-solid fa-star"></i>
+                            <p>Faça seu primeiro simulado</p>
+                        </div>
+                        <div class="conquista">
+                            <i class="fa-solid fa-star"></i>
+                            <p>Faça seu primeiro simulado</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
