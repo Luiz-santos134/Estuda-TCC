@@ -117,6 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
         for(let i = 0; i < numAcertor.length; i++){
             media+= (parseInt(numAcertor[i]))/numAcertor.length;
         }
-        mediaUI.textContent = media + "%";
+        mediaUI.textContent = media.toFixed(1) + "%";
     }
 });
