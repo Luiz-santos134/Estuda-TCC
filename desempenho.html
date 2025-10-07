@@ -8,7 +8,7 @@
     <meta name="description"
         content="O Aluno Estuda Mais é uma plataforma feita para ajudar estudantes a organizar seus estudos de forma simples e eficiente.">
     <meta name="keywords" content="aluno estuda mais, estudos, plataforma de estudo, organização escolar, aprendizado">
-    <title>Estuda +</title>
+    <title>Estuda + Tarefas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -19,68 +19,206 @@
 
     <link rel="stylesheet" href="home.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
     <style>
         :root {
-            --cor-fundo: #121212;
-            --cor-secundaria: #1e1e1e;
-            --cor-detalhe: #2d2d2d;
-            --cor-hover: #333333;
-            --cor-primaria: #ff4d4f;
-            --cor-secundaria-destaque: #3a6eff;
-            --texto-primario: #f5f5f5;
-            --texto-secundario: #aaaaaa;
-            --borda: #2b2b2b;
-            --input-fundo: #1c1c1c;
-            --input-borda: #3a3a3a;
+            --bg: #0f0f10;
+            --card: #171717;
+            --muted: #aaaaaa;
+            --accent: #3a6eff;
+            --primary: #ff4d4f;
+            --white: #f5f5f5;
+            --radius: 12px;
         }
-        .topo{
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--white);
+        }
+
+        .summary {
             display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 22px;
             width: 100%;
-            font-size: 15pt;
-            border-radius: 5px;
-            padding: 10px;
+            padding: 20px;
         }
-        .topo button{
-            width: 2%;
-            font-size: 20pt;
-            background-color: transparent;
-            border: none;
-            color: var(--texto-primario);
-            transition: all 0.1s ease-in-out;
-        }
-        .topo button:hover{
-            transform: scale(1.5);
-            cursor: pointer;
-        }
-        .topo p{
-            width: 98%;
-        }
-        .resumo{
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
-            width: 100%;
-            height: 20%;
-        }
-        .simuFeitos, .simuMedia, .piorNota, .melhorNota, .tempoTotal{
-            width: 20%;
-            height: 100%;
+
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            border: 1px solid rgba(58, 110, 255, 0.14);
+            padding: 18px;
             border-radius: 10px;
-            border: 1px solid;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .card .big {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent)
+        }
+
+        .card p {
+            margin: 6px 0 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .panel {
+            display: grid;
+            grid-template-columns: 460px 1fr;
+            gap: 20px;
+            align-items: start;
+            padding: 20px;
+        }
+
+        .leftCard,
+        .rightCard {
+            background: var(--card);
+            padding: 18px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .leftCard h2 {
+            margin: 0 0 6px;
+            font-size: 20px
+        }
+
+        .leftCard p.sub {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .chartWrap {
+            display: flex;
+            justify-content: center;
+            margin-top: 14px;
+        }
+
+        canvas {
+            max-width: 100% !important;
+            height: auto !important
+        }
+
+        .rightGrid {
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
-            border: 1px solid var(--cor-secundaria-destaque);
+            gap: 14px;
+        }
+
+        .evolucaoCard {
+            padding: 12px;
+        }
+
+        .statsRow {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .statSmall {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .statSmall .num {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 16px
+        }
+
+        .statSmall p {
+            margin: 6px 0 0;
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        .ranking {
+            margin-top: 6px;
+        }
+
+        .rankItem {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            align-items: center;
+            padding: 8px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.12);
+            margin-bottom: 8px;
+        }
+
+        .rankItem .left {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .materiaBadge {
+            width: 10px;
+            height: 10px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .insights {
+            background: linear-gradient(90deg, rgba(58, 110, 255, 0.06), rgba(255, 77, 79, 0.04));
+            padding: 12px;
+            border-radius: 10px;
+            color: var(--white);
+        }
+
+        .insights p {
+            margin: 6px 0 0;
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .lastTable {
+            margin-top: 6px;
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .lastTable th {
+            text-align: left;
+            padding: 8px 6px;
+            color: var(--white);
+            font-weight: 600
+        }
+
+        .lastTable td {
+            padding: 8px 6px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.03)
+        }
+
+        .noData {
+            color: var(--muted);
+            text-align: center;
+            padding: 18px
+        }
+
+        @media(max-width:980px) {
+            .panel {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
-
 </head>
 
 <body>
+
     <header>
         <div class="titulo">
             <a href="home.html">
@@ -117,14 +255,13 @@
                         <span class="textIconLink">Anotações</span>
                     </a>
                 </li>
-
+                
                 <li>
                     <a href="desafios.html" class="menu-link">
                         <i class="fas fa-brain"></i>
                         <span class="textIconLink">Desafios</span>
                     </a>
                 </li>
-
                 <div class="infoPerfil">
                     <a href="perfil.html" class="menu-link">
                         <span id="nomeUser"></span>
@@ -135,139 +272,364 @@
         </div>
     </header>
 
-    <main>
-        <div class="topo">
-            <a href="resumo.html">
-                <button><</button>
-            </a>
-            <p>
-                Estatísticas dos Simulados
-                Acompanhe seu progresso e desempenho nos simulados
-            </p>
+    <section class="summary">
+        <div class="card">
+            <div class="big" id="totalSimulados">0</div>
+            <p>Simulados</p>
+        </div>
+        <div class="card">
+            <div class="big" id="mediaGeral">0%</div>
+            <p>Média</p>
+        </div>
+        <div class="card">
+            <div class="big" id="menorNota">0%</div>
+            <p>Menor Nota</p>
+        </div>
+        <div class="card">
+            <div class="big" id="maiorNota">0%</div>
+            <p>Maior Nota</p>
+        </div>
+        <div class="card">
+            <div class="big" id="tempoTotal">0h</div>
+            <p>Tempo Total</p>
+        </div>
+    </section>
+
+    <section class="panel">
+        <!-- left: doughnut -->
+        <div class="leftCard">
+            <h2>Matérias praticadas</h2>
+            <p class="sub">Distribuição de simulados por matéria</p>
+            <div class="chartWrap">
+                <canvas id="graficoMaterias" width="380" height="380"></canvas>
+            </div>
+            <div id="legend" style="margin-top:12px; color:var(--muted); font-size:13px"></div>
         </div>
 
-        <div class="resumo">
-            <div class="simuFeitos">
-                <span>0</span>
-                <p>Simulados</p>
-            </div>
-            <div class="simuMedia">
-                <span>0</span>
-                <p>Média</p>
-            </div>
-            <div class="piorNota">
-                <span>0%</span>
-                <p>Menor Nota</p>
-            </div>
-            <div class="melhorNota">
-                <span>0%</span>
-                <p>Maior Nota</p>
-            </div>
-            <div class="tempoTotal">
-                <span>0h</span>
-                <p>Tempo Total</p>
+        <!-- right: evolution + ranking + insights + last attempts -->
+        <div class="rightCard">
+            <div class="rightGrid">
+                <!-- evolução -->
+                <div class="evolucaoCard" style="background:rgba(0,0,0,0.04); border-radius:10px;">
+                    <h3 style="margin:0;color:var(--white)">Evolução das Notas</h3>
+                    <p style="margin:6px 0 0;color:var(--muted);font-size:13px">Últimos simulados</p>
+                    <div style="margin-top:8px;">
+                        <canvas id="graficoEvolucao" width="600" height="220"></canvas>
+                    </div>
+
+                    <div class="statsRow">
+                        <div class="statSmall">
+                            <div class="num" id="tempoMedio">0m</div>
+                            <p>Tempo médio por simulado</p>
+                        </div>
+                        <div class="statSmall">
+                            <div class="num" id="simuladosSemana">0</div>
+                            <p>Simulados (últ.7d)</p>
+                        </div>
+                        <div class="statSmall">
+                            <div class="num" id="melhorMateriaTop">-</div>
+                            <p>Melhor matéria</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ranking -->
+                <div>
+                    <h3 style="margin:0 0 8px;color:var(--white)">Ranking por matéria</h3>
+                    <div class="ranking" id="rankingList">
+                        <!-- gerado por JS -->
+                    </div>
+                </div>
+
+                <!-- insights -->
+                <div class="insights" id="insightsBox">
+                    <strong>Insights</strong>
+                    <p id="insightText">Carregando insights...</p>
+                </div>
+
+                <!-- últimos simulados -->
+                <div>
+                    <h3 style="margin:0 0 8px;color:var(--white)">Últimos simulados</h3>
+                    <table class="lastTable" id="lastTable">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Tipo</th>
+                                <th>Nota</th>
+                                <th>Matérias</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lastTableBody"></tbody>
+                    </table>
+                </div>
+
             </div>
         </div>
-    </main>
+    </section>
 
-    <h2>Matérias por Simulado</h2>
-    <div id="graficoPizza"></div>
-
-</body>
-
-<script>
-    var data = [{
-        values: [40, 25, 20, 10, 5],
-        labels: ['Ações', 'Renda Fixa', 'Fundos', 'Cripto', 'Outros'],
-        type: 'pie',
-        textinfo: 'label+percent',
-        textposition: "inside",
-        hole: 0.5,
-        insidetextorientation: 'radial',
-        marker: {
-            line: {
-                color: 'black', // cor de fundo
-                width: 2
-            }
-        }
-    }];
-
-    var layout = {
-        title: {
-            text: '',
-            font: {
-                size: 22,
-                color: '#f5f5f5' // texto primário
-            }
-        },
-        paper_bgcolor: 'transparent',//'#121212', // fundo total
-        plot_bgcolor: 'transparent',  // fundo do gráfico
-        height: 400,
-        width: 500,
-        legend: {
-            font: {
-                color: '#aaaaaa', // cor da legenda
-                size: 14
-            }
-        }
-    };
-
-    Plotly.newPlot('graficoPizza', data, layout);
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const simuladosFinalizados = JSON.parse(localStorage.getItem('simuladosFinalizados')) || [];
-        let mediaUI = document.querySelector(".simuMedia span");
-        let simuFeitos = document.querySelector(".simuFeitos span");
-        let piorNota = document.querySelector('.piorNota span');
-        let melhorNota = document.querySelector(".melhorNota span");
-        let tempoTotal = document.querySelector('.tempoTotal span');
-
-        let notas = [];
-        let tempos = [];
-        let menorNota;
-        let maiorNota;
+    <script>
 
         function tempoParaSegundos(tempoStr) {
-            let minutos = 0;
-            let segundos = 0;
-            let partes = tempoStr.split(" ");
-            for (let p of partes) {
-                if (p.includes("m")) {
-                    minutos = parseInt(p.replace("m", ""));
-                } else if (p.includes("s")) {
-                    segundos = parseInt(p.replace("s", ""));
-                }
+            if (!tempoStr) return 0;
+            let m = 0, s = 0;
+            const parts = tempoStr.split(' ');
+            for (const p of parts) {
+                if (p.includes('m')) m = parseInt(p.replace('m', '')) || 0;
+                else if (p.includes('s')) s = parseInt(p.replace('s', '')) || 0;
             }
-            return minutos * 60 + segundos;
+            return m * 60 + s;
         }
-
-        function segundosParaTempo(segundos) {
-            let m = Math.floor(segundos / 60);
-            let s = segundos % 60;
+        function segundosParaHm(seg) {
+            if (!seg) return '0m';
+            const m = Math.floor(seg / 60);
+            const s = seg % 60;
             return `${m}m ${s}s`;
         }
+        function formatarDataHojeOffset(offsetIndex) {
+            const d = new Date();
+            d.setDate(d.getDate() - offsetIndex);
+            const dia = String(d.getDate()).padStart(2, '0');
+            const mes = String(d.getMonth() + 1).padStart(2, '0');
+            const ano = d.getFullYear();
+            return `${dia}/${mes}/${ano}`;
+        }
 
-        simuladosFinalizados.forEach(simulado => {
-            notas.push(simulado.porcentagem);
-            tempos.push(tempoParaSegundos(simulado.tempo));
+        // ----- pegar dados (ou mock se vazio) -----
+        let simuladosFinalizados = JSON.parse(localStorage.getItem('simuladosFinalizados')) || [];
+
+        if (simuladosFinalizados.length === 0) {
+            simuladosFinalizados = [
+                { porcentagem: "68", data: formatarDataHojeOffset(6), tipo: "ENEM", materias: ["quimica", "biologia"], tempo: "32m 10s" },
+                { porcentagem: "72", data: formatarDataHojeOffset(5), tipo: "Random", materias: ["fisica", "matematica"], tempo: "28m 5s" },
+                { porcentagem: "55", data: formatarDataHojeOffset(4), tipo: "PAS", materias: ["portugues"], tempo: "22m 40s" },
+                { porcentagem: "82", data: formatarDataHojeOffset(3), tipo: "ENEM", materias: ["historia"], tempo: "19m 33s" },
+                { porcentagem: "90", data: formatarDataHojeOffset(2), tipo: "Random", materias: ["ingles"], tempo: "15m 50s" },
+                { porcentagem: "78", data: formatarDataHojeOffset(1), tipo: "PAS", materias: ["biologia", "portugues"], tempo: "25m 11s" },
+                { porcentagem: "85", data: formatarDataHojeOffset(0), tipo: "ENEM", materias: ["quimica", "fisica"], tempo: "30m 2s" }
+            ];
+        }
+
+        const totalSimulados = simuladosFinalizados.length;
+        const notas = simuladosFinalizados.map(s => Number(s.porcentagem || 0));
+        const somaNotas = notas.reduce((a, b) => a + b, 0);
+        const mediaGeral = (notas.length > 0) ? (somaNotas / notas.length) : 0;
+        const menorNota = (notas.length > 0) ? Math.min(...notas) : 0;
+        const maiorNota = (notas.length > 0) ? Math.max(...notas) : 0;
+
+        const temposSegs = simuladosFinalizados.map(s => tempoParaSegundos(s.tempo || '0m'));
+        const somaTempos = temposSegs.reduce((a, b) => a + b, 0);
+        const tempoMedioSegs = (temposSegs.length > 0) ? Math.round(somaTempos / temposSegs.length) : 0;
+
+        const hoje = new Date();
+        let simulados7d = 0;
+        simuladosFinalizados.forEach(s => {
+            if (typeof s.data === 'string' && s.data.includes('/')) {
+                const parts = s.data.split('/');
+                if (parts.length >= 3) {
+                    const dt = new Date(Number(parts[2]), Number(parts[1]) - 1, Number(parts[0]));
+                    const diff = (hoje - dt) / (1000 * 60 * 60 * 24);
+                    if (diff <= 7) simulados7d++;
+                }
+            }
         });
 
-        menorNota = Math.min(...notas);
-        maiorNota = Math.max(...notas);
+        const materiaStats = {};
+        simuladosFinalizados.forEach(sim => {
+            const nota = Number(sim.porcentagem || 0);
+            const materias = Array.isArray(sim.materias) ? sim.materias : [sim.materias];
+            materias.forEach(m => {
+                if (!m) return;
+                if (!materiaStats[m]) materiaStats[m] = { qtd: 0, somaNotas: 0 };
+                materiaStats[m].qtd++;
+                materiaStats[m].somaNotas += nota;
+            });
+        });
+        Object.keys(materiaStats).forEach(m => {
+            materiaStats[m].notaMedia = Math.round((materiaStats[m].somaNotas / materiaStats[m].qtd) * 10) / 10;
+        });
 
-        let SomaTempos = tempos.reduce((acc, t) => acc + t, 0);
+        const materiasExistentes = Object.keys(materiaStats);
+        let melhorMateria = null, piorMateria = null;
+        if (materiasExistentes.length > 0) {
+            materiasExistentes.sort((a, b) => materiaStats[b].notaMedia - materiaStats[a].notaMedia);
+            melhorMateria = materiasExistentes[0];
+            piorMateria = materiasExistentes[materiasExistentes.length - 1];
+        }
 
-        let media = notas.reduce((acc, n) => acc + parseInt(n), 0) / notas.length;
+        document.getElementById('totalSimulados').innerText = totalSimulados;
+        document.getElementById('mediaGeral').innerText = Math.round(mediaGeral * 10) / 10 + '%';
+        document.getElementById('menorNota').innerText = menorNota + '%';
+        document.getElementById('maiorNota').innerText = maiorNota + '%';
+        document.getElementById('tempoTotal').innerText = segundosParaHm(somaTempos);
 
-        simuFeitos.textContent = simuladosFinalizados.length;
-        mediaUI.textContent = media.toFixed(1) + "%";
-        piorNota.textContent = menorNota + "%";
-        melhorNota.textContent = maiorNota + "%";
-        tempoTotal.textContent = segundosParaTempo(SomaTempos);
-    });
+        document.getElementById('tempoMedio').innerText = segundosParaHm(tempoMedioSegs);
+        document.getElementById('simuladosSemana').innerText = simulados7d;
+        document.getElementById('melhorMateriaTop').innerText = (melhorMateria || '-');
 
-</script>
-<script src="home.js"></script>
-<script src="resumo.js"></script>
+        const labels = Object.keys(materiaStats);
+        const dados = Object.values(materiaStats).map(x => x.qtd);
+
+        const paleta = [
+            '#ff5c5c', // vermelho
+            '#3a6eff', // azul
+            '#ff9800', // laranja
+            '#4caf50', // verde
+            '#9c27b0', // roxo
+            '#00bcd4', // ciano
+            '#e91e63', // rosa
+            '#ffc107', // amarelo
+            '#8bc34a'  // verde claro
+        ];
+
+        const ctxD = document.getElementById('graficoMaterias').getContext('2d');
+        const dough = new Chart(ctxD, {
+            type: 'doughnut',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: dados,
+                    backgroundColor: paleta.slice(0, labels.length),
+                    borderColor: '#0f0f10',
+                    borderWidth: 4,
+                    hoverOffset: 14
+                }]
+            },
+            options: {
+                cutout: '60%',
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        bodyColor: '#111',
+                        titleColor: '#111'
+                    }
+                }
+            }
+        });
+
+        // legenda manual (para poder controlar cor e layout)
+        const legendEl = document.getElementById('legend');
+        if (labels.length === 0) {
+            legendEl.innerHTML = '<div class="noData">Nenhuma matéria registrada</div>';
+        } else {
+            legendEl.innerHTML = labels.map((lab, i) => {
+                return `<div style="display:inline-flex;align-items:center;gap:8px;margin-right:12px;margin-bottom:6px">
+      <span style="display:inline-block;width:12px;height:12px;background:${paleta[i]};border-radius:3px"></span>
+      <span style="color:var(--muted);font-size:13px">${lab} &nbsp; <strong style="color:var(--white)">${materiaStats[lab].qtd}</strong></span>
+    </div>`;
+            }).join('');
+        }
+
+        // ----- grafico de evolução (notas ao longo do tempo) -----
+        const ultimoN = Math.min(12, simuladosFinalizados.length);
+        const ultimos = simuladosFinalizados.slice(-ultimoN);
+        const evoLabels = ultimos.map((s, i) => s.data || `#${simuladosFinalizados.indexOf(s) + 1}`);
+        const evoDados = ultimos.map(s => Number(s.porcentagem || 0));
+
+        const ctxE = document.getElementById('graficoEvolucao').getContext('2d');
+        const linha = new Chart(ctxE, {
+            type: 'line',
+            data: {
+                labels: evoLabels,
+                datasets: [{
+                    label: 'Nota (%)',
+                    data: evoDados,
+                    borderColor: 'rgba(58,110,255,0.95)',
+                    backgroundColor: 'rgba(58,110,255,0.12)',
+                    fill: true,
+                    tension: 0.28,
+                    pointRadius: 5,
+                    pointBackgroundColor: '#fff'
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { color: 'rgba(255,255,255,0.8)' },
+                        grid: { color: 'rgba(255,255,255,0.03)' }
+                    },
+                    x: {
+                        ticks: { color: 'rgba(255,255,255,0.7)' },
+                        grid: { display: false }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { mode: 'index', intersect: false }
+                },
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+
+        // ----- ranking list (por materia: qtd e media) -----
+        const rankingEl = document.getElementById('rankingList');
+        if (Object.keys(materiaStats).length === 0) {
+            rankingEl.innerHTML = '<div class="noData">Nenhuma matéria para mostrar.</div>';
+        } else {
+            // ordenar por quantidade (ou por nota média)
+            const items = Object.keys(materiaStats).sort((a, b) => {
+                if (materiaStats[b].qtd !== materiaStats[a].qtd) return materiaStats[b].qtd - materiaStats[a].qtd;
+                return materiaStats[b].notaMedia - materiaStats[a].notaMedia;
+            });
+            const html = items.map((m, idx) => {
+                const color = paleta[idx % paleta.length];
+                return `<div class="rankItem">
+      <div class="left">
+        <span class="materiaBadge" style="background:${color}"></span>
+        <div style="min-width:120px"><strong style="color:var(--white)">${m}</strong><div style="color:var(--muted);font-size:12px">${materiaStats[m].qtd} simulados</div></div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-weight:700">${materiaStats[m].notaMedia}%</div>
+        <div style="color:var(--muted);font-size:12px">média</div>
+      </div>
+    </div>`;
+            }).join('');
+            rankingEl.innerHTML = html;
+        }
+
+        // ----- últimas tentativas (tabela) -----
+        const lastTbody = document.getElementById('lastTableBody');
+        if (simuladosFinalizados.length === 0) {
+            lastTbody.innerHTML = `<tr><td colspan="4" class="noData">Nenhum simulado finalizado.</td></tr>`;
+        } else {
+            // mostrar até 6 últimos
+            const ultimosMostra = simuladosFinalizados.slice(-6).reverse();
+            lastTbody.innerHTML = ultimosMostra.map(s => {
+                const materiasTxt = (s.materias || []).join(', ');
+                return `<tr>
+      <td>${s.data || '-'}</td>
+      <td style="color:var(--muted)">${s.tipo || '-'}</td>
+      <td style="font-weight:700">${s.porcentagem || '0'}%</td>
+      <td style="color:var(--muted)">${materiasTxt}</td>
+    </tr>`;
+            }).join('');
+        }
+
+        // ----- insight automatico -----
+        const insightEl = document.getElementById('insightText');
+        if (Object.keys(materiaStats).length === 0) {
+            insightEl.innerText = "Você ainda não concluiu simulados suficientes. Faça um simulado para obter insights personalizados.";
+        } else {
+            // definir ponto forte / fraco
+            const melhor = melhorMateria;
+            const pior = piorMateria;
+            let text = "";
+            if (melhor && pior) {
+                text += `Seu melhor desempenho é em ${melhor} (média ${materiaStats[melhor].notaMedia}%). `;
+                text += `Sua menor média é em ${pior} (${materiaStats[pior].notaMedia}%). `;
+                text += `Sugestão: dedique pelo menos 2 sessões de revisão por semana em ${pior} e use simulados curtos para praticar acertos.`;
+            } else {
+                text = "Colete mais dados fazendo simulados para receber recomendações personalizadas.";
+            }
+            insightEl.innerText = text;
+        }
+
+        // ----- atualiza localStorage caso queira (não alteramos por padrão) -----
+        // localStorage.setItem('simuladosFinalizados', JSON.stringify(simuladosFinalizados));
+
+    </script>
+</body>
 
 </html>
