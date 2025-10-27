@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="O Aluno Estuda Mais é uma plataforma feita para ajudar estudantes a organizar seus estudos de forma simples e eficiente.">
     <meta name="keywords" content="aluno estuda mais, estudos, plataforma de estudo, organização escolar, aprendizado">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>Estuda +</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,6 +37,9 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+        html{
+            overflow-x: hidden;
         }
         body{
             height: 100%;
@@ -69,6 +74,7 @@
             width: 40%;
             height: 100dvh;
             max-width: 800px;
+            width: 100%;
             text-shadow: 1px 1px 4px black;
             display: flex;
             flex-direction: column;
@@ -258,7 +264,7 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
             margin-bottom: 20px;
         }
         .texto span i{
@@ -271,8 +277,6 @@
             body{
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-                justify-content: center;
             }
             header {
                 flex-direction: row;
@@ -295,7 +299,7 @@
                 width: 90%;
                 padding: 20px;
                 padding: 0px 20px;
-                transform: translateY(30%);
+                transform: translateY(10%);
             }
             .conteudo h1 {
                 font-size: 2em;
@@ -321,18 +325,44 @@
                 flex-direction: column;
                 align-items: center;
             }
-            .img2{
-                display: none;
-            }
+            
             .img2_celular{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
             }
             #simuladoImg, #tarefasImg, #anotacoesImg {
-                width: 100%;
                 height: auto;
-                max-width: 500px;
+                max-width: 300px;
+            }
+            .img1 img, .img2 img, .img3 img{
+                width: 100%;
+                height: 100%;
+            }
+            .funcoesTexts{
+                position: relative;
+                left: 0%;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+            }
+            .funcoesTexts .texto1, .funcoesTexts .texto2{
+                height: 35dvh;
+            }
+            .funcoesTexts .texto3{
+                width: 97%;
+            }
+            .funcoes ul{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                padding: 20px;
+            }
+            .funcoes ul li{
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                width: 100%;
             }
             /* .tablet {
                 position: relative;
@@ -486,33 +516,35 @@
         </svg>
     </div> -->
 
-
-    <div class="funcoesTexts">
-        <div class="texto1">
-            <p id="tituloTexto1">Simulados</p>
-            <p>Treine com questões personalizadas no formato ENEM, PAS ou aleatórias. Acompanhe seu desempenho e evolua a cada teste.</p>
-        </div>
-        <div class="texto2">
-            <p id="tituloTexto2">Tarefas</p>
-            <p>Organize suas atividades de estudo e do dia a dia. Priorize o que é mais importante e mantenha tudo sob controle.</p>
-        </div>
-        <div class="texto3">
-            <p id="tituloTexto3">Anotações</p>
-            <p>Guarde ideias, resumos e pontos importantes de forma prática e acessível, para nunca esquecer o que é essencial.</p>
-        </div>
-
-    </div>
-
     <div class="conteudo">
         <h1>
             <span class="linha1">Estude de forma <span>inteligente</span>,</span>
             <span class="linha2">no seu ritmo.</span>
         </h1>
-
+    
         <p>Organize sua rotina de estudos, faça simulados, tarefas personalizadas, anotações e desafios.</p>
         <p>Construa sua trajetória de aprendizado com foco e clareza — comece hoje mesmo!</p>
-
+    
         <a class="botao" href="cadastrar.html">Comece agora</a>
+    </div>
+    
+    <div class="funcoesTexts">
+        <div class="texto1">
+            <p id="tituloTexto1">Simulados</p>
+            <p>Treine com questões personalizadas no formato ENEM, PAS ou aleatórias. Acompanhe seu desempenho e evolua a
+                cada teste.</p>
+        </div>
+        <div class="texto2">
+            <p id="tituloTexto2">Tarefas</p>
+            <p>Organize suas atividades de estudo e do dia a dia. Priorize o que é mais importante e mantenha tudo sob
+                controle.</p>
+        </div>
+        <div class="texto3">
+            <p id="tituloTexto3">Anotações</p>
+            <p>Guarde ideias, resumos e pontos importantes de forma prática e acessível, para nunca esquecer o que é
+                essencial.</p>
+        </div>
+    
     </div>
 
     <div class="funcoes">
@@ -550,7 +582,7 @@
 
     <div class="imgsFuncionalidades">
        <div class="img1">
-            <img src="imgSimulado.png" id="imgSimulado" alt="Simulados personalizados">
+            
             <div class="texto">
                 <span>
                     <i class="fa-regular fa-calendar-check"></i>
@@ -560,6 +592,7 @@
                 Escolha as matérias, defina a quantidade de questões e pratique no seu ritmo, 
                 focando exatamente nos conteúdos que mais precisa revisar.</p>
             </div>
+            <img src="imgSimulado.png" id="imgSimulado" alt="Simulados personalizados">
         </div>
 
         <div class="img2">

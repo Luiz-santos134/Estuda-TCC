@@ -409,11 +409,43 @@ main h1 {
 }
 
 @media (max-width: 600px) {
-    .funcoesIniciais, 
-    .resumo {
+    main h1 {
+        font-size: 20pt;
+    }
+    .frase-motivacional{
+        margin-bottom: 150px;
+    }
+    .funcoesIniciais{
         flex-direction: column;
         align-items: center;
         gap: 20px;
+    }
+    .resumo {
+        margin-top: 150px;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+    .taskDone p{
+        color: transparent;
+    }
+    .taskDone p::before{
+        content: "Taref. Concl";
+        color: var(--texto-primario);
+    }
+    .simuladosDone p{
+        color: transparent;
+    }
+    .simuladosDone p::before{
+        content: "Simu. Concl";
+        color: var(--texto-primario);
+    }
+    .desafiosDone p{
+        color: transparent;
+    }
+    .desafiosDone p::before{
+        content: "Desa. Concl";
+        color: var(--texto-primario);
     }
 
     .funcoesIniciais .tarefasPendentes,
@@ -424,6 +456,11 @@ main h1 {
     .desafiosDone {
         width: 90%;
         height: auto;
+    }
+
+    .taskDone, .simuladosDone, .desafiosDone{
+        width: 27%;
+        height: 16dvh;
     }
 
     header {
