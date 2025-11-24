@@ -413,7 +413,8 @@ main h1 {
         font-size: 20pt;
     }
     .frase-motivacional{
-        margin-bottom: 150px;
+        border: none;
+        margin-bottom: 250px;
     }
     .funcoesIniciais{
         flex-direction: column;
@@ -506,5 +507,10 @@ main h1 {
     .desafiosDone {
         width: 95%;
         height: auto;
+    }
+}
+@media (max-width: 768px){
+    .atalhos{
+        margin-bottom: 100px;
     }
 }

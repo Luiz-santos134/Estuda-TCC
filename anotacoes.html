@@ -5,6 +5,7 @@
     <meta name="google-site-verification" content="7r7Wn_KnXftl4UHuJycbxILEBiNLb4GbfdEiAri8ajM" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description"
         content="O Aluno Estuda Mais é uma plataforma feita para ajudar estudantes a organizar seus estudos de forma simples e eficiente.">
     <meta name="keywords" content="aluno estuda mais, estudos, plataforma de estudo, organização escolar, aprendizado">
@@ -34,6 +35,9 @@
             --borda: #2b2b2b;
             --input-fundo: #1c1c1c;
             --input-borda: #3a3a3a;
+        }
+        body{
+            overflow-x: hidden;
         }
         main{
             height: 110dvh;
@@ -73,6 +77,7 @@
             gap: 10px;
             width: 30%;
             height: 50px;
+            padding: 20px;
             background-color: var(--cor-secundaria-destaque);
             color: var(--texto-primario);
             border-radius: 10px;
@@ -327,6 +332,18 @@
                 justify-items: center;
                 gap: 30px;
                 padding: 10px;
+            }
+        }
+        @media (max-width: 768px) {
+            .barraPesquisa {
+                flex-direction: column;
+                justify-content: space-between;
+                margin-bottom: 100px;
+            }
+            .barraPesquisa ul{
+                display: flex;
+                flex-wrap: wrap;
+                user-select: none;
             }
         }
     </style>

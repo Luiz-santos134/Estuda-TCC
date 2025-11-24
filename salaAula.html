@@ -81,7 +81,7 @@
             transform: scale(1.02);
             box-shadow: 5px 5px 10px 1px var(--cor-fundo);
         }
-        .modalCriarTurma{
+        .modalCriarTurma, .modalEntrarTurma{
             display: none;
             position: absolute;
             top: 0%;
@@ -94,6 +94,18 @@
             border: 1px solid var(--texto-primario);
             width: 30dvw;
             height: 60dvh;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .containerEntrar{
+            margin-top: 20px;
+            background-color: var(--cor-detalhe);
+            border: 1px solid var(--texto-primario);
+            width: 30dvw;
+            height: 50dvh;
             border-radius: 10px;
             padding: 20px;
             display: flex;
@@ -132,7 +144,7 @@
             justify-content: space-between;
             width: 100%;
         }
-        #fecharModalTurma{
+        #fecharModalTurma, #fecharModalTurmaEntrar{
             background-color: var(--cor-primaria);
             display: flex;
             align-items: center;
@@ -145,7 +157,7 @@
             border: 1px solid var(--texto-primario);
             border-radius: 10px;
         }
-        #fecharModalTurma:hover{
+        #fecharModalTurma:hover, #fecharModalTurmaEntrar:hover{
             opacity: 0.5;
             transform: translateX(-5px);
         }
@@ -160,7 +172,7 @@
             flex-direction: row;
             flex-wrap: wrap;
             gap: 30px;
-            justify-content: flex-start;
+            justify-content: center;
             overflow-y: auto;
         }
         .previaTurma{
@@ -190,12 +202,33 @@
             background-color: var(--cor-secundaria);
             border-radius: 10px;
             border: 1px solid var(--cor-secundaria-destaque);
+            box-shadow: 0px 0px 5px 1px var(--input-fundo);
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+        }
+        .turmaCriada p{
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+        .turmaCriada p:first-of-type{
+            color: var(--cor-secundaria-destaque);
+            font-weight: 600;
         }
         .imagemTurmaCriada{
             width: 100%;
             height: 50%;
             object-fit: cover;
-            border-radius: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .infosTurmaCriada{
+            width: 95%;
+            margin-right: 10px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
     </style>
 </head>
@@ -203,57 +236,55 @@
 <body>
     <header>
         <div class="titulo">
-            <a href='/home'>
+            <a href="home.html">
                 <p>E<span id="spanTitulo"></span> <span>+</span></p>
             </a>
         </div>
 
-       <div class="menu">
+        <div class="menu">
             <ul>
                 <li>
-                    <a class='menu-link' href='/home'>
+                    <a href="home.html" class="menu-link">
                         <i class="fas fa-home"></i>
                         <span class="textIconLink">Home</span>
                     </a>
                 </li>
 
                 <li>
-                    <a class='menu-link' href='/simulado'>
+                    <a href="simulado.html" class="menu-link">
                         <i class="fas fa-file-alt"></i>
                         <span class="textIconLink">Simulados</span>
                     </a>
                 </li>
 
                 <li>
-                    <a class='menu-link' href='/tarefas'>
+                    <a href="tarefas.html" class="menu-link">
                         <i class="fas fa-tasks"></i>
                         <span class="textIconLink">Tarefas</span>
                     </a>
                 </li>
 
                 <li>
-                    <a class='menu-link' href='/anotacoes'>
+                    <a href="anotacoes.html" class="menu-link">
                         <i class="fas fa-sticky-note"></i>
                         <span class="textIconLink">Anotações</span>
                     </a>
                 </li>
                 
                 <li>
-                    <a class='menu-link' href='/desafios'>
+                    <a href="desafios.html" class="menu-link">
                         <i class="fas fa-brain"></i>
                         <span class="textIconLink">Desafios</span>
                     </a>
                 </li>
                 <div class="infoPerfil">
-                    <a class='menu-link' href='/perfil'>
+                    <a href="perfil.html" class="menu-link">
                         <span id="nomeUser"></span>
                     </a>
                     <img src="perfil.jpeg" id="img_perfil" alt="imgPerfil">
                 </div>
             </ul>
         </div>
-
-       
     </header>
     
     <main>
@@ -261,8 +292,8 @@
             <div class="topo">
                 <p>Minhas Turmas</p>
                 <div class="botoes">
-                    <input type="submit" id="entrarTurma" value="Entrar em uma turma">
-                    <input type="submit" id="criarTurma" value="Criar uma turma" onclick="abrirModal(this.id)">
+                    <input type="submit" id="entrarTurma" value="Entrar em uma turma" onclick="abrirModalTurma(this.id)">
+                    <input type="submit" id="criarTurma" value="Criar uma turma" onclick="abrirModalTurma(this.id)">
                 </div>
             </div>
 
@@ -273,7 +304,7 @@
             <div class="container">
                 <div class="top">
                     <p>Criação de Turma</p>
-                    <input type="submit" name="close" id="fecharModalTurma" onclick="fecharModal(this.id)" value="X">
+                    <input type="submit" name="close" id="fecharModalTurma" onclick="fecharModalTurma(this.id)" value="X">
                 </div>
                 
                 <div class="content">
@@ -286,6 +317,11 @@
                         Matéria
                         <input type="text" id="materiaTurma" placeholder="Ex: Biologia">
                     </label>
+
+                    <label for="idTurma">
+                        ID (Identificador) da Turma
+                        <input type="number" id="idTurma" readonly>
+                    </label>
     
                     <label for="imgMateria">
                         Capa da matéria
@@ -297,16 +333,41 @@
                     </div>
                 </div>
 
-                <label for="criarTurma">
+                <label for="creatTurma">
                     <input type="submit" id="creatTurma" value="Criar Turma" onclick="creatTurma(this.id)">
+                </label>
+            </div>
+        </div>
+
+        <div class="modalEntrarTurma">
+            <div class="containerEntrar">
+                <div class="top">
+                    <p>Entrar em uma Turma</p>
+                    <input type="submit" name="close" id="fecharModalTurmaEntrar" onclick="fecharModalTurma(this.id)" value="X">
+                </div>
+
+                <div class="content">
+                    <div class="mensagem" style="text-align: start;">
+                        Digite o código da turma fornecido pelo seu instrutor
+                        para ter acesso ao conteúdo da sala
+                    </div>
+
+                    <label for="idTurma">
+                        ID (Identificador) da Turma
+                        <input type="number" id="idTurma">
+                    </label>
+                </div>
+
+                <label for="joinTurma">
+                    <input type="submit" id="joinTurma" value="Entrar em uma Turma" onclick="entrarTurma(this.id)">
                 </label>
             </div>
         </div>
     </main>
 </body>
 
+<script src="sala.js"></script>
 <script src="script.js"></script>
 <script src="home.js"></script>
-<script src="sala.js"></script>
 
 </html>
